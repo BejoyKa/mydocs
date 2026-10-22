@@ -47,12 +47,16 @@
   .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
   .refresh .link:hover{background:none;color:#1a1a1a}
   @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header class="masthead">
+  <a class="archlink" href="archive/">Archives</a>
   <div class="refresh" id="refresh" hidden>
     <button type="button" id="fetchBtn">Fetch latest news</button>
     <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
