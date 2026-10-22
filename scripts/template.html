@@ -34,12 +34,34 @@
   .watch li{margin-bottom:8px}
   footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
   @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:320px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh .tok{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh .tok input{width:100%;box-sizing:border-box;font:12px ui-monospace,Menlo,monospace;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header class="masthead">
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <div class="tok" id="tokBox" hidden>
+      One-time setup: paste a GitHub token that can run this repo's workflow (fine-grained, repository <b>mydocs</b>, permission <b>Actions: Read and write</b>). It stays in this browser only.
+      <input type="password" id="tokInput" placeholder="github_pat_..." autocomplete="off">
+      <button type="button" id="tokSave">Save &amp; fetch</button>
+      <button type="button" class="link" id="tokCancel">Cancel</button>
+    </div>
+  </div>
   <h1>Daily Tech Dose</h1>
   <p>{{DATE_LINE}}</p>
 </header>
@@ -49,5 +71,85 @@
 <!--CONTENT END-->
 <footer>Daily Tech Dose · Generated {{GENERATED}} by Claude · <a href="archive/">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
 </div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      tokBox=document.getElementById('tokBox'), tokInput=document.getElementById('tokInput');
+  function get(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function put(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+get(),'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  function askToken(){ tokBox.hidden=false; tokInput.focus(); say(''); }
+  document.getElementById('tokCancel').onclick=function(){ tokBox.hidden=true; };
+  document.getElementById('tokSave').onclick=function(){
+    var v=tokInput.value.trim(); if(!v) return;
+    put(v); tokInput.value=''; tokBox.hidden=true; run();
+  };
+  btn.onclick=function(){ get()?run():askToken(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        put(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+'). Check it has Actions: Read and write on mydocs, then try again.');
+        return askToken();
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes. You can leave this tab open.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget token</button>';
+  forget.firstChild.onclick=function(){ put(''); say('Token removed from this browser.'); forget.hidden=true; };
+  forget.hidden=!get(); box.appendChild(forget);
+})();
+</script>
 </body>
 </html>

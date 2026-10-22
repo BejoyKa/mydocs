@@ -1,10 +1,9 @@
 name: Daily Tech Dose refresh
 
 on:
-  schedule:
-    # 10:13 UTC = 6:13 AM Toronto in summer (EDT), 5:13 AM in winter (EST)
-    - cron: "13 10 * * *"
-  workflow_dispatch: {}   # "Run workflow" button on the Actions tab = fetch latest now
+  # On demand only (no daily schedule): the page's "Fetch latest news" button
+  # or "Run workflow" on the Actions tab.
+  workflow_dispatch: {}
 
 permissions:
   contents: write
