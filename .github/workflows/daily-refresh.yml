@@ -1,0 +1,47 @@
+name: Daily Tech Dose refresh
+
+on:
+  schedule:
+    # 10:13 UTC = 6:13 AM Toronto in summer (EDT), 5:13 AM in winter (EST)
+    - cron: "13 10 * * *"
+  workflow_dispatch: {}   # "Run workflow" button on the Actions tab = fetch latest now
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-tech-dose
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate today's edition
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          MAX_SEARCHES: ${{ vars.MAX_SEARCHES }}
+        run: python scripts/generate.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "daily-tech-dose-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html archive/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Daily Tech Dose: $(TZ=America/Toronto date +%F)"
+            git push
+          fi
