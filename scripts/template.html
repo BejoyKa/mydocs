@@ -132,8 +132,11 @@
       say('Starting...');
       var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
       if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
         token=''; save(''); btn.disabled=false;
-        say('GitHub refused the token ('+r.status+'). It may have expired; make a new refresh-key.json.');
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
         return;
       }
       if(r.status!==204) throw new Error('GitHub said '+r.status);

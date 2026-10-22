@@ -20,7 +20,7 @@ All work for this skill lives in the user's **Daily Tech Dose** folder (`/Users/
 4. Mergers, acquisitions, major funding and IPOs
 
 ## Workflow
-1. Set the window: default last 24h; extend back to the last digest's date if there is a gap.
+1. Set the window: from the last digest's date to today (default last 24h if there is none), but never more than the last 5 days.
 2. Run parallel web searches per scope area and per vendor, with global angles (Asia, Europe, India, Middle East). Include month/year in queries.
 3. Verify with primary sources and reputable outlets; label unconfirmed items "Rumor" or "Reported". Confirm dates fall in the window.
 4. Select the top 10-15 items by industry impact; skip empty categories.

@@ -11,6 +11,7 @@ Environment:
   CLAUDE_MODEL        optional, default claude-opus-5-5
   MAX_SEARCHES        optional, default 30
   TZ_NAME             optional, default America/Toronto
+  MAX_LOOKBACK_DAYS   optional, default 5 (longest coverage window after a gap)
 """
 from __future__ import annotations
 
@@ -30,6 +31,7 @@ SKILL = (ROOT / "prompt" / "SKILL.md").read_text(encoding="utf-8")
 
 MODEL = os.environ.get("CLAUDE_MODEL") or "claude-opus-5-5"
 MAX_SEARCHES = int(os.environ.get("MAX_SEARCHES") or 30)
+MAX_LOOKBACK_DAYS = int(os.environ.get("MAX_LOOKBACK_DAYS") or 5)
 TZ = ZoneInfo(os.environ.get("TZ_NAME") or "America/Toronto")
 # Newest first; falls back to the basic version if the model doesn't support the newer one.
 SEARCH_TOOLS = ["web_search_20260209", "web_search_20250305"]
@@ -74,6 +76,11 @@ def build_prompt(today: dt.date, since: dt.date, previous: str | None) -> tuple[
         f"from {since:%B %-d, %Y} through today ({window}). Search widely first, verify dates, "
         "then write the markup."
     )
+    if (today - since).days > 1:
+        user += (
+            f" This edition spans {(today - since).days} days, so pick the 10-15 most important "
+            "stories across the whole window, not just today's."
+        )
     if previous:
         user += (
             "\n\nHere is the previous edition's markup. Match its structure and tone, and do "
@@ -176,8 +183,10 @@ def main() -> None:
     today = dt.datetime.now(TZ).date()
     ARCHIVE.mkdir(exist_ok=True)
     past = [d for d in editions() if d < today]
+    # Cover everything since the last edition, but never more than MAX_LOOKBACK_DAYS:
+    # refresh the next day -> news since yesterday's edition; after a long gap -> the last 5 days.
     since = (past[-1] if past else today - dt.timedelta(days=1))
-    since = max(since, today - dt.timedelta(days=7))  # never look back more than a week
+    since = max(since, today - dt.timedelta(days=MAX_LOOKBACK_DAYS))
     previous = None
     if past:
         previous = extract_content(
