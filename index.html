@@ -36,13 +36,14 @@
   @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
 
   .masthead{position:relative}
-  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:320px}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
   .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
   .refresh button:hover{background:#1a1a1a;color:#faf9f5}
   .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
   .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
-  .refresh .tok{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
-  .refresh .tok input{width:100%;box-sizing:border-box;font:12px ui-monospace,Menlo,monospace;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
   .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
   .refresh .link:hover{background:none;color:#1a1a1a}
   @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
@@ -55,12 +56,14 @@
   <div class="refresh" id="refresh" hidden>
     <button type="button" id="fetchBtn">Fetch latest news</button>
     <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
-    <div class="tok" id="tokBox" hidden>
-      One-time setup: paste a GitHub token that can run this repo's workflow (fine-grained, repository <b>mydocs</b>, permission <b>Actions: Read and write</b>). It stays in this browser only.
-      <input type="password" id="tokInput" placeholder="github_pat_..." autocomplete="off">
-      <button type="button" id="tokSave">Save &amp; fetch</button>
-      <button type="button" class="link" id="tokCancel">Cancel</button>
-    </div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
   </div>
   <h1>Daily Tech Dose</h1>
   <p>Wednesday, October 21, 2026 &nbsp;·&nbsp; Coverage: Oct 20–21, 2026</p>
@@ -312,25 +315,46 @@
   if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
   box.hidden=false;
   var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
-      tokBox=document.getElementById('tokBox'), tokInput=document.getElementById('tokInput');
-  function get(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
-  function put(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
   function say(html){ msg.innerHTML=html; }
   function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
   function gh(url,opt){
-    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+get(),'X-GitHub-Api-Version':'2022-11-28'};
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
     return fetch(url,opt);
   }
   function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
   var before=stamp(document);
 
-  function askToken(){ tokBox.hidden=false; tokInput.focus(); say(''); }
-  document.getElementById('tokCancel').onclick=function(){ tokBox.hidden=true; };
-  document.getElementById('tokSave').onclick=function(){
-    var v=tokInput.value.trim(); if(!v) return;
-    put(v); tokInput.value=''; tokBox.hidden=true; run();
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
   };
-  btn.onclick=function(){ get()?run():askToken(); };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
 
   async function run(){
     btn.disabled=true;
@@ -340,9 +364,9 @@
       say('Starting...');
       var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
       if(r.status===401||r.status===403||r.status===404){
-        put(''); btn.disabled=false;
-        say('GitHub refused the token ('+r.status+'). Check it has Actions: Read and write on mydocs, then try again.');
-        return askToken();
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+'). It may have expired; make a new refresh-key.json.');
+        return;
       }
       if(r.status!==204) throw new Error('GitHub said '+r.status);
       var run=null;
@@ -354,7 +378,7 @@
       if(!run) throw new Error('could not find the started run');
       var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
       while(run.status!=='completed'){
-        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes. You can leave this tab open.');
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
         await sleep(10000);
         run=await (await gh(run.url)).json();
       }
@@ -378,9 +402,9 @@
     }
   }
   var forget=document.createElement('div');
-  forget.innerHTML='<button type="button" class="link">forget token</button>';
-  forget.firstChild.onclick=function(){ put(''); say('Token removed from this browser.'); forget.hidden=true; };
-  forget.hidden=!get(); box.appendChild(forget);
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
 })();
 </script>
 </body>

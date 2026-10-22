@@ -17,7 +17,9 @@ A newspaper-style page of the day's most important tech news, refreshed every mo
 
 ## Fetch latest news button
 
-The first time you click it, the page asks for a GitHub fine-grained token (repository `mydocs` only, permission **Actions: Read and write**). It is saved in that browser only, never in the repo. Visitors without a token can't trigger a refresh.
+Click it on any device and enter your refresh password (Keychain can remember it). The password unlocks `refresh-key.json`, an encrypted copy of a GitHub fine-grained token (repository `mydocs` only, permission **Actions: Read and write**), and starts the workflow. The password itself is never stored in the repo.
+
+To create or replace `refresh-key.json` (new password or expired token), open `make-refresh-key.html` from your Daily Tech Dose folder on your Mac, then put the downloaded file next to `index.html` and push.
 
 ## Optional settings (Settings → Secrets and variables → Actions → Variables)
 
