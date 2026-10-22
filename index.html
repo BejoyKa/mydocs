@@ -66,245 +66,238 @@
     </form>
   </div>
   <h1>Daily Tech Dose</h1>
-  <p>Wednesday, October 21, 2026 &nbsp;·&nbsp; Coverage: Oct 20–21, 2026</p>
+  <p>Wednesday, October 21, 2026 &nbsp;·&nbsp; Coverage: Oct 20–Oct 21, 2026</p>
 </header>
 
 <!--CONTENT START-->
-<!-- LEAD -->
 <article class="lead">
-  <details>
-    <summary>
-      <p class="meta">Mergers &amp; Acquisitions · Salesforce · Oct 20</p>
-      <h3>Salesforce to Acquire Braze for $5.66 Billion</h3>
-      <p class="crux">Salesforce will pay $47.50 per share in cash for the customer-engagement platform, its largest marketing-side bet since ExactTarget, to fold real-time messaging into Marketing Cloud and Agentforce.</p>
-      <p class="more">Read more</p>
-    </summary>
-    <div class="detail">
-      <p>Salesforce signed a definitive agreement to buy Braze at an enterprise value of about $5.66 billion, with Class A shareholders receiving $47.50 per share in cash. Braze shares jumped more than 50% on the news. Braze serves roughly 2,770 customers, including Canva, Instacart, Venmo and Urban Outfitters, across mobile, email, web, SMS and WhatsApp.</p>
-      <p>Closing is expected in Salesforce's fiscal 2028, which begins February 1, 2027, subject to shareholder approval and regulatory clearance. Co-founder Bill Magnuson is expected to stay on as CEO, and existing customer contracts remain in effect. Reported termination fees are $300 million payable by Salesforce and $191.4 million payable by Braze.</p>
-      <p><strong>Impact on the tech industry:</strong> The deal signals that enterprise vendors will buy, not build, the real-time customer data and messaging layer that AI agents need. Independent marketing-automation vendors such as Adobe, HubSpot and Iterable now face a better-funded rival, and Braze customers who also use competing clouds should watch for changes to interoperability and pricing. Integration risk is real: Salesforce must merge a second engagement stack with Marketing Cloud without disrupting customers.</p>
-      <p><a href="https://www.salesforce.com/news/press-releases/2026/10/20/salesforce-signs-definitive-agreement-to-acquire-braze/">Read source: Salesforce press release</a> · <a href="https://www.cnbc.com/2026/10/20/salesforce-braze-acquisition-deal.html">CNBC</a></p>
-    </div>
-  </details>
+<details>
+<summary>
+<p class="meta">Reuters via WHBL · Oct 21, 2026</p>
+<h3>Meta raises the bottom of its AI spending range and plans a new non-voting share class</h3>
+<p class="crux">Meta now expects to spend $135–145 billion this year, mostly on AI. Its third-quarter revenue beat estimates, but free cash flow went negative. It also plans to issue non-voting Class C stock in January 2027.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>In its results on Wednesday, Meta raised the low end of its 2026 capital spending forecast to $135–145 billion, up from $130–145 billion before. Third-quarter revenue was $64.60 billion, ahead of the $63.37 billion analysts expected. Meta forecast $73–76 billion for the fourth quarter, also above consensus. The shares rose more than 4% in after-hours trading.</p>
+<p>The heavy spending is showing up in its cash flow. Meta had a free cash flow deficit of $2.12 billion this quarter, compared with $10.63 billion of positive free cash flow a year ago. It also said it will issue non-voting Class C common stock in January 2027, which works out to a two-for-one split. The new shares can be used to pay for acquisitions and keep top talent, while Mark Zuckerberg keeps voting control. Meta started the year forecasting $115–135 billion in capital spending and has raised the figure several times since.</p>
+<p><strong>Impact on the tech industry:</strong> This keeps the big-tech data-center race going. It is good news for Nvidia, memory makers, and the companies that build and power data centers. Meta is now spending more than its operating cash brings in, and it has a new type of stock it can use to pay for deals. Expect it to compete harder for AI talent and acquisitions against OpenAI and Anthropic. Investors will be watching whether other hyperscalers report the same pressure on cash flow this earnings season.</p>
+<p><a href="https://whbl.com/2026/10/21/meta-to-issue-new-class-of-shares-as-it-tightens-ai-spending-forecast/">Read source</a></p>
+</div>
+</details>
 </article>
 
-<!-- AI -->
 <h2>AI Innovations</h2>
 <div class="grid">
+<article>
+<details>
+<summary>
+<p class="meta">SiliconANGLE · Oct 20, 2026</p>
+<h3>DeepSeek open-sources DeepInfer, the software that serves its production models</h3>
+<p class="crux">The Chinese lab released its inference framework under the Apache 2.0 license. It supports Nvidia Blackwell GPUs and Huawei's Ascend 950 chips, which puts more price pressure on Western AI providers.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>DeepSeek has open-sourced DeepInfer, the software it uses to serve its own production services. For now it supports one model, DeepSeek-V4.1-Flash, and loads the updated "1017" version released over the weekend. It runs on Nvidia's SM100 Blackwell GPUs and Huawei's Ascend 950 chips. Older Nvidia chips such as Hopper are not supported.</p>
+<p>The framework is built on vLLM and uses DeepSeek's earlier kernel libraries (FlashMLA, DeepGEMM, DeepEP). It includes DSpark, a speed-up technique in which a small model drafts five tokens at a time and only the likeliest ones are checked. DeepSeek says this raises throughput by 4–7% under its production load. A companion library, deepseek-recipe, processes requests the same way as DeepSeek's official API, so self-hosted setups behave like the hosted service. DeepSeek says code for future models will go into the same repository. The release came a day after the US Department of Homeland Security ordered federal civilian agencies to remove DeepSeek products.</p>
+<p><strong>Impact on the tech industry:</strong> Companies that host models themselves, and inference-hosting firms, get a free production-grade serving stack. That makes cheap open models even cheaper to run, which pressures OpenAI's and Anthropic's API prices. Because it supports Ascend from day one, it also helps Huawei compete with Nvidia's CUDA software in China. Meanwhile, US government restrictions limit who in the West can use it.</p>
+<p><a href="https://siliconangle.com/2026/10/20/deepseek-open-sources-deepinfer-the-inference-framework-behind-its-production-services/">Read source</a></p>
+</div>
+</details>
+</article>
 
-<article><details>
-  <summary>
-    <p class="meta">Microsoft · Security · Oct 19</p>
-    <h3>Microsoft Adds "Guardian Agents" to Police Enterprise AI Agents</h3>
-    <p class="crux">New controls treat AI agents as potential insider threats, with real-time risk scoring, human-approval gates and the power to shut an agent down.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Microsoft expanded Project Perception and Microsoft 365 E7 with Guardian Agents that assess each agent's risk in real time. Administrators can restrict actions, require human approval for high-impact changes, or isolate an agent entirely. Discovery now covers about 60 types of locally installed agents, including Claude Code, OpenAI Codex and GitHub Copilot, and agents start with minimal, time-bound permissions. Capabilities are at different stages of availability.</p>
-    <p><strong>Impact on the tech industry:</strong> Agent governance is becoming its own product category. Identity, endpoint and security vendors will race to offer agent inventory and permission controls, and buyers will start asking every agent platform, including Salesforce Agentforce and ServiceNow, how it handles agent identity and containment.</p>
-    <p><a href="https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/">Read source: Microsoft Security Blog</a></p>
-  </div>
-</details></article>
+<article>
+<details>
+<summary>
+<p class="meta">SecurityWeek · Oct 20, 2026</p>
+<h3>Microsoft adds controls that treat AI agents as possible insider threats</h3>
+<p class="crux">Microsoft is expanding its Project Perception security effort. New features grant agents access task by task, score their risk continuously, and cut their permissions as that risk rises.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Microsoft announced new controls on October 19 for spotting and restricting AI agents in corporate systems that may go rogue. SecurityWeek covered them the next morning. Microsoft argues that agents should be treated as insiders, not as trusted software. Microsoft Security executive Hayete Gallot calls the problem the "agentic insider." Her argument is that frontier models are built to chase results, so they may reach goals in ways nobody intended.</p>
+<p>The update adds dynamic permissions granted per task, continuous risk scoring, and "Guardian Agents" that watch over other agents. Microsoft's discovery tools can now find 60 types of agents running on employee machines, after 35 were added, including Claude Code, OpenAI's Codex and GitHub Copilot. The approach follows an October 10 essay in which Satya Nadella urged companies to keep safeguards outside the model itself.</p>
+<p><strong>Impact on the tech industry:</strong> Security teams now have a vendor-backed way to manage agents they did not approve. That puts pressure on identity and endpoint security vendors such as CrowdStrike, Okta and Palo Alto Networks to offer similar controls, and on agent makers to support outside oversight. Expect "agent governance" to come up more often in enterprise buying decisions.</p>
+<p><a href="https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/">Read source</a></p>
+</div>
+</details>
+</article>
 
-<article><details>
-  <summary>
-    <p class="meta">OpenAI · Funding · Oct 20 · Reported</p>
-    <h3>OpenAI Rushes a Roughly $30 Billion Round Ahead of Anthropic's Expected IPO</h3>
-    <p class="crux">Per reports, the raise could value OpenAI above $1.4 trillion, and OpenAI wants it locked in before Anthropic's expected mid-November listing.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>People familiar with the talks say OpenAI is accelerating commitments for a round of about $30 billion, with existing backers SoftBank and MGX in discussions. The reports say OpenAI is pointing to revenue growth after recent model launches and is also preparing a possible 2027 listing. These figures come from anonymous sources and are not confirmed by the companies.</p>
-    <p><strong>Impact on the tech industry:</strong> If accurate, the timing shows how capital-intensive frontier AI has become and that public-market appetite for AI valuations is now a competitive variable. The outcome will shape how much compute the leading labs can commit to, and so the pricing and supply of AI models for enterprise software vendors built on them.</p>
-    <p><a href="https://techstartups.com/2026/10/20/tech-news-today-october-20-2026-amazon-apple-bytedance-microsoft-nvidia-openai-salesforce-more/">Read source: TechStartups roundup citing Reuters</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">Cybersecurity · Oct 20 · Reuters via NorForge</p>
-    <h3>AI Agents Used to Breach Over 100 Company Websites at About $50 Each</h3>
-    <p class="crux">A researcher report says one operator directed autonomous agents on an open-source platform to attack more than 1,200 sites, with little human effort.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>A report from NorForge researcher Snorre Fagerland, reviewed by Reuters, describes a Chinese-speaking operator who used agents on the open-source Cairn platform to probe sites across the US, Canada, Australia and Japan. Victims included John Deere, SharkNinja and Cummins. Successful intrusions took about 23 hours and roughly $50 in model tokens each. Affected companies reported limited impact.</p>
-    <p><strong>Impact on the tech industry:</strong> It is concrete evidence that agentic tools lower the cost and skill needed for broad intrusion campaigns. Expect faster patch-cycle expectations, more investment in AI-driven defense, and tighter scrutiny of open-source agent platforms.</p>
-    <p><a href="https://techstartups.com/2026/10/20/tech-news-today-october-20-2026-amazon-apple-bytedance-microsoft-nvidia-openai-salesforce-more/">Read source: TechStartups roundup citing Reuters</a></p>
-  </div>
-</details></article>
-
+<article>
+<details>
+<summary>
+<p class="meta">AI Agent Store · Oct 20, 2026</p>
+<h3>Notion lets its agents run for more than 24 hours and routes work to cheaper models</h3>
+<p class="crux">Notion's new agent system can run single tasks for more than a day, up from five minutes. It adds a model router called Auto, a two-tier credit system, and an option for enterprises to bring their own AI keys.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Notion has released the sixth generation of its agent system. A single agent task can now run for more than 24 hours, compared with about five minutes before. A new router called Auto sends each piece of work to the best model for the cost. Notion also introduced a two-tier credit system. Enterprise customers can now bring their own keys (BYOK), so they can use their existing model contracts, and admins get visibility and spending controls.</p>
+<p>The same digest reports that fleet-software maker Motive launched industry-specific agents. They turn telemetry and safety alerts into actions such as calling drivers and opening work orders. Both point to the same shift: agents that complete work, not just answer questions.</p>
+<p><strong>Impact on the tech industry:</strong> Longer-running agents inside everyday tools compete directly with Microsoft Copilot, Google Workspace and Salesforce Agentforce. Model routing and BYOK suggest that buyers now care more about agent costs than about which model is used. Model providers may face more price competition as apps switch between them automatically.</p>
+<p><a href="https://aiagentstore.ai/ai-agent-news/today">Read source</a></p>
+</div>
+</details>
+</article>
 </div>
 
-<!-- DISRUPTIVE -->
 <h2>Emerging &amp; Disruptive Tech</h2>
 <div class="grid">
+<article>
+<details>
+<summary>
+<p class="meta">Science News · Oct 20, 2026</p>
+<h3>Quantinuum's error-corrected qubits make about five errors per million operations</h3>
+<p class="crux">Quantinuum's Helios trapped-ion computer reached 99.9995% logical fidelity. That brings the industry closer to the "megaquop" level of a million reliable operations.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Quantinuum reports a logical fidelity of 99.9995% on its commercial Helios system, using its own error-correction design. That works out to roughly five errors in a million operations. The company announced the result on October 19 with a paper on arXiv, and Science News covered it on October 20. Quantinuum says the error rate is ten times lower than its own record from September 2026. It also says the rate is 100 times lower than the best published result on any other kind of hardware, which was a superconducting result from Google Quantum AI.</p>
+<p>The company says the result supports its goal of fault-tolerant quantum computing by 2029. It is Quantinuum's second error-correction milestone in two months.</p>
+<p><strong>Impact on the tech industry:</strong> Error rates, not raw qubit counts, are now the main measure of progress. Results like this strengthen the case for trapped-ion systems against superconducting rivals such as Google and IBM. Watch whether independent groups reproduce the results, and how quickly drug discovery, materials and finance companies move from pilots to buying real compute time.</p>
+<p><a href="https://www.sciencenews.org/article/quantum-computer-megaquops-error-correction">Read source</a></p>
+</div>
+</details>
+</article>
 
-<article><details>
-  <summary>
-    <p class="meta">Nvidia · Semiconductors · Oct 20</p>
-    <h3>Chinese Tech Giants Order Over $35 Billion of Nvidia RTX PRO 5500 Chips</h3>
-    <p class="crux">ByteDance, Alibaba and Tencent want more than three million units for AI inference, but Nvidia has warned some buyers may get only 5-10% of their order.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>According to Reuters, the three companies requested over three million units of a workstation-class GPU that is still available under US export rules. The $35 billion is potential demand, not Nvidia revenue. Deliveries are expected to begin in Q1 2027, subject to supply and restrictions, and Nvidia must balance the volume against production of its newer Rubin platform.</p>
-    <p><strong>Impact on the tech industry:</strong> Export controls on top-end chips are pushing demand toward lower-tier hardware, tightening supply for everyone and boosting the case for domestic alternatives like Huawei. Inference capacity, not just training, is the new bottleneck for global AI deployment.</p>
-    <p><a href="https://www.reuters.com/business/retail-consumer/bytedance-alibaba-tencent-place-over-35-billion-worth-nvidia-chip-orders-2026-10-20/">Read source: Reuters</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">Nvidia · Chips · Oct 19</p>
-    <h3>Nvidia Lands Modal as an Early Customer for Its Vera CPUs</h3>
-    <p class="crux">The AI cloud startup says Vera lets its agents finish about twice as much work, a first crack at Intel and AMD's server CPU turf.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Modal, which recently raised $750 million at a $15.75 billion valuation, plans to add Vera processors after early tests. The 2x figure is Modal's own measurement against existing chips, not an independent benchmark, and Modal will keep a mixed Intel, AMD and Nvidia fleet. Nvidia has told investors it expects at least $20 billion of Vera revenue this fiscal year, which remains a company target.</p>
-    <p><strong>Impact on the tech industry:</strong> Agent workloads lean heavily on CPUs as well as GPUs, so Nvidia is moving to own more of the AI server stack. Intel and AMD face a new competitor in a market they have long dominated.</p>
-    <p><a href="https://www.reuters.com/business/nvidia-wins-fast-growing-ai-startup-modal-new-central-processors-2026-10-19/">Read source: Reuters</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">AWS · Developer Tools · Oct 19–20</p>
-    <h3>AWS Launches TorchNeuron to Make Trainium Chips Easier to Use</h3>
-    <p class="crux">An open-source PyTorch backend lets developers run models on Trainium2 and Trainium3 with familiar code, aimed at Nvidia's software moat.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>AWS announced TorchNeuron on October 19, with a public beta from October 20. It supports interactive execution for debugging and compiled execution for production, plus profiling tools. AWS says startups, research groups and enterprises are interested, but some specialized operations still need extra implementation work and real-world cost comparisons are needed.</p>
-    <p><strong>Impact on the tech industry:</strong> Software compatibility, not silicon alone, decides who can compete with Nvidia. Easier PyTorch support lowers switching costs and could give AI builders more leverage on compute pricing.</p>
-    <p><a href="https://pytorch.org/blog/introducing-torchneuron-native-pytorch-backend-for-aws-trainium/">Read source: PyTorch blog</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">Germany · Physical AI · Oct 19</p>
-    <h3>Germany and Nvidia Sign Industrial AI Declaration</h3>
-    <p class="crux">A declaration of intent targets AI models for industrial robots and manufacturing, with no funding figure announced yet.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>German officials signed the declaration with Nvidia at the Invest in Germany Summit in Berlin. It focuses on AI for physical systems and plans wider cooperation with German companies, research institutions and smaller businesses. It is a framework, not a committed investment program.</p>
-    <p><strong>Impact on the tech industry:</strong> Governments are courting chipmakers to anchor "physical AI" in their industrial base. European manufacturers may gain faster access to robotics AI, while the dependence on a US supplier keeps the digital-sovereignty debate alive.</p>
-    <p><a href="https://www.tagesschau.de/wirtschaft/technologie/bund-nvidia-zusammenarbeit-ki-100.html">Read source: Tagesschau</a></p>
-  </div>
-</details></article>
-
+<article>
+<details>
+<summary>
+<p class="meta">FourWeekMBA, citing Reuters · Oct 20, 2026</p>
+<h3>Reported: ByteDance, Alibaba and Tencent order $35 billion of export-compliant Nvidia cards</h3>
+<p class="crux">Sources told Reuters the three Chinese tech giants have ordered more than 3 million RTX PRO 5500 cards. The cards are less powerful but comply with US export rules, and will mainly be used to run AI models.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Reuters reported on October 20, citing two people familiar with the matter, that ByteDance, Alibaba and Tencent have together ordered more than 3 million of Nvidia's RTX PRO 5500 graphics cards. At list price, the orders are worth more than $35 billion. The buyers plan to use the cards mostly for inference, meaning running trained models. Specifications seen by Reuters suggest performance similar to the RTX 6000D, which has been discontinued and now sells for about twice its former price in China.</p>
+<p>The orders come as Nvidia loses ground in China. IDC data reported earlier this month showed Nvidia's share of China's data-center AI chip market fell to 34% in the first half of 2026, with Huawei at 28%. That figure covers a different category of chips from these workstation cards.</p>
+<p><strong>Impact on the tech industry:</strong> If confirmed, the orders show that China's demand for AI compute remains huge even under US export limits. They would give Nvidia a large source of revenue that complies with those rules. The orders also show Chinese platforms building out inference capacity while they test domestic chips from Huawei and others. Watch for a response from US regulators and for any confirmation from Nvidia.</p>
+<p><a href="https://fourweekmba.com/ai-bytedance-alibaba-tencent-order-35b-of-nvidia-chips/">Read source</a></p>
+</div>
+</details>
+</article>
 </div>
 
-<!-- VENDOR -->
-<h2>Vendor Releases &amp; Announcements</h2>
+<h2>Vendor Releases</h2>
 <div class="grid">
-
-<article><details>
-  <summary>
-    <p class="meta">Oracle · AstraZeneca · Oct 20</p>
-    <h3>AstraZeneca and Oracle Launch AI Collaboration on Clinical Trials</h3>
-    <p class="crux">The partners aim to find eligible patients faster, starting with hypertension care in Abu Dhabi, under a non-binding term sheet.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>The collaboration combines AstraZeneca's research with Oracle's healthcare data, cloud and AI software. The first program, with healthcare company M42, targets hypertension in Abu Dhabi, with later areas including oncology, cardiovascular, metabolic and respiratory disease. Financial terms were not disclosed and individual projects need further approvals. AstraZeneca says only deidentified data will be used.</p>
-    <p><strong>Impact on the tech industry:</strong> Oracle is pushing its health data and cloud stack into pharma R&amp;D, a high-value vertical where Microsoft, Google and AWS also compete. Results, not announcements, will decide whether AI shortens trial recruitment.</p>
-    <p><a href="https://www.astrazeneca.com/media-centre/press-releases/2026/astrazeneca-oracle-launch-global-ai-collaboration-advance-clinical-trial-optimisation-support-better-patient-outcomes.html">Read source: AstraZeneca</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">Amazon · Cloud · Oct 20</p>
-    <h3>Amazon Plans Over €16 Billion in Germany for 2027</h3>
-    <p class="crux">About €4.8 billion goes to expanding the AWS Frankfurt region for cloud and AI demand, alongside logistics, satellites and robotics.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Announced at the Invest in Germany Summit, the plan covers cloud, AI, logistics, Amazon Leo satellite connectivity and Prime Video, plus a second robotics and AI lab in Berlin. The full figure is not all AI data centers. Delivery depends on power availability, permits and demand.</p>
-    <p><strong>Impact on the tech industry:</strong> Hyperscalers are racing to add in-region AI capacity that meets European data rules. More local capacity could ease constraints for regulated German customers and raise the pressure on rivals to match.</p>
-    <p><a href="https://www.aboutamazon.com/company-news/amazon-germany-investment">Read source: Amazon</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">Apple · Supply Chain · Oct 20</p>
-    <h3>Apple Commits Up to $100 Million to US Titanium Production</h3>
-    <p class="crux">A three-year partnership with Perryman Company, plus a wider deal for iPhone 18 Pro camera films, extends Apple's American manufacturing program.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Apple says the titanium will support products including the iPhone Duo, and that Qnity Electronics will make advanced films for the iPhone 18 Pro's variable-aperture camera. Apple says US suppliers in more than a dozen states make nearly 100 components in its latest iPhones. Final assembly still happens largely overseas.</p>
-    <p><strong>Impact on the tech industry:</strong> Large purchase commitments help specialty suppliers justify US capacity, a template other hardware makers may follow as supply-chain resilience becomes a competitive factor.</p>
-    <p><a href="https://techstartups.com/2026/10/20/tech-news-today-october-20-2026-amazon-apple-bytedance-microsoft-nvidia-openai-salesforce-more/">Read source: TechStartups roundup citing 9to5Mac</a></p>
-  </div>
-</details></article>
-
-<article><details>
-  <summary>
-    <p class="meta">F5 · Rank Math · Security · Oct 19</p>
-    <h3>Emergency NGINX Patches and a WordPress Plugin Supply-Chain Attack</h3>
-    <p class="crux">F5 fixed three critical NGINX flaws, while a compromised Rank Math PRO build exposed sites for about 11 hours.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>F5 released out-of-band fixes for CVE-2026-15176, CVE-2026-97205 and CVE-2026-93479 across NGINX Open Source, NGINX Plus and related products, with no confirmed exploitation reported. The worst code-execution cases require extra conditions. Separately, Rank Math PRO 3.0.123 packages distributed from 20:02 UTC on Oct 15 to 07:12 UTC on Oct 16 contained code that can create persistent access. Version 3.0.124 is clean, but affected sites should be treated as breached and restored from clean backups.</p>
-    <p><strong>Impact on the tech industry:</strong> Both stories show how trusted infrastructure and update channels become attack paths. Teams should patch NGINX promptly and review any WordPress sites that updated the plugin in that window.</p>
-    <p><a href="https://www.securityweek.com/rank-math-pro-wordpress-plugin-compromised-in-supply-chain-attack/">Read source: SecurityWeek</a></p>
-  </div>
-</details></article>
-
+<article>
+<details>
+<summary>
+<p class="meta">Amazon · Oct 21, 2026</p>
+<h3>Amazon commits more than €16 billion to Germany in 2027, including AWS cloud and AI infrastructure</h3>
+<p class="crux">Announced in Berlin with Chancellor Friedrich Merz, the plan covers AWS data centers, Amazon Leo satellite internet, logistics and Prime Video. It adds to more than €100 billion Amazon has invested in Germany since 2010.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Amazon says it will invest more than €16 billion in Germany in 2027. The money will go to AWS cloud and AI infrastructure, the Amazon Leo satellite internet service, logistics expansion, and new Prime Video productions. The plan was announced in Berlin with Chancellor Friedrich Merz. Amazon says it has invested more than €100 billion in Germany since 2010.</p>
+<p>Amazon's October 21 news roundup also lists other items. AWS Trainium AI chips are now open to any PyTorch developer without code rewrites. Two new AI products are coming from Amazon's Bee unit. There is also a nuclear energy project targeting nearly 1 gigawatt for Indiana.</p>
+<p><strong>Impact on the tech industry:</strong> Germany is Europe's largest economy and an important market for sovereign cloud. A commitment of this size puts pressure on Microsoft, Google and European providers such as SAP-aligned and Deutsche Telekom clouds to answer with their own regional investments. It also adds to the strain on Europe's power grids and data-center supply chains. Making Trainium easier to use from PyTorch is a direct attempt to win AI workloads away from Nvidia GPUs.</p>
+<p><a href="https://www.aboutamazon.com/news/company-news/amazon-news-today-top-stories-company">Read source</a></p>
+</div>
+</details>
+</article>
 </div>
 
-<!-- M&A -->
-<h2>Mergers, Acquisitions &amp; Funding</h2>
+<h2>Mergers &amp; Acquisitions</h2>
 <div class="grid">
+<article>
+<details>
+<summary>
+<p class="meta">Reuters via CP24 · Oct 20, 2026</p>
+<h3>Reported: OpenAI races to raise about $30 billion at a valuation above $1.4 trillion before Anthropic's IPO</h3>
+<p class="crux">Two sources say OpenAI is speeding up a large funding round so it closes before Anthropic's expected mid-November listing. SoftBank and MGX are in talks to take part.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Reuters reports that OpenAI is trying to lock in investor commitments for a round of about $30 billion before Anthropic goes public, which is expected in mid-November. The round could value OpenAI at more than $1.4 trillion, up from $852 billion in March. SoftBank, Abu Dhabi's MGX and other existing backers are reportedly in talks to join. OpenAI met long-only funds and sovereign wealth funds last week, while Anthropic was holding its own investor day.</p>
+<p>OpenAI has told investors it expects annualized revenue of $70 billion or more by the end of 2026, up from about $50 billion at the end of September. Its most recent round was $122 billion, closed in March. OpenAI filed its prospectus confidentially in June and is aiming to list in 2027. Investors say the new money would help pay for its infrastructure commitments.</p>
+<p><strong>Impact on the tech industry:</strong> The two leading AI labs are now competing for the same large investors. Whichever company prices first will set the benchmark the other is measured against. A successful raise would fund more compute deals with Microsoft, Oracle, Nvidia and others. A weak one would feed growing doubts about AI valuations as interest rates rise.</p>
+<p><a href="https://www.cp24.com/news/money/2026/10/20/openai-seeks-to-accelerate-fundraising-ahead-of-anthropic-ipo-sources-say-reuters-exclusive/">Read source</a></p>
+</div>
+</details>
+</article>
 
-<article><details>
-  <summary>
-    <p class="meta">Salesforce · Braze · Announced</p>
-    <h3>Braze Deal: What Happens Next</h3>
-    <p class="crux">$5.66 billion, all cash, expected to close in fiscal 2028 pending shareholder and regulatory approval.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Status is announced, not completed. Braze shareholders must vote and regulators must clear the deal. The price is more than double the roughly $2.5 billion Salesforce paid for ExactTarget in 2013, the acquisition that became Marketing Cloud.</p>
-    <p><strong>Impact on the tech industry:</strong> It is the most prominent enterprise-software deal of the week and may prompt rivals to consider tuck-ins in customer data and engagement. See the lead story for detail.</p>
-    <p><a href="https://investor.salesforce.com/news/news-details/2026/Salesforce-Signs-Definitive-Agreement-to-Acquire-Braze/default.aspx">Read source: Salesforce Investor Relations</a></p>
-  </div>
-</details></article>
+<article>
+<details>
+<summary>
+<p class="meta">Techotales · Oct 21, 2026</p>
+<h3>Jio Platforms opens India's largest-ever IPO at ₹30,213 crore</h3>
+<p class="crux">Reliance's digital arm opened its IPO today at ₹1,065–1,119 per share. Subscriptions close October 23 and the shares are expected to list on October 28.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Jio Platforms, backed by Reliance Industries, opened its initial public offering on October 21. It aims to raise about ₹30,213 crore, making it India's largest IPO ever. All of it is new shares: up to 27 crore equity shares, with no sale by existing shareholders. The price band is ₹1,065 to ₹1,119 per share, and the minimum lot is 12 shares, or ₹13,428 at the top of the range for retail investors.</p>
+<p>Subscriptions close on October 23. Allotment is expected to be finalized on October 26, and the shares are scheduled to start trading on the NSE and BSE on October 28.</p>
+<p><strong>Impact on the tech industry:</strong> Jio is India's largest telecom and digital platform. Its listing gives investors a large, direct way to bet on India's 5G, cloud and consumer-internet growth. It will also test international appetite for Indian tech listings. A strong debut would help pending Indian tech IPOs and strengthen Reliance's ability to fund AI and data-center plans that compete with global cloud providers in India.</p>
+<p><a href="https://www.techotales.com/jio-platforms-ipo-opens-price-band-dates-2026/">Read source</a></p>
+</div>
+</details>
+</article>
 
-<article><details>
-  <summary>
-    <p class="meta">Funding · Series B · Oct 20</p>
-    <h3>Enterprise AI Startup Town Raises $108 Million at a $1 Billion Valuation</h3>
-    <p class="crux">Forerunner and Menlo led the round for AI assistants that coordinate work across teams and business apps.</p>
-    <p class="more">Read more</p>
-  </summary>
-  <div class="detail">
-    <p>Town's "Townies" connect to email, calendars, documents and business apps and are meant to coordinate multi-person workflows rather than act as individual chatbots. Adoption and growth figures are company-provided. Access to sensitive data raises privacy and permission questions.</p>
-    <p><strong>Impact on the tech industry:</strong> Investors continue to back agent-first workplace software, putting pressure on incumbents such as Microsoft, Salesforce and ServiceNow to show that their embedded agents deliver measurable productivity gains.</p>
-    <p><a href="https://techstartups.com/2026/10/20/tech-news-today-october-20-2026-amazon-apple-bytedance-microsoft-nvidia-openai-salesforce-more/">Read source: TechStartups roundup</a></p>
-  </div>
-</details></article>
+<article>
+<details>
+<summary>
+<p class="meta">Fortune · Oct 21, 2026</p>
+<h3>Anthropic's expected IPO becomes the test case for the 2026 listings market</h3>
+<p class="crux">A long-time investor told Fortune he expects Anthropic shares to price at around $1.8 trillion, below the company's reported $2 trillion target. The deal's timing is still unconfirmed.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>Fortune reports that Anthropic is expected to launch its IPO soon. Many in capital markets see it as the deal that could revive a slow year for listings. One long-time Anthropic investor, who asked not to be named, said he expects the IPO to price at about $1.8 trillion. That is below the company's $2 trillion target, but he predicts trading could reach as high as $2.4 trillion after the debut. That would top SpaceX's market value at the end of its first day of trading.</p>
+<p>Anthropic confidentially submitted a draft S-1 filing in June. It has not announced a date, share count or price, and earlier reports moved the expected timing from October to November. Fortune notes that the IPO remains uncertain.</p>
+<p><strong>Impact on the tech industry:</strong> A successful listing would set public-market valuations for frontier AI labs, affecting OpenAI's private round and later AI IPOs. It would also give Anthropic money to spend on compute with AWS, Google and Nvidia. A delay or weak pricing would add to current doubts about AI revenue and valuations.</p>
+<p><a href="https://fortune.com/2026/10/21/is-anthropic-ipo-markets-last-hope-2026/">Read source</a></p>
+</div>
+</details>
+</article>
 
+<article>
+<details>
+<summary>
+<p class="meta">Tech Startups · Oct 21, 2026</p>
+<h3>ASI, Otter.ai and Pigment lead more than $1.3 billion in new startup funding</h3>
+<p class="crux">Predictive-AI company ASI raised a $325 million Series C at a $3 billion valuation. Otter.ai took $320 million in repayable (non-equity) financing, and Pigment raised $250 million at a $2.3 billion valuation.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>More than $1.34 billion in new startup funding was announced over the past day, spread across AI infrastructure, defense, robotics, enterprise software and healthcare. Boston-based ASI, formerly Air Space Intelligence, raised the most equity: a $325 million Series C at a $3 billion valuation. Investors include Spark Capital, Citadel Securities affiliates, Meritech, Craft Ventures, Energy Impact Partners and Andreessen Horowitz. The money will push its predictive AI into critical infrastructure and national security.</p>
+<p>Otter.ai secured $320 million from General Catalyst's Customer Value Fund. This is repayable growth financing rather than equity, and will fund growth of its enterprise voice AI business. Pigment, which makes enterprise planning software, raised $250 million at a $2.3 billion valuation to expand its AI-driven products.</p>
+<p><strong>Impact on the tech industry:</strong> Investors are favoring AI tied to specific industries, such as aviation, defense and corporate finance planning, over general-purpose tools. Otter's deal shows that more AI software companies are using non-equity financing to pay for customer acquisition without diluting shareholders. Pigment's raise puts it in more direct competition with Anaplan, Workday Adaptive Planning and Oracle in financial planning.</p>
+<p><a href="https://techstartups.com/2026/10/21/startup-funding-news-today-october-21-2026-asi-baba-pigment-eka-robotics-otter-ai-more/">Read source</a></p>
+</div>
+</details>
+</article>
+
+<article>
+<details>
+<summary>
+<p class="meta">Insurance Journal · Oct 21, 2026</p>
+<h3>EC-Council buys Cyber Insurance Academy to train insurers on AI risk</h3>
+<p class="crux">The cybersecurity training company bought the credentialing body for cyber insurance professionals. Its courses will expand into AI risk, emerging-technology exposure and technology education. Terms were not disclosed.</p>
+<p class="more">Read more</p>
+</summary>
+<div class="detail">
+<p>EC-Council, a cybersecurity training and certification organization, has acquired Cyber Insurance Academy, which certifies professionals in the cyber and AI insurance fields. Financial terms were not disclosed. The Academy will keep its brand and leadership: co-founder Guy Simkin stays as CEO, and co-founder Asaf Armoni continues as chief technology and operating officer.</p>
+<p>Cyber insurance remains the Academy's core focus. It will expand into AI risk, emerging-technology risk and role-based technology training for brokers, underwriters, claims staff and risk managers. Its new CCIS v2 program includes training on AI-driven threats, AI governance and AI-related insurance exposures. Its programs are already accredited by industry bodies including CII and ANZIIF.</p>
+<p><strong>Impact on the tech industry:</strong> Insurers are being asked to price risks from AI agents and AI-driven attacks, and few staff are trained to do so. As insurers learn to assess these risks, companies deploying AI may face stricter questions about their AI governance when buying cyber coverage. That in turn affects demand for AI security and governance tools.</p>
+<p><a href="https://insurancejournal.com/news/national/2026/10/21/889750.htm">Read source</a></p>
+</div>
+</details>
+</article>
 </div>
 
-<!-- WATCH -->
 <h2>Watch List</h2>
 <div class="watch">
 <ul>
-  <li><strong>Oracle AI World, Las Vegas, Oct 26–29:</strong> expect a response to Workday's recent criticism of SAP and Oracle, plus new AI agent announcements.</li>
-  <li><strong>Anthropic IPO:</strong> reportedly expected in mid-November; OpenAI's funding race is timed around it.</li>
-  <li><strong>Braze deal:</strong> shareholder vote, regulatory review and any customer or competitor reactions.</li>
+<li><strong>Nvidia GTC Berlin:</strong> Jensen Huang gives his keynote today, October 21, at the Tempodrom. The conference runs through October 22 and focuses on agentic AI, robotics and open models. Watch for European AI infrastructure announcements. <a href="https://www.nvidia.com/en-eu/gtc/">Nvidia</a></li>
+<li><strong>Hacking with AI agents:</strong> Coverage continues of a Reuters investigation (October 19). It found that a Chinese-speaking hacker used AI agents to break into websites of more than 100 companies, including Deere, SharkNinja and Cummins. The estimated token cost was about $5,000. <a href="https://winbuzzer.com/2026/10/20/hacker-used-ai-agents-to-breach-100-plus-companies-websites-xcxwbn/">WinBuzzer</a></li>
+<li><strong>Jio Platforms listing:</strong> Subscriptions close October 23. Allotment is expected October 26, with trading on the NSE and BSE on October 28. <a href="https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026">Groww</a></li>
+<li><strong>ServiceNow Q3 results:</strong> Due October 28. They will be read as a test of whether enterprise customers are paying for AI agents. <a href="https://www.businesswire.com/news/home/20261007848428/en/ServiceNow-to-Announce-Third-Quarter-2026-Financial-Results-on-October-28">Business Wire</a></li>
+<li><strong>Apple product launch:</strong> MacRumors reports a "Pro and Tell" launch on October 28. <a href="https://www.macrumors.com/2026/10/19/apple-october-28-product-launch/">MacRumors</a></li>
 </ul>
 </div>
 <!--CONTENT END-->
-<footer>Daily Tech Dose · Generated Oct 21, 2026 by Claude · <a href="archive/">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+<footer>Daily Tech Dose · Generated Oct 21, 2026 10:07 PM EDT by Claude · <a href="archive/">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
 </div>
 <script>
 (function(){
