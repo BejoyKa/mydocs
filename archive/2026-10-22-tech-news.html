@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — October 22, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Thursday, October 22, 2026 &nbsp;·&nbsp; Coverage: Oct 21–Oct 22, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">Markets · Semiconductors · Oct 22</p>
+      <h3>AI Chip Selloff Gives the Nasdaq Its Worst Day Since June; Meta Falls 7% Despite Its Beat</h3>
+      <p class="crux">Worries about AI spending and a supply comment from Lam Research hit chip stocks. AMD and Marvell fell about 8%, CoreWeave 10% and Meta about 7%. Jensen Huang said neocloud companies are short of capital.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>The Nasdaq fell more than 2% on October 22, its worst day since June. CNBC tied the drop to concerns about AI spending and higher oil prices. This is the new development for last edition's lead: Meta slipped about 7% even though it beat revenue expectations and gave upbeat guidance. AMD fell more than 8%, Micron 6% and Nvidia 4%. 24/7 Wall St. traced the chip slide to comments from Lam Research CFO Doug Bettinger about supply on the company's October 21 earnings call. Marvell fell about 8%, Intel 7% and the iShares Semiconductor ETF 6%. TSMC's US shares fell 4.5%, and photonics supplier Coherent dropped 11.85% during the day. CoreWeave fell 10% while its bond yields and credit-default swaps stayed high. Huang told CNBC that demand for neoclouds is very strong but that capital is scarce. Bloomberg separately reports that he told UK neocloud Nscale to work around the clock to fix delays, equipment failures and power constraints. Nscale also faces investor pushback over its $30 billion IPO valuation target.</p>
+      <p><strong>Impact on the tech industry:</strong> Investors are now separating AI demand from the ability to pay for it. Companies that depend on debt to build, such as neoclouds, and suppliers that depend on hyperscaler capex are the most exposed. Watch credit spreads at CoreWeave and Nscale, how Lam's peers describe supply, and whether Microsoft, Alphabet and Amazon defend their capex plans when they report next.</p>
+      <p><a href="https://www.cnbc.com/2026/10/21/stock-market-today-live-updates.html">Read source: CNBC</a> · <a href="https://247wallst.com/investing/2026/10/22/chip-stocks-fall-as-supply-warning-deepens-ai-selloff-marvell-and-amd-sink-8-intel-drops-7/">24/7 Wall St.</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-22/nvidia-s-huang-urged-nscale-to-move-faster-after-early-setbacks">Bloomberg</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Wiz · PHP · Security · Update · Oct 22</p>
+    <h3>PHP2Shell Update: Amazon Saw Exploit Attempts Four Days Before Disclosure, and Attacks Are Now Widespread</h3>
+    <p class="crux">What's new: Amazon traced an exploit attempt back to October 17, and watchTowr confirms exploitation in the wild. The only complete fix is PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition covered the leak and the October 21 patch. Since then, Amazon Threat Intelligence says its MadPot honeypot sensors recorded a PHP2Shell exploit attempt on October 17, four days before disclosure, from a commercial anonymization network. Several proof-of-concept exploits appeared from about 02:00 UTC on October 21, hours before the 14:00 UTC embargo lift. The attempts used different payloads, which suggests several separate actors. Amazon says the flaws are now seeing broad exploitation attempts, though it is unclear whether earlier attempts succeeded. watchTowr reports exploitation in the wild and rates the bugs CVSS 9.2. The PHP project says every installation that handles web requests may be at risk, including PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed, and that no configuration change fully closes the hole. Recorded Future notes that the number of confirmed compromises is still unclear and that some public proofs of concept don't work.</p>
+    <p><strong>Impact on the tech industry:</strong> Defenders cannot treat the disclosure date as the first day of risk. Hosting providers and managed-service firms should search their logs back to mid-October, not just patch. The case adds to calls for faster coordinated disclosure as AI speeds up bug discovery.</p>
+    <p><a href="https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/">Read source: AWS Security Blog</a> · <a href="https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/">watchTowr</a> · <a href="https://www.securityweek.com/php2shell-patches-land-as-first-exploitation-attempts-hit-sensors/">SecurityWeek</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">OpenAI · Regulation · Oct 22</p>
+    <h3>OpenAI Asks Newsom to Tighten California's AI Safety Law</h3>
+    <p class="crux">In a letter, OpenAI proposes amending SB 53 to require monitoring of models during development, stronger cybersecurity and reporting of incidents involving unauthorized access to other companies' systems.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>StateScoop reports that OpenAI's head of US and Canada policy and partnerships, Chan Park, wrote to Governor Gavin Newsom on October 20. The letter supports the governor's September executive order to speed up independent oversight of AI companies. It also asks for amendments to SB 53, California's landmark frontier-AI safety law. The proposals would require developers to monitor models while they are being built, raise cybersecurity standards, and report incidents in which models or agents gain unauthorized access to third-party systems. The letter was reported on October 22. It comes as AI labs face growing scrutiny over autonomous agents acting beyond their intended scope.</p>
+    <p><strong>Impact on the tech industry:</strong> A leading lab asking for tougher rules in the state where most frontier developers are based could make stricter obligations the norm. Those obligations would cost incumbents less than smaller rivals and open-weight developers. Anthropic, Google DeepMind and Meta will be pushed to say where they stand. Agent vendors should prepare for incident-reporting rules that cover actions taken in other companies' systems. Watch for amendment language in Sacramento.</p>
+    <p><a href="https://statescoop.com/openai-urges-newsom-to-strengthen-californias-ai-safety-law-with-additional-safeguards/">Read source: StateScoop</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Micron · Taiwan · Labor · Oct 22 · Reported</p>
+    <h3>Micron Workers Stage Taiwan's First-Ever Semiconductor Strike</h3>
+    <p class="crux">Union members at Micron's Taoyuan fab began a 24-hour walkout over how profits from AI memory are shared. 99% of voting members backed the action.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Nikkei Asia reports, in coverage summarized by AI Weekly, that union members at Micron Technology's Taoyuan fab walked out at 9 a.m. local time on Thursday, October 22, for a 24-hour stoppage. It is the first strike in Taiwan's semiconductor industry. The dispute is over how to share profits from AI memory, the high-bandwidth DRAM that sells strongly into AI accelerators. 99% of 1,994 voting members supported the action. Pressure over memory-chip talent is also showing in Korea, where Digitimes reports that Samsung is overhauling incentives for its DRAM and NAND research staff to keep engineers and speed up next-generation memory. We have not seen production-impact figures from Micron.</p>
+    <p><strong>Impact on the tech industry:</strong> Memory makers' AI windfall is turning into labor costs. Taiwan's reputation for uninterrupted fab operations has also been dented for the first time. A short walkout is unlikely to move HBM supply, but a repeat could tighten an already constrained market for Nvidia, AMD and hyperscalers. Watch for any extension and for similar demands at TSMC suppliers and Korean memory makers.</p>
+    <p><a href="https://aiweekly.co/ai-news-today/edition/2026-10-22">Read source: AI Weekly (citing Nikkei Asia)</a> · <a href="https://www.digitimes.com/tech/">Digitimes</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Nvidia · Supply Chain · Oct 21–22</p>
+    <h3>Nvidia Lines Up Asian Suppliers for a 2.5x Jump in Substrate Capacity</h3>
+    <p class="crux">IBIDEN, Samsung Electro-Mechanics and Unimicron will expand substrate output. Amkor plans more than 300% growth in advanced packaging by the end of 2028.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition covered Nvidia's GTC Berlin keynote. A new detail is that Nvidia named six suppliers with expansion commitments. Substrate agreements with Japan's IBIDEN, Korea's Samsung Electro-Mechanics and Taiwan's Unimicron are set to raise capacity 2.5 times over three years. Amkor plans to grow advanced-packaging capacity by more than 300% by the end of 2028. Taiwan's SPIL and test specialist KYEC are also expanding. Digitimes reports that the DSX POD prefabricated AI-factory design is changing how the supply chain is organized, since more integration and testing now happens before shipment.</p>
+    <p><strong>Impact on the tech industry:</strong> Nvidia is securing packaging and substrate supply, often a tighter limit than wafers, before Vera Rubin ramps. The commitments help the named suppliers' order books in Japan, Korea and Taiwan. They also make it harder for AMD and custom-chip programs to get capacity. The deals were announced the same day Lam Research's supply comments set off a chip selloff, so watch whether capex at these suppliers holds if AI spending is questioned.</p>
+    <p><a href="https://aiweekly.co/ai-news-today/edition/2026-10-22">Read source: AI Weekly</a> · <a href="https://www.digitimes.com/tech/">Digitimes</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Tesla · Earnings · Oct 21–22</p>
+    <h3>Tesla Beats Estimates, but Operating Income Falls 56% as AI Spending Jumps</h3>
+    <p class="crux">Revenue was flat at $28.05 billion. R&amp;D rose 69% to $2.76 billion for AI, Optimus and Cybercab. Shares fell after Musk lowered expectations for the robot and robotaxi ramp.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Tesla reported third-quarter revenue of $28.05 billion and adjusted EPS of 48 cents, beating LSEG estimates of $27.9 billion and 43 cents. Automotive revenue fell 3% to $20.56 billion, which Tesla blamed on lower prices and limited battery supply. Energy revenue fell 16% to $2.88 billion, while services and other revenue rose 33% to $4.61 billion. Net income was $787 million. Free cash flow fell 62% to $1.53 billion. According to Electrek, operating income fell 56% to $718 million while R&amp;D rose 69% to $2.76 billion, spending Tesla now groups under Super Intelligence, Optimus and Cybercab. Drive Tesla Canada reports 1.74 million FSD subscriptions and that Cybercab rides have started. Shares fell about 4% before the market opened on Thursday. Analysts said Musk lowered expectations for the Optimus ramp and for near-term robotaxi revenue.</p>
+    <p><strong>Impact on the tech industry:</strong> Tesla is funding robotics and autonomy out of a shrinking car business. That makes last edition's SpaceX merger talks more significant as a possible source of money. Robotaxi rivals such as Waymo and Chinese autonomy players now have a clearer view of Tesla's timeline. Watch the special committees and Optimus delivery targets.</p>
+    <p><a href="https://www.cnbc.com/2026/10/21/tesla-tsla-q3-2026-earnings-report.html">Read source: CNBC</a> · <a href="https://www.cnbc.com/2026/10/22/tesla-q3-2026-earnings-analysts.html">CNBC analysts</a> · <a href="https://driveteslacanada.ca/news/tesla-q3-2026-earnings-results/">Drive Tesla Canada</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">SAP · Earnings · Oct 21</p>
+    <h3>SAP Tops €10 Billion in Quarterly Revenue for the First Time as Cloud Growth Speeds Up</h3>
+    <p class="crux">Cloud revenue rose 25% and current cloud backlog 26% at constant currency. Operating profit rose 18%, and SAP updated its 2026 cloud outlook.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>SAP's third-quarter revenue was €10.27 billion, up 12% at constant currency. It is the first time the company has passed €10 billion in a quarter. Cloud revenue was €6.67 billion, up 25%, and Cloud ERP Suite revenue grew 28% to €5.92 billion. Current cloud backlog, a key indicator of future revenue, rose 26% to €24.14 billion. Non-IFRS operating profit rose 18% to €3.03 billion, and free cash flow increased 36% to €1.72 billion. CFO Dominik Asam credited cost discipline alongside cloud growth. SAP updated its 2026 outlook for cloud revenue and for cloud and software revenue. CEO Christian Klein said AI is increasingly central to customers' buying decisions. SAP shares rose about 4% on October 21.</p>
+    <p><strong>Impact on the tech industry:</strong> SAP's results suggest AI features are speeding up ERP migrations to the cloud instead of disrupting them. That is good news for implementation partners and hyperscalers hosting RISE deals, and it adds pressure on Oracle and Workday before their next reports. A European software champion growing margins and cloud at the same time also gives the region's sovereignty push something to point to.</p>
+    <p><a href="https://news.sap.com/2026/10/sap-announces-q3-2026-results/">Read source: SAP News</a> · <a href="https://www.investing.com/news/company-news/sap-q3-2026-slides-cloud-growth-accelerates-ai-drives-results-93CH-4964344">Investing.com</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">IBM · Earnings · Oct 21</p>
+    <h3>IBM Beats on Software Growth; Consulting Stays Flat</h3>
+    <p class="crux">Revenue rose 4.7% to $17.1 billion and adjusted EPS 11% to $2.95. Software grew 8%, infrastructure 4%, and consulting was flat.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>IBM reported third-quarter revenue of $17.10 billion, up 4.7% from $16.33 billion a year earlier and about $283 million above consensus. Adjusted EPS from continuing operations was $2.95, up 11% and ahead of estimates of about $2.85-2.88. GAAP net income rose 26% to $2.19 billion. Software, IBM's largest segment, brought in $7.80 billion, up 8% (9% at constant currency). Infrastructure grew 4% to $3.71 billion. Consulting was roughly flat at $5.34 billion, up 2% at constant currency. Separately this week, IBM, Google and Red Hat released llm-d 1.0, an open-source project for distributed model serving, according to the Deep Gains newsletter.</p>
+    <p><strong>Impact on the tech industry:</strong> IBM is getting AI-era growth from software and mainframes, not services. Flat consulting matches pressure on Accenture, Infosys and other IT-services firms as generative AI shrinks traditional project work. Enterprise buyers can expect IBM to push hybrid-cloud and open-model deployment harder against the hyperscalers.</p>
+    <p><a href="https://www.indmoney.com/blog/us-stocks/ibm-stock-q3-earnings-analysis">Read source: INDmoney</a> · <a href="https://www.shacknews.com/article/151105/ibm-q3-2026-earnings-results">Shacknews</a> · <a href="https://www.sec.gov/Archives/edgar/data/0000051143/000005114326000093/ibm-20261021xex991.htm">IBM 8-K</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Nvidia · Software · Oct 22</p>
+    <h3>Nvidia Launches Minerva to Monitor AI Factories and Makes cuDSS Generally Available</h3>
+    <p class="crux">Minerva is an AI-driven platform for running IT operations that combines infrastructure and workload data to spot problems early. Nvidia also released a CUDA-X library for engineering simulations and announced compute expansion in Kazakhstan.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Nvidia launched Minerva on October 22. It is a platform for running IT operations in AI data centers, which Nvidia calls AI factories. Minerva gathers data from both the infrastructure and the AI workloads, then uses purpose-built AI models to help teams find problems earlier and keep expensive GPU clusters running. The same day, Nvidia made cuDSS generally available. It is a CUDA-X library that moves a demanding step in engineering and scientific simulations onto GPUs. Nvidia also published updates on Kazakhstan's AI program, which it says is moving from infrastructure plans to deployment across compute, models and applications.</p>
+    <p><strong>Impact on the tech industry:</strong> Nvidia is moving into data-center operations software, putting it closer to competition with Datadog, Splunk (Cisco), ServiceNow and the clouds' own monitoring tools. Cluster uptime is a major cost for neoclouds now short of capital, so tools that improve GPU utilization have clear buyers. Watch pricing and whether Minerva ships bundled with DSX POD deployments.</p>
+    <p><a href="https://nvidianews.nvidia.com/news/latest">Read source: Nvidia Newsroom</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">OpenAI · Funding · Oct 22 · Reported</p>
+    <h3>OpenAI Reportedly Nears a $30 Billion Raise at a $1.25 Trillion Valuation</h3>
+    <p class="crux">CNBC's sources say Coatue and UAE investors would lead the round. It would make OpenAI the most valuable private company ever and further delay an IPO.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>TechCrunch, citing CNBC sources, reports that OpenAI is close to raising up to $30 billion at a $1.25 trillion pre-money valuation. Coatue and investors in the UAE would lead the round. Bloomberg reported a month ago that OpenAI was seeking $30 billion at a $1.4 trillion valuation, so the reported figure is now lower. At more than $1 trillion, the round would set a record for a private company. OpenAI has not confirmed the terms. The report suggests OpenAI is choosing more private funding over an early IPO, even as rivals move toward public markets.</p>
+    <p><strong>Impact on the tech industry:</strong> More private capital lets OpenAI keep up its compute commitments with Microsoft, Oracle, CoreWeave and chipmakers without public-market scrutiny. That matters on a day when doubts about AI spending hit chip stocks. A lower reported valuation than a month ago may show investors pushing back on price. Gulf investors' growing role adds geopolitical and export-control questions. Watch Anthropic's reported IPO timing and DeepSeek's planned listing.</p>
+    <p><a href="https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/">Read source: TechCrunch</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">DeepSeek · China · Funding · Oct 22 · Reported</p>
+    <h3>DeepSeek Raises $15 Billion and Speeds Up Plans for a Shanghai IPO</h3>
+    <p class="crux">The Wall Street Journal reports that the round nearly doubled its target. The Chinese lab is aiming for a listing in early 2027, possibly before OpenAI goes public.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>PYMNTS, citing a Wall Street Journal report from October 22 based on people familiar with the matter, says DeepSeek has raised $15 billion in its second private funding round. Strong investor demand pushed the round to nearly double its original target. The company is speeding up plans to list in Shanghai in early 2027, which could put it on public markets before OpenAI. DeepSeek has not publicly confirmed the terms, and the investors and valuation were not disclosed in the coverage we reviewed.</p>
+    <p><strong>Impact on the tech industry:</strong> A well-funded DeepSeek can buy more domestic compute, mainly from Huawei and other Chinese chipmakers, while US export controls limit Nvidia sales. Digitimes data this week shows Nvidia's lead in China's AI-chip market shrinking as Huawei catches up. A Shanghai listing would also give Chinese investors a direct way to bet on frontier models. That could pull capital toward Qwen, Kimi and GLM developers and keep price pressure on Western model APIs.</p>
+    <p><a href="https://www.pymnts.com/news/artificial-intelligence/2026/deepseek-raises-15-billion-ahead-of-planned-shanghai-ipo/">Read source: PYMNTS (citing WSJ)</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">India · IPO · Update · Oct 22</p>
+    <h3>Jio Platforms IPO Subscribed 5.57 Times After Day Two, Led by Institutions</h3>
+    <p class="crux">What's new: institutional buyers bid for 13.29 times their portion. Demand was strong despite the market selloff, and the issue closes October 23.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition covered the opening of the ₹30,213 crore offering. By the end of day two on October 22, it was subscribed 5.57 times. Qualified institutional buyers led with bids for 13.29 times their portion, up from 9.42 times on day one. Retail investors were at 1.54 times, up from 0.73 times. Business Standard reports that the issue was fully subscribed within about 100 minutes of opening on October 21, one of the fastest in Indian market history. Bidding closes October 23. Allotment is expected October 26, and listing on the NSE and BSE is planned for October 28.</p>
+    <p><strong>Impact on the tech industry:</strong> Heavy institutional demand on a day when US tech stocks fell suggests global investors see India's digital infrastructure as somewhat separate from US AI-spending worries. A strong close would support the pipeline of Indian AI and SaaS IPOs and strengthen Reliance as a partner or rival to hyperscalers in India. Watch final subscription by category and the listing-day price.</p>
+    <p><a href="https://www.business-standard.com/markets/news/jio-platforms-ipo-subscribed-5-57x-on-day-2-qibs-led-with-13-29x-bids-126102201448_1.html">Read source: Business Standard</a> · <a href="https://hdfcsky.com/news/jio-platforms-ipo-subscription-hits-4-38x-by-3-pm-ist-on-day-2">HDFC Sky</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>PHP2Shell:</strong> watch for confirmed compromises and for log reviews going back to October 17, now that exploitation in the wild is confirmed.</li>
+  <li><strong>Neocloud funding:</strong> Anthropic and Nscale are reportedly discussing a second $45 billion compute deal. Also watch CoreWeave's credit spreads after the October 22 selloff.</li>
+  <li><strong>Jio Platforms:</strong> subscription closes October 23, allotment October 26, listing October 28.</li>
+  <li><strong>Oracle AI World, Las Vegas, Oct 26–29:</strong> new AI agent announcements expected.</li>
+  <li><strong>ChatGPT Ads:</strong> Search Engine Land reports that new creative-enhancement tools arrive October 30.</li>
+  <li><strong>Micron Taiwan:</strong> whether the 24-hour strike is extended or spreads to other Taiwanese chip workforces.</li>
+  <li><strong>Google DeepMind:</strong> The Neuron reports employee resignations over military AI work. Watch for confirmation and a company response.</li>
+  <li><strong>Correction on AWS and DuckDB:</strong> AWS's acquisition of DuckLabs was announced August 27, 2026, so it is not new news. DuckDB 2.0 LTS, which adds client-server mode and an agent mode, was released this week.</li>
+  <li><strong>SpaceX–Tesla:</strong> the special committees' merger review continues; no terms yet.</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Oct 22, 2026 10:55 PM EDT by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
