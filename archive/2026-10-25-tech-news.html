@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — October 25, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Sunday, October 25, 2026 &nbsp;·&nbsp; Coverage: Oct 22–Oct 25, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">CNBC · Neoclouds · Credit · Update · Oct 24</p>
+      <h3>Neocloud Credit Stress Becomes the First Real Test of Nvidia's Role as AI Financier</h3>
+      <p class="crux">What's new: after the October 22 chip selloff, neocloud shares kept falling and their bond yields rose. Investors are now asking how much of that risk sits with Nvidia, which has funded and helped finance many of these companies.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>Last edition's lead covered the Nasdaq's worst day since June and Jensen Huang's comment that neoclouds are short of capital. On October 24, CNBC reported that the pressure has spread into credit markets. Neocloud shares have dropped sharply and their bond yields have climbed. CNBC describes how Nvidia went from chipmaker to financier of the AI buildout. It has invested in model developers, data-center companies and neoclouds, and it has helped customers take out loans so they can buy its systems. Some investors now see that as outsized risk tied to AI capex. David Trainer of New Constructs warned of trouble if compute demand falls short of very high expectations. CNBC ran a second piece the same day on mounting credit risk across the AI buildout. Bloomberg's AI coverage carried a similar theme under the heading "Neoclouds Lose Their Shine." CNBC also reports that TikTok's US business is looking for several gigawatts of computing capacity, a reminder that demand is still there even as funding gets harder.</p>
+      <p><strong>Impact on the tech industry:</strong> The question has moved from "is there demand?" to "who carries the balance-sheet risk?" If neocloud financing gets tighter, Nvidia's equity stakes and loan support become a direct exposure, not just a sales tool. Lenders to CoreWeave, Nscale and similar companies may demand better terms. Watch neocloud bond spreads, any Nvidia disclosures about its investments and credit support, and what hyperscalers say about capex in this week's results.</p>
+      <p><a href="https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html">Read source: CNBC</a> · <a href="https://www.cnbc.com/technology/">CNBC Tech</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-23/ai-ushers-in-era-of-rapid-fire-software-vulnerabilities">Bloomberg</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">OpenAI · Anthropic · Pricing · Oct 24 · Reported</p>
+    <h3>OpenAI Uses Discounts of More Than 30% to Win Anthropic's Coding Customers, Including a $100M-a-Year Replit Deal</h3>
+    <p class="crux">The Information reports that Replit moved most of its AI spending to OpenAI after Anthropic declined to extend a discount. At Rippling, OpenAI's share of coding work rose from 16% to 52%.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>According to The Information, as summarized by AI Weekly and Techpresso, OpenAI gave Replit more than 30% off to win a contract worth over $100 million a year. Anthropic had declined to extend Replit's earlier discount unless Replit committed to spend more. Replit CEO Amjad Masad first said on October 16–17 that the company had stopped working with Anthropic, then softened that within a day. Seven Claude models are still in Replit's catalog, but OpenAI is now the default for Replit Agent, so most users get it without choosing. The report also says OpenAI's share of Rippling's coding work grew from 16% in May to 52%, while Anthropic's fell from 57% to 18%. DataCamp has also moved coding work to OpenAI. Neither lab has confirmed the terms.</p>
+    <p><strong>Impact on the tech industry:</strong> Enterprise coding was Anthropic's strongest market. When model quality is close, price is now deciding contracts. Expect lower per-token prices in coding, pressure on margins at both labs, and more enterprise customers playing vendors against each other. Coding-tool companies benefit in the short term. Watch whether Anthropic matches prices before its planned IPO.</p>
+    <p><a href="https://aiweekly.co/alerts/replit-shifts-100m-ai-spend-to-openai-after-30-price-cut">Read source: AI Weekly (citing The Information)</a> · <a href="https://techpresso.co/blog/openai-slashing-prices-steal-anthropic-customers-replit-rippling-datacamp">Techpresso</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">PHP2Shell · Security · Update · Oct 23–25</p>
+    <h3>PHP2Shell Update: Unit 42 Sees AI Agents Running Live Attacks as "Black October" Fallout Spreads</h3>
+    <p class="crux">What's new: Palo Alto Networks reports that agentic AI is being used in real PHP attacks and counts 22.6 million exposed PHP instances. An Anthropic executive warns that these disruptions will get worse before they get better.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition covered exploit attempts that came before disclosure. Since then, AI Weekly reports that Palo Alto Networks' Unit 42 has seen agentic AI used in live PHP remote-code-execution attacks. Its Cortex Xpanse telemetry shows more than 22.6 million PHP instances exposed worldwide. Bloomberg reported on October 23 that some governments and companies took their websites offline as a precaution. It quoted a senior Anthropic executive warning that mass disruptions like this will get worse before they improve. TechCrunch reports that large parts of the web went dark and are now coming back. watchTowr says researchers at Calif found the bugs, that details leaked on October 20, and that CISA had not yet added the CVEs to its Known Exploited Vulnerabilities list as of October 22. Some hosts, including Liquid Web, were still rolling out patched PHP builds on October 24. Separately, OpenAI published an October 23 note on how it tightened containment for frontier model training, including offline environments and red-teaming that uses large amounts of compute.</p>
+    <p><strong>Impact on the tech industry:</strong> AI is speeding up both bug discovery and exploitation, so patch windows are shrinking toward zero. Hosting companies, WordPress-dependent businesses and managed security providers face higher costs. Watch for a CISA KEV listing, confirmed breach disclosures, and changes to coordinated-disclosure rules.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-10-23/ai-ushers-in-era-of-rapid-fire-software-vulnerabilities">Read source: Bloomberg</a> · <a href="https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/">TechCrunch</a> · <a href="https://aiweekly.co/ai-news-today">AI Weekly (Unit 42)</a> · <a href="https://watchtowr.com/intelligence/php-cve-2026-109618-faq/">watchTowr</a> · <a href="https://openai.com/index/securing-our-frontier-model-training-environment/">OpenAI</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Micron · Taiwan · Labor · Update · Oct 22–24</p>
+    <h3>Micron Strike Update: Turnout Was Small, but 70% of Union Members Reject the Bonus Offer; Talks Resume October 27</h3>
+    <p class="crux">What's new: AFP saw only a handful of workers picketing. The 24-hour action ended on October 23, but most Taoyuan union members rejected Micron's profit-sharing proposal, and further action is still possible.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition reported the start of Taiwan's first semiconductor strike. AFP reported on October 22 that only about five strikers gathered outside the Taoyuan plant while Micron held a conference call with hundreds of staff. That suggests the effect on production was limited. The warning strike ended on the morning of October 23. Digitimes and the Manila Times report that about 70% of the Taoyuan union's more than 2,300 members rejected management's proposal. The union says Micron did not respond to its demands and has warned of further collective action. Friday's talks were postponed because of a typhoon and are now set for October 27. Micron reached a deal with its Taichung union on October 21. The unions had asked for a one-time bonus worth about 83 months of pay and quarterly bonuses funded by 15% of operating profit. Micron's rejected offer was worth at least NT$1.7 million per worker. In Korea, Samsung avoided a strike by sharing 10.5% of operating profit.</p>
+    <p><strong>Impact on the tech industry:</strong> The disruption was symbolic, but the profit-sharing dispute is real. Expect higher labor costs to be built into HBM pricing across Taiwan and Korea. Watch the October 27 talks.</p>
+    <p><a href="https://www.digitimes.com/news/a20261023PD239/strike-taiwan-micron-management-2026.html">Read source: Digitimes</a> · <a href="https://www.freemalaysiatoday.com/category/business/2026/10/22/handful-of-micron-workers-strike-in-taiwan">AFP via FMT</a> · <a href="https://manilatimes.net/2026/10/24/business/foreign-business/micron-taiwan-workers-reject-bonus-proposal/2452756">Manila Times</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/micron-taiwan-unit-reached-deal-114520440.html">Yahoo Finance</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Huawei · Nvidia · China · Oct 22</p>
+    <h3>Huawei Narrows Nvidia's Lead in China's AI-Chip Market by 80% in a Year</h3>
+    <p class="crux">IDC data shows Huawei shipped 572,000 Ascend chips in the first half of 2026, for a 28% share. That leaves it just 6 points behind Nvidia, down from a 31-point gap a year earlier.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Digitimes, citing IDC, reports that Huawei shipped 572,000 Ascend AI accelerators in China in the first half of 2026. That gave it a 28% market share, six percentage points behind Nvidia. A year earlier the gap was 31 points, so Nvidia's lead has shrunk by about 80%. Digitimes says this brings Jensen Huang's repeated warnings about losing China's roughly $50 billion AI-chip market closer to reality. Last edition mentioned this data only in passing. We are giving it its own item because it sets the context for DeepSeek's $15 billion raise and China's push for domestic compute.</p>
+    <p><strong>Impact on the tech industry:</strong> US export controls are speeding up the growth of a Chinese AI-chip ecosystem that Nvidia cannot easily win back. Chinese labs such as DeepSeek, Qwen and Kimi are increasingly training and serving models on Huawei hardware. That matters for CUDA's lock-in, for Nvidia's long-term China revenue and for SMIC's capacity planning. Watch second-half shipment data, Ascend yields on DUV-based processes, and whether Washington changes its chip-licensing policy.</p>
+    <p><a href="https://www.digitimes.com/news/a20261022PD226/nvidia-huawei-ai-chip-market-revenue.html">Read source: Digitimes</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">OpenAI · Google Cloud · Week to Oct 23 · Reported</p>
+    <h3>OpenAI Models and Codex Come to Google Cloud as ChatGPT Ads Expand to 89 Markets</h3>
+    <p class="crux">Google Cloud customers can buy OpenAI frontier models through Model Garden and Marketplace using existing spending commitments. OpenAI is now sold on all three major US clouds. ChatGPT ads are expanding to 26 more countries.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>MarketingProfs' weekly AI roundup for October 23 reports that OpenAI is offering its AI models and Codex coding tools through Google Cloud. Customers can buy OpenAI's frontier models through Vertex Model Garden and Google Cloud Marketplace and pay with existing cloud spending commitments. That puts OpenAI on all three major US cloud providers. The same roundup reports that OpenAI is expanding ChatGPT advertising to 26 more countries, bringing the total to 89. The expansion includes 14 more Latin American countries, such as Argentina, Chile, Colombia and Peru, plus markets in Europe, Africa, the Middle East and Asia. Advertisers can buy through technology partners or OpenAI's self-service Ads Manager. The roundup did not give an exact announcement date, so we label it as reported for the week.</p>
+    <p><strong>Impact on the tech industry:</strong> Letting customers spend Google Cloud commitments on OpenAI removes a major buying barrier. It also reduces how much Microsoft's distribution sets OpenAI apart from rivals. Gemini now competes with OpenAI inside Google's own marketplace. The ads expansion makes ChatGPT a growing threat to Google and Meta ad budgets outside the US. Watch Google Cloud's next earnings commentary and the October 30 ChatGPT ad tools.</p>
+    <p><a href="https://www.marketingprofs.com/opinions/2026/56255/ai-update-october-23-2026-ai-news-and-views-from-the-past-week">Read source: MarketingProfs</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">LSEG · Octus · Data · Oct 22</p>
+    <h3>LSEG Agrees to Buy Credit-Data Provider Octus for $3.54 Billion</h3>
+    <p class="crux">The all-cash, debt-financed deal adds private and distressed credit intelligence to LSEG's data business. LSEG says it will lift its 2027 subscription growth outlook, and it expects the deal to close in the first half of 2027.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>London Stock Exchange Group agreed on October 22 to buy New York-based Octus for $3.535 billion in cash. The sellers are funds advised by Permira and Octus management shareholders, including founder and CEO Kent Collier. LSEG will pay with external debt and expects to close in the first half of 2027, subject to regulatory approval. Octus specializes in private credit, distressed debt and less liquid fixed income. LSEG plans to combine it with IFR news, evaluated pricing, Yield Book analytics and LPC loan data to cover the full credit investment process. The deal also gives LSEG better access to hedge funds and alternative asset managers. LSEG expects it to raise its outlook of about 7% organic subscription revenue growth in 2027 and is keeping its medium-term EBITDA guidance.</p>
+    <p><strong>Impact on the tech industry:</strong> Financial-data vendors are racing to own private-credit data, which AI analytics and agent workflows need. The deal adds pressure on Bloomberg, S&amp;P Global and Moody's, and it confirms that proprietary data is the scarce asset in AI. Watch antitrust review and further private-credit data deals.</p>
+    <p><a href="https://www.citybiz.co/article/922783/lseg-to-acquire-octus-for-3-54-billion-to-expand-credit-data-business/">Read source: citybiz</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">India · IPO · Update · Oct 23</p>
+    <h3>Jio Platforms IPO Closes 22 Times Oversubscribed With ₹4.91 Lakh Crore in Bids</h3>
+    <p class="crux">What's new: institutional demand reached 70.55 times its portion on the final day. India's biggest-ever IPO now moves to allotment on October 26 and listing on October 28.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Last edition reported 5.57 times subscription after day two. By 7 p.m. IST on October 23, the final day, HDFC Sky reported 22.19 times overall. Qualified institutional buyers bid for 70.55 times their portion, non-institutional investors 14.00 times and retail investors 2.72 times. The employee portion was 2.93 times and the shareholder quota 7.60 times. The Federal reports bids for about 438.3 crore shares against 19.75 crore on offer, worth about ₹4.91 lakh crore. The price band was ₹1,065–1,119, and the issue raises about ₹30,213 crore at the top of the band. Allotment is expected October 26, and the shares are due to list on the NSE and BSE on October 28.</p>
+    <p><strong>Impact on the tech industry:</strong> Institutions bid heavily during a week of US selling in AI stocks. That suggests global investors see India's telecom and digital platforms as somewhat separate from worries about US AI capex. A strong listing would open the way for Indian SaaS and AI IPOs and give Reliance more money to pursue AI data centers and hyperscaler partnerships. Watch the listing premium and how much foreign institutions hold after allotment.</p>
+    <p><a href="https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day">Read source: HDFC Sky</a> · <a href="https://thefederal.com/category/business/jio-platforms-ipo-subscription-demand-260644">The Federal</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Whop · Funding · Oct 23 · Reported</p>
+    <h3>Sequoia Leads $205 Million Round in Whop at a $5.1 Billion Valuation</h3>
+    <p class="crux">The platform for online businesses says it has passed $400 million in annualized revenue. Shopify's venture arm joined, and former Sequoia head Doug Leone takes a board seat in his first deal since returning to active investing.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>American Bazaar reported on October 23 that Palo Alto-based Whop has raised $205 million at a $5.1 billion valuation. Sequoia Capital, which once turned the company down, led the round, and Shopify's venture arm took part. Whop runs a platform for people starting and running online businesses, and it has passed $400 million in annualized revenue. Doug Leone, Sequoia's former leader, joins Whop's board. It is his first deal since he returned to an active investing role earlier this year. Whop plans to use the money to expand its platform. Separately, Analytics Insight's October 21–22 funding roundup lists Tether leading a $15 million Series A for Mural, which builds payment infrastructure for AI agents, and $20.7 million for enterprise-AI startup AuxoAI.</p>
+    <p><strong>Impact on the tech industry:</strong> Top-tier venture money is still flowing to software platforms with real revenue, even as investors grow wary of capital-heavy AI infrastructure. Shopify's participation points to closer competition, or partnership, in creator commerce. Small AI-agent payment rounds show where early-stage money is going: the payments plumbing for agent-to-agent transactions.</p>
+    <p><a href="https://americanbazaaronline.com/2026/10/23/sequoia-once-rejected-whop-its-leading-a-205m-funding-round-490640">Read source: American Bazaar</a> · <a href="https://www.analyticsinsight.net/news/startup-funding-deepseek-mural-auxoai-raise-billions-and-millions">Analytics Insight</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>Micron Taiwan:</strong> talks with the Taoyuan union resume October 27, and the union has warned of further action. (<a href="https://manilatimes.net/2026/10/24/business/foreign-business/micron-taiwan-workers-reject-bonus-proposal/2452756">Manila Times</a>)</li>
+  <li><strong>Jio Platforms:</strong> allotment October 26, listing October 28. (<a href="https://thefederal.com/category/business/jio-platforms-ipo-subscription-demand-260644">The Federal</a>)</li>
+  <li><strong>Oracle AI World, Las Vegas, Oct 26–29:</strong> new AI agent announcements expected.</li>
+  <li><strong>Apple "Pro and Tell" launch, Oct 28:</strong> new Pro hardware expected, following the iPhone Duo's launch in Beijing, where CNBC reports scalpers targeted buyers. (<a href="https://www.macrumors.com/2026/10/19/apple-october-28-product-launch/">MacRumors</a> · <a href="https://www.cnbc.com/technology/">CNBC</a>)</li>
+  <li><strong>ServiceNow Q3 results, Oct 28:</strong> a first test of AI-agent revenue among enterprise software vendors after SAP's strong quarter. (<a href="https://www.marketbeat.com/earnings/reports/2026-10-28-servicenow-inc-stock/">MarketBeat</a>)</li>
+  <li><strong>PHP2Shell:</strong> watch whether CISA adds CVE-2026-109618 and CVE-2026-109619 to its Known Exploited Vulnerabilities catalog. (<a href="https://watchtowr.com/intelligence/php-cve-2026-109618-faq/">watchTowr</a>)</li>
+  <li><strong>Meta, New Mexico (Reported):</strong> Daily Tech Headlines reports that Meta was ordered to pay a record $25 billion in a New Mexico privacy lawsuit. We have not verified the details. (<a href="https://dtns.substack.com/p/dtns-october-24-2026">DTNS</a>)</li>
+  <li><strong>AI music copyright (Reported):</strong> Suno and Anthropic face lawsuits seeking nearly $340 million over music used to train models. (<a href="https://riorundown.substack.com/p/ai-news-oct-25-2026-ai-copyright">RIO Rundown</a>)</li>
+  <li><strong>Hugging Face:</strong> released an open DNA model on October 22 that runs locally on a laptop. (<a href="https://singularityhub.com/2026/10/24/this-weeks-awesome-tech-stories-from-around-the-web-through-october-24-2/">SingularityHub, citing Wired</a>)</li>
+  <li><strong>Catch-up on Salesforce and Braze:</strong> Salesforce agreed to buy Braze for about $5.66 billion, or $47.50 a share, a 58% premium to the October 19 close. The deal was announced before this window and was not covered last edition. (<a href="https://nonbindingthoughts.substack.com/p/please-advise-deal-sheet-oct-23-2026">Deal Sheet</a>)</li>
+  <li><strong>SpaceX and Tesla:</strong> the special committees' merger review continues; no terms yet.</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Oct 25, 2026 8:34 PM EDT by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
