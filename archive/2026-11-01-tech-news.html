@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 1, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Sunday, November 1, 2026 &nbsp;·&nbsp; Coverage: Oct 30–Nov 1, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">NPR · CNBC · Bloomberg · CBS News · crypto.news · Security · Update · Oct 31–Nov 1</p>
+      <h3>FBI Confirms North Korea Behind the $6.3 Billion Binance Theft as the Exchange Covers 95% of Losses and Reopens Withdrawals</h3>
+      <p class="crux">What's new since last edition: the official attribution we were waiting for has arrived. The FBI says North Korea's TraderTraitor unit carried out the hack. Binance says it has used its own reserves to cover about 95% of the stolen assets, and phased withdrawals began on Sunday.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>NPR reports that on Saturday, October 31, the FBI confirmed that North Korea carried out the October 29 hack. Investigators had already pointed to the military hacking unit known as TraderTraitor. On the same day, Binance said it had covered about 90% of the affected assets and repeated that it, not its users, will absorb the loss. CNBC stresses that this means Binance has restored backing for the assets. It has not recovered 90% of the funds from the attacker. On Sunday, November 1, Binance raised the figure to about 95%, up from 80% and then 90% in earlier updates, according to crypto.news. Phase one of withdrawals opened between 06:00 and 09:00 UTC, starting with Bitcoin. CBS News reports that by 5 a.m. Eastern, withdrawals had also resumed on Ethereum, BNB, XRP, Base, Dogecoin and Optimism. Binance has not given a timetable for the second phase. Many details are still unclear, including exactly how the attackers got in.</p>
+      <p><strong>Impact on the tech industry:</strong> The official attribution makes US sanctions and Treasury action against laundering channels more likely. It also adds pressure for controls on mixers and cross-chain bridges. Binance can cover a multibillion-dollar loss from its own balance sheet, but smaller exchanges could not. Critics cited by NPR say the way exchanges are set up deserves scrutiny, which points regulators toward reserve and insurance requirements. Watch the phase-two timetable, any net outflows as withdrawals reopen, and Binance's root-cause report.</p>
+      <p><a href="https://www.npr.org/2026/10/31/nx-s1-6024426/binance-crypto-heist-cyber-criminals-north-korea">Read source: NPR</a> · <a href="https://www.cnbc.com/2026/10/31/binance-hack-asset-coverage-withdrawals.html">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-31/binance-restores-90-of-stolen-crypto-promises-withdrawals-soon">Bloomberg</a> · <a href="https://www.cbsnews.com/news/binance-crypto-heist-withdrawals/">CBS News</a> · <a href="https://crypto.news/binance-reopens-bitcoin-withdrawals-after-hack/">crypto.news</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg · The Next Web · Briefs · AI Weekly · Open Source · Oct 31–Nov 1</p>
+    <h3>DeepSeek Open-Sources "Super-Agent," a Coding Agent That Watches Team Chats and Proposes Fixes Without Being Asked</h3>
+    <p class="crux">The Chinese lab is aiming the MIT-licensed prototype at Anthropic's Claude Code. It works on a GitHub repository and can monitor developer group chats, picking up feedback on its own. DeepSeek calls it a research prototype, not an official product.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>DeepSeek's Harness team described Super-Agent in a WeChat post on Saturday, October 31, and published the code on GitHub as dsh-superagent under an MIT license. The agent is attached to a single GitHub repository. It can also listen to Feishu, ByteDance's workplace chat app, where it picks up coding problems that developers discuss and suggests solutions without being prompted. AI Weekly says it opens work items in parallel worker sessions under a persistent router and replies with pull requests. It reports the repository passed 4,000 GitHub stars within a day. DeepSeek's stated design goal is to take up as little human attention as possible. It also warns that an agent working for a whole team can waste the whole team's attention, and it tells users to review the code before running it. The public version differs from the one DeepSeek uses internally. Bloomberg reports that DeepSeek set up the Harness team this year to compete with coding tools from US labs.</p>
+      <p><strong>Impact on the tech industry:</strong> Coding agents are moving from tools a developer calls on to background teammates that act on their own. That puts pressure on paid products from Anthropic, OpenAI, Cursor and GitHub, because a free, modifiable alternative now exists. An agent that reads team chats also raises new security and data-governance questions for companies. Watch whether DeepSeek ships an official product, adoption outside China, and US restrictions on DeepSeek software.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-11-01/deepseek-drops-enhanced-coding-agent-with-aim-to-rival-anthropic">Read source: Bloomberg</a> · <a href="https://thenextweb.com/news/deepseek-super-agent-open-source-coding-agent">The Next Web</a> · <a href="https://www.briefs.co/news/deepseek-unveils-open-source-super-agent-aimed-at-claude-cod/">Briefs</a> · <a href="https://aiweekly.co/ai-news-today">AI Weekly</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Sam on AI · Deep Gains · Policy · Oct 31</p>
+    <h3>AI Companies Back a Shared robots.txt Signal That Lets Websites Opt Out of AI Training, but Start Dates Vary</h3>
+    <p class="crux">The new signal gives publishers one way to state AI-training preferences across participating providers. Microsoft says it will honor the signal starting February 1, 2027. OpenAI says only that it will implement it in the coming months.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Deep Gains reports that four AI labs have agreed to support a single opt-out signal for AI training. Sam on AI says the proposal adds a token, usage_ai-training, to a User-Agent group in a site's robots.txt file. Allow and Disallow rules then state the publisher's preference for specific paths. The signal covers how content is used, not whether a crawler may access it. Crawler access is still governed by separate rules, and OpenAI says its existing crawler controls stay in place. Rollout is staggered. Microsoft says its new preferences take effect from February 1, 2027 as it crawls pages. OpenAI says it plans to implement the signal in the coming months. Compliance is voluntary, and the proposal is an individual Internet-Draft that the IETF has not endorsed. In the same briefing, OpenAI's Python SDK 3.42.0 added agent controls, including context compaction and session review.</p>
+    <p><strong>Impact on the tech industry:</strong> Publishers, already losing search traffic to AI answers, get one standard switch instead of a list of bot-specific rules. Because the start dates differ, sites will have to manage a transition period. Because the signal is voluntary, regulators and courts, especially in the EU, will judge whether it counts as a meaningful opt-out under copyright rules. Watch which other labs sign on and whether the IETF takes up the draft.</p>
+    <p><a href="https://samonai.substack.com/p/ai-brief-october-31-2026">Read source: Sam on AI</a> · <a href="https://deepgains.substack.com/p/morning-brief-saturday-october-31-cd1">Deep Gains</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">The Information via Reuters · Investing.com · AI Weekly · Robotics · Reported · Oct 31</p>
+    <h3>Meta Built a Humanoid Robot Prototype, "Max," With China's Fourier in About Three Months and Is Working on a Second Version (Reported)</h3>
+    <p class="crux">The Information says the roughly 106-pound robot is meant to be a physical form of Meta's Muse AI agent for household tasks. Reuters could not independently verify the report. Meta reportedly has no plans to sell these units.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>The Information reported on Saturday, October 31, citing people familiar with the project, that Meta built a humanoid robot prototype with Chinese startup Fourier. Investing.com, summarizing the report, says Meta's robotics team traveled to China for the work. Li-Chen Miller, Meta's vice president of product for robotics, spent almost two months at Fourier's Shanghai factory. Max was shown to some Meta employees at an internal robotics summit in late August, and work on Max 2 began in September. AI Weekly says the robot weighs about 106 pounds (roughly 48 kg) and was built in about three months. Meta reportedly sees humanoids as the physical form of its Muse agent and hopes they can eventually help with household tasks. In May, Meta acquired Assured Robot Intelligence, a startup that builds models to help robots understand human behavior. The report came out around the same time S&amp;P cut Meta's credit outlook over its AI spending (see below).</p>
+    <p><strong>Impact on the tech industry:</strong> Meta is going to Chinese suppliers to get humanoid hardware quickly rather than wait for a US supply chain. That shows how strong China's position in robot hardware has become, and it could draw scrutiny from Washington. Tesla Optimus, Figure, 1X and Google are now competing for the same home-robot opportunity. Watch for any Meta confirmation, the Max 2 timeline, and policy reaction to US companies working with Chinese robot makers.</p>
+    <p><a href="https://money.usnews.com/investing/news/articles/2026-10-31/meta-builds-humanoid-robot-with-chinese-startup-fourier-the-information-says">Read source: Reuters via U.S. News</a> · <a href="https://uk.finance.yahoo.com/news/meta-builds-humanoid-robot-china-180010281.html">Investing.com via Yahoo Finance</a> · <a href="https://aiweekly.co/alerts/meta-built-humanoid-prototype-max-with-fourier-in-three-months">AI Weekly</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">ABC News · Semiconductors · Geopolitics · Oct 31</p>
+    <h3>Nvidia Responds to Report That Jensen Huang Was Targeted in a Chinese Spy Plot via a Singapore Data-Center Executive</h3>
+    <p class="crux">The New York Times reported that US intelligence officials concluded an executive at Megaspeed International was passing information to Beijing. Nvidia says Huang's meetings with her were routine customer contact.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>The New York Times reported on Thursday, October 29, that US intelligence officials had determined that a senior executive at Megaspeed International, a Singapore-based data-center company, was passing information to Chinese officials in Beijing. The report says the executive had developed a close relationship with Nvidia CEO Jensen Huang. The Times identified her as Alice Huang, who was photographed with the Nvidia CEO in 2024. In a statement to ABC News on October 31, an Nvidia spokesperson said Jensen Huang talks with thousands of customer executives every year. The spokesperson said his interactions with Ms. Huang were not unusual or unexpected and that meeting customers is part of a CEO's job. The allegations come from intelligence assessments reported by the Times. No charges have been announced.</p>
+    <p><strong>Impact on the tech industry:</strong> Washington has been worried that Southeast Asian data centers could be routes for advanced chips, or information, to reach China. The report adds to that concern and could strengthen calls for know-your-customer checks on Nvidia's Asian cloud customers. It may also push forward chip location-verification and export-control proposals. Singapore and Malaysia data-center operators could face closer due diligence from US suppliers. Watch for congressional letters, any Commerce Department action, and Megaspeed's response.</p>
+    <p><a href="https://abcnews.com/US/nvidia-responds-report-ceo-allegedly-targeted-chinese-spy/story?id=137704250">Read source: ABC News</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Cyber Security News · Deep Gains · DEV Community · Security · Oct 31</p>
+    <h3>Security Roundup: Malicious Claude Code Extension Sat on Cursor's Marketplace for 11 Hours, and WordPress Core Flaw Draws 60,000 Attacks in a Day</h3>
+    <p class="crux">Developer tools are now a major attack route. A tampered extension tried to plant an SSH backdoor, and researchers published working attacks on the browsers built into five coding tools. TeamViewer also disclosed a flaw that can turn support sessions against technicians.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On October 31, Cursor confirmed that malicious Claude Code extension packages were available on its VS Code extension marketplace for about 11 hours on October 29. Deep Gains reports that the tampered extension tried to install an SSH backdoor on as many as 5,000 machines. DEV Community reports that a security team published working attacks against the browsers built into five popular AI coding tools. Cyber Security News, citing Wordfence data, says attackers launched more than 60,000 attempts within 24 hours against a WordPress core remote-code-execution flaw that can expose sites during updates. TeamViewer disclosed CVE-2026-111585, which could let an attacker turn a routine remote-support session against the technician giving help. Deep Gains also points to a breach warning from cloud platform Northflank and five cross-tenant vulnerabilities in Azure.</p>
+    <p><strong>Impact on the tech industry:</strong> Extension marketplaces for AI coding tools such as Cursor, VS Code and the Claude Code ecosystem are a new supply-chain risk. One poisoned package can reach thousands of developer machines that hold cloud credentials. Expect enterprises to restrict which extensions developers can install, and expect marketplaces to add signing and review. WordPress hosts and managed service providers that use TeamViewer should patch now. Watch Cursor's post-incident report and Microsoft's Azure advisories.</p>
+    <p><a href="https://cybersecuritynews.com/">Read source: Cyber Security News</a> · <a href="https://deepgains.substack.com/p/morning-brief-saturday-october-31-cd1">Deep Gains</a> · <a href="https://dev.to/hiroki-ii-ai/ai-daily-digest-october-31-2026-grok-bot-gets-a-wallet-cloud-earnings-diverge-flaws-hit-five-14m7">DEV Community</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">CGTN · Macau Business · AI Weekly · Apple · Alibaba · Oct 31</p>
+    <h3>Apple Picks Alibaba's Qwen to Power Apple Intelligence in China; Developer Testing Starts November 4</h3>
+    <p class="crux">Qwen will run behind Siri, Writing Tools and Visual Intelligence for Chinese users. The public release comes with iOS 27.3 in December. Users can choose whether to turn it on, and Alibaba says it will not train its models on their requests.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Saturday, October 31, Alibaba announced a partnership to integrate its Qwen models into Apple Intelligence in China. Testing begins in the iOS developer beta on November 4, and the feature reaches Chinese users with iOS 27.3 in December. Qwen will handle text and image understanding and content generation in Siri, Writing Tools and Visual Intelligence. AI Weekly adds photo cleanup to that list. It says supported devices include iPhone 15 Pro, iPhone 16, iPhone Air and iPhone Duo. The integration is optional, and users decide what information to share. Alibaba says it will not use user requests or responses for model training. The feature applies to people who buy an Apple Intelligence-capable iPhone in China, or whose device location and Apple Account region are both set to China. China's cyberspace regulator completed filings for seven on-device generative AI services, including Apple Intelligence, in July. Alibaba CEO Eddie Wu said Qwen will work within Apple's ecosystem to deliver new AI services to Chinese users.</p>
+    <p><strong>Impact on the tech industry:</strong> This fills Apple's long gap in AI features in China, where its iPhones compete with domestic brands that already ship built-in AI assistants. It is a major win for Alibaba Cloud against Baidu, ByteDance and DeepSeek. It also confirms that Apple will use different model partners in different regions. Expect questions from US lawmakers about working with a Chinese AI provider. Watch Apple's earnings commentary on November 2 and how well the beta performs.</p>
+    <p><a href="https://news.cgtn.com/news/2026-10-31/Alibaba-s-Qwen-to-integrate-into-Apple-Intelligence-in-landmark-deal-1RHilSeJsbK/p.html">Read source: CGTN</a> · <a href="https://macaubusiness.com/alibabas-qwen-ai-model-to-integrate-into-apple-intelligence-in-landmark-partnership/">Macau Business</a> · <a href="https://aiweekly.co/ai-news-today">AI Weekly</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">GuruFocus · BitDigest · Mind &amp; Machine Weekly · Meta · Oct 30–31</p>
+    <h3>S&amp;P Moves Meta's Credit Outlook to Negative Over AI Capex as Meta Turns to Equity Markets to Fund Data Centers</h3>
+    <p class="crux">S&amp;P cited high capital spending and negative free operating cash flow. Newsletters tracking SEC filings report a stock and preferred offering of record size. The exact total differs between sources.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On October 30, S&amp;P Global Ratings changed its outlook on Meta Platforms from stable to negative, according to GuruFocus. The agency cited Meta's heavy capital spending and negative free operating cash flow. A negative outlook signals that a downgrade is possible, though it is not one yet. Meta is also raising equity to pay for its AI build-out. BitDigest, citing an SEC filing, says Meta launched a $35 billion offering of common and preferred stock. It says Meta is targeting about $95 billion in total, including a $60 billion at-the-market program. Mind &amp; Machine Weekly calls it a record $97.5 billion share offering to accelerate AI data-center infrastructure. We could not reconcile the two totals, so treat the overall size as Reported. Deep Gains says the Nasdaq is heading for a roughly $2 trillion October loss as worries about AI spending grow.</p>
+    <p><strong>Impact on the tech industry:</strong> One of the strongest balance sheets in tech is now paying for AI with shareholder dilution and drawing rating pressure. That suggests the capex race is pushing past what operating cash flow can fund. Credit markets will price more risk into AI-infrastructure borrowers, from hyperscalers to neoclouds. Nvidia, memory makers and data-center builders depend on this spending continuing. Watch S&amp;P and Moody's actions on other hyperscalers and the final pricing of Meta's offering.</p>
+    <p><a href="https://www.gurufocus.com/news/9160132/metas-outlook-downgraded-to-negative-by-sp">Read source: GuruFocus</a> · <a href="https://bitdigest.substack.com/p/saturday-october-31-2026">BitDigest</a> · <a href="https://mindandmachineweekly.substack.com/p/mind-and-machine-weekly-1-november">Mind &amp; Machine Weekly</a> · <a href="https://deepgains.substack.com/p/morning-brief-saturday-october-31-cd1">Deep Gains</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Financial Times via Bloomberg · TechCrunch · TechLatest · Funding · Reported · Oct 30–31</p>
+    <h3>OpenAI Cuts Its Funding Target by $10 Billion to About $20 Billion as the AI Sell-Off and Anthropic's IPO Weigh on Investors (Reported)</h3>
+    <p class="crux">The FT says OpenAI now seeks about $20 billion at a $1.25 trillion valuation, down from $30 billion at $1.4 trillion last month. UAE investors would lead, and the first close is expected to come in lower.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>The Financial Times reported on Friday, October 30, citing people with knowledge of the matter, that OpenAI has lowered its fundraising target. It now aims for about $20 billion at a $1.25 trillion valuation, down from $30 billion at $1.4 trillion last month. Bloomberg's summary says the AI stock sell-off and Anthropic's upcoming listing have made it harder to secure investor commitments. TechCrunch notes that the FT expects a group of investors from the United Arab Emirates to lead the round. The first close is expected to be below $20 billion, and a later offering to wealthy individuals could bring the total up to the target. OpenAI did not immediately comment. TechCrunch adds that Anthropic's IPO could also face challenges. TechLatest cites a separate FT report that credit agencies are expected to give Anthropic a high-yield, or "junk," rating after it lists (Reported). The round comes as OpenAI prepares for its own IPO after filing confidentially.</p>
+    <p><strong>Impact on the tech industry:</strong> Even the leading AI labs now face pressure on valuations. OpenAI and Anthropic are competing for the same pool of investor money ahead of their IPOs, and Gulf sovereign capital is becoming the backstop. Less funding could slow OpenAI's compute commitments to Microsoft, Oracle, CoreWeave and chip suppliers. Watch the size of the first close, Anthropic's IPO pricing, and whether other late-stage AI rounds are repriced.</p>
+    <p><a href="https://bloomberg.com/news/articles/2026-10-31/openai-funding-goal-cut-by-10-billion-as-ai-stocks-dip-ft-says">Read source: Bloomberg</a> · <a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/">TechCrunch</a> · <a href="https://techlatestnet.substack.com/p/techlatest-ai-and-tech-weekly-40">TechLatest</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">TNGlobal · Hong Kong · M&amp;A · Oct 30–31</p>
+    <h3>Hong Kong-Listed IBS Plans HK$563 Million Purchase of Edge-AI Chip Group QuantumCompute, Shifting Away From Crypto</h3>
+    <p class="crux">The company signed a share purchase agreement on October 30 to make QuantumCompute a wholly owned subsidiary. Its board says the goal is to move into AI chip design and edge-computing infrastructure and reduce exposure to volatile crypto markets.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>According to its Hong Kong exchange announcement, IBS signed a share purchase agreement on October 30 with seller Brainwave Innovations Limited. TNGlobal reports the deal is worth HK$563 million. Once it closes, QuantumCompute, a group focused on edge-AI chips, will become a wholly owned IBS subsidiary. The target group's entities are very new. QuantumCompute was incorporated in the British Virgin Islands in June 2026, Neuro Link in Hong Kong in July, and Tianjing Fulian (Tianjin) in mainland China on October 27. IBS says the deal gives it the target's staff, technology assets and commercial relationships without building those capabilities itself. It will redirect part of the proceeds from an earlier share subscription to fund the acquisition and related development. TNGlobal notes that a related management appointment does not remove the execution and integration risks.</p>
+    <p><strong>Impact on the tech industry:</strong> This is a small deal, but it fits a wider pattern. Listed companies in Asia that are exposed to crypto are rebranding toward AI hardware as China pushes for domestic chips. The very young target entities mean investors and regulators will need to look closely at what is actually being bought. Watch shareholder and exchange approvals, valuation disclosures, and whether more Hong Kong small caps follow.</p>
+    <p><a href="https://technode.global/2026/10/31/ibs-quantumcompute-ai-chip-acquisition/">Read source: TNGlobal</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>AMD vs Nvidia on inference cost:</strong> SemiAnalysis benchmarks posted October 31 compare AMD's MI355X with Nvidia's B200. They cite chip-hour prices of $1.50 for the MI355X against $1.73 for the B200, plus 2,304GB of HBM per MI355X server. (<a href="https://riorundown.substack.com/p/ai-news-nov-01-2026-ai-infrastructure">AI News, Nov 1</a>)</li>
+  <li><strong>Grok Bot can buy things:</strong> xAI says its always-on agents can now complete purchases on a user's behalf through Link. Its own documentation advises placing payments behind explicit limits. (<a href="https://dev.to/hiroki-ii-ai/ai-daily-digest-october-31-2026-grok-bot-gets-a-wallet-cloud-earnings-diverge-flaws-hit-five-14m7">DEV Community</a>)</li>
+  <li><strong>Nvidia and Nscale (Reported):</strong> Nvidia is reportedly considering a financial guarantee for Nscale's planned data center in West Virginia, the latest sign of Nvidia helping finance its customers. (<a href="https://techlatestnet.substack.com/p/techlatest-ai-and-tech-weekly-40">TechLatest</a>)</li>
+  <li><strong>Intel and the US stake:</strong> Intel's falling share price has cut about $12 billion from the value of the US government's stake. (<a href="https://techlatestnet.substack.com/p/techlatest-ai-and-tech-weekly-40">TechLatest</a>)</li>
+  <li><strong>Oracle offers standalone Vera CPUs:</strong> Nvidia's Vera CPU is now generally available, and OCI is offering it in standalone instances, not only inside NVL72 racks. This targets agentic workloads that need a lot of CPU. (<a href="https://tomshardware.com/tech-industry/this-week-in-toms-hardware-premium-october-31-2026-vera-cpus-available-on-oracle-clusters-building-an-agentic-cpu-benchmark-and-a-primer-to-llms">Tom's Hardware</a>)</li>
+  <li><strong>Microsoft Copilot at Estée Lauder:</strong> Announced October 30, the deal includes a 14,000-seat Copilot rollout and a Unified Consumer Data Platform, a sign of large enterprise Copilot deployments. (<a href="https://agilebrandguide.com/yesterdays-marketing-technology-ai-news-october-31-2026/">The Agile Brand Guide</a>)</li>
+  <li><strong>Amazon Leo and Globalstar:</strong> The FCC has approved Amazon Leo's acquisition of Globalstar, strengthening Amazon's satellite push against Starlink. (<a href="https://bitdigest.substack.com/p/saturday-october-31-2026">BitDigest</a>)</li>
+  <li><strong>New York and chatbots for minors:</strong> New York has restricted unsafe AI chatbot features for minors, adding to state-level rules that AI companion and assistant apps must meet. (<a href="https://www.theneuron.ai/newsletter/the-neuron-academy-dedicated-send-10-31-26/">The Neuron</a> · <a href="https://mindandmachineweekly.substack.com/p/mind-and-machine-weekly-1-november">Mind &amp; Machine Weekly</a>)</li>
+  <li><strong>India IPO pipeline:</strong> SEBI has cleared Atomberg's IPO. Separately, B2B quick-commerce startup Zorit raised about INR 27 crore in a round led by Sparrow Capital. (<a href="https://startuptalky.com/news/daily-indian-funding-roundup-key-news-30-october-2026/">StartupTalky</a>)</li>
+  <li><strong>Apple reports November 2:</strong> the first earnings call since the Qwen deal for China. Watch for China AI timing and memory-cost effects on margins. (<a href="https://news.cgtn.com/news/2026-10-31/Alibaba-s-Qwen-to-integrate-into-Apple-Intelligence-in-landmark-deal-1RHilSeJsbK/p.html">CGTN</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 1, 2026 9:11 PM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
