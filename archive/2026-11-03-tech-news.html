@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 3, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Tuesday, November 3, 2026 &nbsp;·&nbsp; Coverage: Nov 1–Nov 3, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">Reuters via Euronext · CNBC · TechXplore · Motley Fool · Bloomberg Opinion · Semiconductors · M&amp;A · Nov 2</p>
+      <h3>Marvell Agrees to Buy Lumentum in a $115 Billion All-Stock Deal, Then Both Stocks Fall Sharply</h3>
+      <p class="crux">This is one of the largest tech takeovers on record. It combines Marvell's networking and custom chips with Lumentum's lasers and optical parts for AI data centers. Investors reacted badly: Marvell fell almost 13% and Lumentum 18% on Monday.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>Marvell said on Monday, November 2, that it will acquire optical-components maker Lumentum. The deal is all stock and values Lumentum at an enterprise value of about $115 billion, or about $102.5 billion in equity, according to Reuters. Lumentum holders get 4.5 Marvell shares per share, a premium of about 23.9% to the October 28 close. Marvell shareholders will own about 67% of the combined company. The companies expect more than $1 billion in annual cost savings and say the deal will add to Marvell's adjusted earnings per share in the first year. Closing is expected in the first half of 2028. Marvell would owe Lumentum $5.8 billion if it walks away, or $3.2 billion if regulators block the deal. The deal is more than ten times the size of Marvell's previous largest purchase, the $10 billion Inphi deal in 2021. Nvidia invested $2 billion in each company earlier this year.</p>
+      <p><strong>Impact on the tech industry:</strong> This is the biggest bet yet that optical networking will limit how far AI clusters can scale. It sets Marvell up to compete with Broadcom as a single supplier of data-center hardware. It also brings two key Nvidia suppliers under one roof. The sell-off shows how little patience investors now have for AI spending. Watch antitrust reviews, including China's, and how Coherent and other optical suppliers respond.</p>
+      <p><a href="https://live.euronext.com/en/financial-news/marvell-buy-lumentum-115-billion-deal-ai-data-center-bet">Read source: Reuters via Euronext</a> · <a href="https://www.cnbc.com/2026/11/01/stock-market-today-live-updates.html">CNBC</a> · <a href="https://techxplore.com/news/2026-11-marvell-lumentum-merge-billion-ai.html">TechXplore</a> · <a href="https://www.fool.com/investing/2026/11/02/marvell-just-bet-usd115-billion-on-ai-s-once-in-a-generation-opportunity-should-you-buy-the-stock/">Motley Fool</a> · <a href="https://www.bloomberg.com/opinion/articles/2026-11-02/marvell-lumentum-this-is-such-a-terrible-time-for-a-115-billion-tech-deal">Bloomberg Opinion</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">CNBC · Yahoo Finance · Bloomberg · SEC · AI Labs · IPO · Nov 2</p>
+    <h3>Anthropic's Amended IPO Filing: $17 Billion in Q3 Revenue, $895 Billion in Compute Commitments, and a Warning on AI-Accelerated Research</h3>
+    <p class="crux">The updated S-1 adds third-quarter figures to the prospectus filed October 26. It also includes new wording that future models may soon reach the company's own threshold for AI that substantially speeds up AI research.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Anthropic filed Amendment No. 1 to its S-1 with the SEC on Monday, November 2. CNBC reports revenue of $33.24 billion for the nine months to September 30. Third-quarter revenue was about $17 billion, compared with $16.3 billion for the whole first half. The company disclosed purchase commitments and lease agreements of about $895.4 billion in total, almost all of it for compute and infrastructure. A summary by Pasquale Pillitteri points to a new sentence: future models may soon reach the AI research and development threshold in Anthropic's Responsible Scaling Policy. The company says it has not judged any current model to be past that threshold and is still analyzing the data. Yahoo Finance says the long risk-factors section changed little. Bloomberg expects a Nasdaq listing in November.</p>
+    <p><strong>Impact on the tech industry:</strong> The revenue trend makes Anthropic a benchmark for valuing AI labs, including OpenAI's lowered funding round. The $895 billion in commitments links cloud providers and chipmakers to Anthropic's ability to keep raising money. The safety wording could invite regulatory questions. Watch IPO pricing and demand, and any reaction from regulators to the threshold language.</p>
+    <p><a href="https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html">Read source: CNBC</a> · <a href="https://finance.yahoo.com/technology/article/anthropic-reveals-amended-s-1-outlining-huge-spending-commitments-rising-sales-153635825.html">Yahoo Finance</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-02/anthropic-ipo-explained-s-1-filing-nasdaq-listing-and-key-risks">Bloomberg</a> · <a href="https://pasqualepillitteri.it/en/news/29574/anthropic-ipo-s1a-ai-research-threshold">Pasquale Pillitteri</a> · <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm">SEC filing</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">AI Weekly (citing CNBC) · The AI Brief · Deep Gains · The Neuron · OpenAI · Nov 2–3</p>
+    <h3>OpenAI Hires Former Army Secretary Dan Driscoll and Proposes a "Grid Protectors" Program to Cut Data-Center Power Use at Peak Times</h3>
+    <p class="crux">OpenAI made several policy-facing moves on election eve. It hired a national-security adviser, proposed letting its data centers reduce power use when communities need it, and set up an election-monitoring team. Anthropic set up one too.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AI Weekly, citing CNBC, says OpenAI hired former US Army Secretary Dan Driscoll as senior counselor for national security modernization on November 2. The AI Brief reports that OpenAI is proposing ways for its data centers to reduce electricity demand when communities need the power. Deep Gains calls this the Grid Protectors Program. The sources we reviewed did not give detailed terms. Deep Gains also notes a new OpenAI benchmark, LifeVal, which tests models on everyday tasks. The Neuron reports that OpenAI explained how ChatGPT and Codex will share usage limits starting in December. It also says OpenAI and Anthropic each set up election-monitoring teams before the November 3 US midterms, as political opposition to AI data centers grows across the country.</p>
+    <p><strong>Impact on the tech industry:</strong> Data-center power use is now a local political issue. Offering to cut demand at peak times could become standard in hyperscale permitting talks. The Driscoll hire points to deeper competition for defense AI contracts with Anthropic, Palantir and others. Shared limits affect how developers budget across ChatGPT and Codex. Watch for the program's full details, which utilities sign on, and the terms of the December limits.</p>
+    <p><a href="https://aiweekly.co/ai-news-today/openai-news">Read source: AI Weekly</a> · <a href="https://winterm.substack.com/p/the-ai-brief-the-last-24-hours-964">The AI Brief</a> · <a href="https://deepgains.substack.com/p/morning-brief-tuesday-november-3-c44">Deep Gains</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-2-2026/">The Neuron, Nov 2</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-november-3-2026/">The Neuron, Nov 3</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">CNBC · Drax · Just Security (citing BBC) · AI Infrastructure · UK · Nov 3</p>
+    <h3>Drax and Brookfield Plan a Gigawatt-Scale AI Data Center at a North Yorkshire Power Station, With Investment That Could Pass £20 Billion</h3>
+    <p class="crux">The project is being built with Radiant, Brookfield's AI infrastructure platform, and backed by a Brookfield-Qai joint venture. Phase one would receive £2.5 billion and serve customers from early 2028. Drax shares rose more than 8%.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Tuesday, November 3, Drax Group said it had signed an agreement with Brookfield and Radiant to develop, deliver and operate data-center capacity in phases at the Drax Power Station site. The project will be backed by a joint venture between Brookfield and Qai. Drax says the first phase is up to 100MW and could receive £2.5 billion. CNBC reports that phase one will use grid power and serve commercial customers from early 2028. The long-term target is more than 1GW. Brookfield estimates total investment, including chips, could exceed £20 billion (about $26.8 billion). The partners welcomed the UK government's new Data Centre Covenant, which aims to speed up power connections and planning. Just Security, citing BBC research, notes concern that the UK's data-center push could depend on more natural gas and work against its net-zero goal.</p>
+    <p><strong>Impact on the tech industry:</strong> Putting data centers on existing power-station sites is becoming Europe's fastest route around grid-connection delays. That favors operators that already have land and generation capacity. It also adds a large UK neocloud competitor to Nscale and the hyperscalers. Watch for the anchor tenant, the power mix, and planning approvals.</p>
+    <p><a href="https://www.cnbc.com/2026/11/03/brookfield-ai-data-center-yorkshire-drax.html">Read source: CNBC</a> · <a href="https://www.drax.com/news/drax-brookfield-and-radiant-announce-20bn-partnership-to-deliver-gw-scale-data-centre-capacity-at-drax-power-station/">Drax</a> · <a href="https://justsecurity.org/163177/early-edition-november-3-2026">Just Security</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Cointelegraph · TokenPost · TechCrunch · Crypto Security · Update · Nov 1–3</p>
+    <h3>Binance Opens Phase Two of Withdrawals as Net Outflows Fall From $6.1 Billion to $2.57 Billion</h3>
+    <p class="crux">What's new since last edition: phase two started at 04:00 UTC on Tuesday and covers nine networks, including Ethereum, Solana and XRP Ledger. Fiat withdrawals are also returning. Binance warns of scammers selling "faster" withdrawals.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>After the $6.3 billion hack, Binance reopened withdrawals in phase one on Sunday, November 1. TechCrunch reports that between 06:00 and 15:30 UTC that day, Binance processed $4.6 billion in withdrawals and $1.0 billion in deposits, a net outflow of $3.6 billion. TokenPost says net outflows reached $6.1 billion for all of Sunday and fell to $2.57 billion on Monday. Phase two began at 04:00 UTC on Tuesday, November 3. It covers BNB Smart Chain, Ethereum, Solana, XRP Ledger, Sui, Arbitrum, Optimism, Tron and Base. Each asset reopens once security checks are complete, and assets were prioritized by user demand. On Monday, Binance also reopened fiat withdrawals for the US dollar, UAE dirham, Vietnamese dong, Philippine peso and Indonesian rupiah, adding them to 23 currencies already available. Binance warned users against anyone offering to speed up withdrawals for a fee. It has still not published a root-cause report.</p>
+    <p><strong>Impact on the tech industry:</strong> Slowing outflows suggest the run on the exchange is easing. That lowers the risk of wider instability across crypto markets. Scammers exploiting the phased reopening is a familiar pattern after large breaches. Watch remaining assets, the post-mortem report, and US sanctions tied to the North Korea attribution.</p>
+    <p><a href="https://cointelegraph.com/news/binance-begins-second-withdrawal-phase-following-record-hack">Read source: Cointelegraph</a> · <a href="https://www.tokenpost.com/news/business/47655">TokenPost</a> · <a href="https://techcrunch.com/2026/11/01/binance-resumes-withdrawals-following-6-3-billion-breach/">TechCrunch</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">CISO Series · Check Point Research · Deep Gains · Just Security · Security · Nov 2–3</p>
+    <h3>Security Roundup: Northflank Tells Customers to Rotate All Secrets After AI API Keys Are Misused, and a 9.8-Severity Linux Kernel Flaw Is Not Yet Fixed on Ubuntu</h3>
+    <p class="crux">Update on Northflank: the breach was detected by Wiz, and stolen keys were used to make unauthorized AI API calls. Check Point also flags an actively exploited Brotli decompression flaw and a Japan Airlines breach through Amadeus.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>CISO Series reports that Northflank disclosed its breach on Saturday after cloud-security firm Wiz detected it. Attackers used customers' AI API keys without authorization. Northflank told customers to assume their environment variables had been decrypted and to rotate every credential stored on the platform. Check Point's November 2 weekly report lists several other issues. They include a critical Linux kernel flaw, CVE-2026-98432, rated 9.8 on the CVSS severity scale, and HTTP2Shell (CVE-2026-111497), a remote-code-execution flaw in Brotli decompression that attackers are already using. Japan Airlines disclosed a third-party breach affecting about 92,000 passengers through the Amadeus reservation system. Florida's education department disclosed a breach that may affect 4.9 million people. Deep Gains says Red Hat has shipped kernel fixes, but Ubuntu is still listed as vulnerable. Separately, the UK's cyber chief warned of AI-driven attacks on critical infrastructure by 2028.</p>
+    <p><strong>Impact on the tech industry:</strong> Platform-as-a-service providers now hold AI API keys that are worth stealing, so a breach turns directly into compute bills and risk to downstream systems. Linux fleets and Node.js services need urgent patching. Watch Northflank's root-cause report and Ubuntu's patch timing.</p>
+    <p><a href="https://cisoseries.com/cybersecurity-news-november-2-2026/">Read source: CISO Series</a> · <a href="https://research.checkpoint.com/2026/2nd-november-threat-intelligence-report/">Check Point Research</a> · <a href="https://deepgains.substack.com/p/morning-brief-tuesday-november-3-c44">Deep Gains</a> · <a href="https://justsecurity.org/163177/early-edition-november-3-2026">Just Security</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">MacRumors · CNBC · Yahoo Finance · Motley Fool · Apple · Earnings · Nov 2–3</p>
+    <h3>Apple Beats Estimates in Ternus's First Quarter as CEO, but Calls Memory Prices "Unprecedented" and Guides Margins Lower</h3>
+    <p class="crux">Revenue was $114.5 billion and iPhone sales set a September-quarter record. Greater China grew 21% but came in below estimates. Margin guidance of 45-46%, hit by memory costs and Siri AI spending, sent the stock down about 4% before Tuesday's open.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Monday, November 2, Apple reported fiscal fourth-quarter revenue of $114.5 billion, up from $102.5 billion a year earlier. Net profit was $30.7 billion, or $2.10 per share, which included a five-cent benefit from tariff refunds. iPhone revenue rose 17% to $57.6 billion. Greater China revenue grew 21% to a quarterly record, but at $17.54 billion it missed the $18.75 billion analysts expected, according to Yahoo Finance. The Motley Fool transcript shows gross-margin guidance of 45% to 46% for the December quarter, below the consensus of about 47.5% cited by CNBC. Ternus said memory costs will rise further in the December quarter and beyond. He also said iPhones and Macs will face supply constraints over the holidays, mainly because of memory. This was his first earnings call since replacing Tim Cook on September 1.</p>
+    <p><strong>Impact on the tech industry:</strong> Even Apple cannot fully absorb the jump in memory prices caused by AI demand. That is a warning for PC and Android makers with thinner margins, and good news for Samsung, SK hynix and Micron. Watch holiday supply, further price increases, and how quickly Apple Intelligence with Qwen rolls out in China.</p>
+    <p><a href="https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/">Read source: MacRumors</a> · <a href="https://cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html">CNBC</a> · <a href="https://finance.yahoo.com/markets/stocks/live/apple-earnings-live-apple-beats-q4-estimates-on-strong-iphone-sales-but-misses-on-china-revenue-221806957.html">Yahoo Finance</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/11/02/apple-aapl-q4-2026-earnings-call-transcript/">Motley Fool transcript</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Quartz · AI Weekly · 24/7 Wall St. · The Morning Brief · Oracle · Financing · Nov 2–3</p>
+    <h3>Oracle Files to Raise $20 Billion in Stock and Bonds for Its AI Build-Out; Shares Fall More Than 6%</h3>
+    <p class="crux">The raise is split evenly between $10 billion in common stock and $10 billion in senior notes. Oracle says it will not need more than another $20 billion in AI financing through fiscal 2030. Meta is reportedly weighing its own bond sale of $20 billion or more.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Monday, November 2, Oracle filed with the SEC to sell $10 billion of common stock and $10 billion of senior notes to fund its AI and cloud data centers. AI Weekly says Oracle repeated that capital spending should peak this fiscal year and next, and that it does not plan to raise more than $20 billion in additional AI financing through fiscal 2030. It is targeting more than $225 billion in revenue that year. Oracle had $125.34 billion of debt as of August 31. S&amp;P cut its rating to BBB- in July, one notch above junk. The stock was already down about 33% this year before Monday's drop. Quartz reports that dealers expected about $45 billion of new debt issuance this week, and that Meta is weighing a bond sale of $20 billion or more in several currencies (Reported). Blackstone president Jon Gray also argued that AI infrastructure needs more equity funding alongside debt.</p>
+    <p><strong>Impact on the tech industry:</strong> Following Meta's equity raise covered last edition, Oracle shows that hyperscalers are now paying for AI by diluting shareholders as well as borrowing. Credit investors are starting to resist. That raises funding costs for neoclouds and for OpenAI-linked capacity. Watch Oracle's bond pricing, whether Meta goes ahead with its bond sale, and any rating actions.</p>
+    <p><a href="https://qz.com/oracle-10-billion-bond-sale-debt-cap-110226">Read source: Quartz</a> · <a href="https://aiweekly.co/alerts/oracle-files-20b-stock-and-bond-raise-to-fund-ai-buildout">AI Weekly</a> · <a href="https://247wallst.com/investing/2026/11/02/oracle-declines-4-as-10-billion-bond-sale-revives-ai-debt-worries-coreweave-advances-2-microsoft-holds-steady/">24/7 Wall St.</a> · <a href="https://specterworks.substack.com/p/the-morning-brief-2026-11-03">The Morning Brief</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Washington Post via Investing.com · Broadband Breakfast · Quartz · Deadline · Telecom · Reported · Nov 2</p>
+    <h3>SpaceX Is in Talks to Buy EchoStar's Boost Mobile or Use Its Network for a "Starlink Mobile" Carrier (Reported)</h3>
+    <p class="crux">The Washington Post says Musk spoke directly with EchoStar's Charlie Ergen. A deal would give SpaceX millions of existing subscribers for a combined satellite and ground network. EchoStar shares rose about 6% before the market opened.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>The Washington Post reported on Monday, November 2, citing people familiar with the matter, that SpaceX has been in talks with EchoStar for months. SpaceX would either buy Boost Mobile or get access to the network capacity Boost leases from AT&amp;T and T-Mobile. Reuters, as summarized by Quartz, says SpaceX wants to build Starlink Mobile, which would combine satellite and ground infrastructure. Boost would give it a customer base and distribution. EchoStar had 7.38 million wireless customers at the end of the second quarter. Deadline says the Post reported that SpaceX had approached Verizon, AT&amp;T and T-Mobile and been turned down. Any deal may need consent from AT&amp;T and T-Mobile. Analysts quoted by Broadband Breakfast doubt Boost's wholesale agreements can be transferred. Quartz also notes reported exploratory talks with Crown Castle. Neither company commented.</p>
+    <p><strong>Impact on the tech industry:</strong> A SpaceX-owned carrier would be a fourth national wireless competitor with built-in satellite coverage. That puts pressure on Verizon, AT&amp;T, T-Mobile and cable companies' mobile businesses, and on Amazon Leo's Globalstar strategy. Watch for a signed deal, how AT&amp;T and T-Mobile respond, and FCC review.</p>
+    <p><a href="https://www.investing.com/news/stock-market-news/echostar-rises-on-report-spacex-in-talks-to-buy-boost-mobile-or-tap-its-network-4990743">Read source: Investing.com</a> · <a href="https://broadbandbreakfast.com/spacex-reportedly-in-talks-to-buy-or-partner-with-echostars-boost-mobile/">Broadband Breakfast</a> · <a href="https://qz.com/spacex-talks-buy-boost-mobile-echostar-wireless-110226">Quartz</a> · <a href="https://deadline.com/2026/11/elon-musk-spacex-echostar-boost-mobile-1237211221/">Deadline</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg · China · Semiconductors · IPO · Reported · Nov 3</p>
+    <h3>Baidu's AI Chip Unit Kunlunxin May See Its $2 Billion Hong Kong IPO Slip to 2027 While It Waits for Beijing's Approval (Reported)</h3>
+    <p class="crux">Kunlunxin filed confidentially in January and had expected approval from China's securities regulator over the summer. People familiar with the matter say that approval has not arrived.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Bloomberg reported on Tuesday, November 3, citing people with knowledge of the matter, that the IPO of Kunlunxin, Baidu's AI-chip unit, may slip to next year. Kunlunxin designs chips that power data-center servers. It filed confidentially in January for a Hong Kong listing of about $2 billion. It was expected to receive approval from the China Securities Regulatory Commission in the summer so the deal could launch, but it is still waiting. The report does not give a reason for the delay, and Baidu did not comment in the excerpt we reviewed. Treat the timing as Reported until the company confirms it.</p>
+    <p><strong>Impact on the tech industry:</strong> Kunlunxin is one of China's main domestic alternatives to Nvidia, along with Huawei's Ascend and Cambricon. A delay holds back a major test of how investors value Chinese AI chips. It also keeps the value of Baidu's chip business off public markets. Regulatory pacing, rather than investor demand, is now deciding when chip listings reach Hong Kong. Watch for CSRC approval, any change to the deal size, and how other Chinese AI-chip IPOs move.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-11-03/baidu-ai-chip-unit-kunlunxin-hong-kong-ipo-2027">Read source: Bloomberg</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>Hark raises $700 million:</strong> Intel joined the AI startup's round alongside Nvidia and AMD Ventures. Hark is building AI hardware and foundation models for digital assistants. (<a href="https://finance.yahoo.com/technology/ai/articles/intel-intc-joined-700-million-001701528.html">Yahoo Finance, Nov 2</a>)</li>
+  <li><strong>Grok API watermarking:</strong> From November 7, text from seven Grok models will carry an invisible watermark by default on all xAI endpoints. (<a href="https://pasqualepillitteri.it/en/news/29128/grok-watermark-xai-api-text-november-7">Pasquale Pillitteri</a>)</li>
+  <li><strong>Nvidia reports November 17:</strong> The stock fell 1.26% on November 2 with the broader chip sell-off, not on company-specific news. (<a href="https://www.heygotrade.com/en/news/nvidia-nvda-stock-news-november-3-2026/">Gotrade</a>)</li>
+  <li><strong>Agents still struggle on long tasks:</strong> SemiAnalysis's GDPx benchmark puts the best agent at 12% on long expert tasks. Meituan released LongCat-2.5 as API-only. (<a href="https://deepgains.substack.com/p/morning-brief-tuesday-november-3-c44">Deep Gains</a>)</li>
+  <li><strong>Google and Videostrong:</strong> AI Weekly reports that Google cut ties with the Android TV maker and shut down the XCPE botnet, which ran on more than 10 million devices. (<a href="https://aiweekly.co/ai-news-today">AI Weekly</a>)</li>
+  <li><strong>EU AI Act dates:</strong> After the Digital Omnibus, high-risk obligations are now set for December 2, 2027 and August 2, 2028. (<a href="https://futureagi.com/blog/eu-ai-act-timeline-digital-omnibus-2027/">Future AGI, Nov 2</a>)</li>
+  <li><strong>iPhone Duo display issues:</strong> Apple has told retail stores how to inspect and replace iPhone Duo units with cracking displays. Samsung is running ads mocking the problem. (<a href="https://www.mactech.com/2026/11/02/news-items-you-should-check-out-out-november-2/">MacTech</a>)</li>
+  <li><strong>Agent SDK fixes:</strong> Vercel AI SDK 7.0.162 restores approval checks when paused agent tool calls resume. Anthropic's Python SDK 2.4.0 adds administration methods. (<a href="https://samonai.substack.com/p/ai-brief-november-3-2026">Sam on AI</a>)</li>
+  <li><strong>India earnings:</strong> Drone maker ideaForge returned to profit in Q2 with ₹6.5 crore. Data-center and cloud firm ESDS grew Q2 profit 41% to ₹31.1 crore. (<a href="https://inc42.com/">Inc42, Nov 2</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 3, 2026 9:32 AM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
