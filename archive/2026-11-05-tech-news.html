@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 5, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Thursday, November 5, 2026 &nbsp;·&nbsp; Coverage: Nov 3–Nov 5, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">Reuters via Investing.com · CNBC · Bloomberg · AI Financing · Debt Markets · Update · Nov 3–4</p>
+      <h3>Meta Raises $15 Billion in Dollar Bonds, Then Draws a Record €53 Billion of Orders for a €9 Billion Euro Debut</h3>
+      <p class="crux">What's new since last edition: the bond sale that was only reported is now done. Meta sold bonds in two currencies to pay for AI infrastructure. Its first euro deal drew the most orders of any corporate bond sale in Europe, even though S&amp;P had just cut its outlook to negative.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>On Tuesday, November 3, Meta said it was raising $15 billion through a five-part US dollar bond sale, according to Reuters. CNBC had reported that the company was aiming for $20 billion to $25 billion in total, with about two-thirds in dollars and one-third in euros. On Wednesday, November 4, Bloomberg reported that Meta raised €9 billion in its first euro bond sale. That deal drew about €53 billion of orders, the most for any corporate deal in Europe. The previous record was more than €31 billion for Anheuser-Busch InBev in 2016. Bloomberg says the yields were generous enough to attract investors who are wary of the AI boom. The sale came days after S&amp;P Global Ratings changed Meta's outlook from AA- stable to AA- negative, citing uncertainty over capital spending and negative free cash flow. Meta raised $25 billion in bonds in April. It said last week that it plans to raise $95 billion to fund its AI work.</p>
+      <p><strong>Impact on the tech industry:</strong> Oracle's raise, covered last edition, showed the strain of paying for AI. Meta's record order book shows that investors will still lend to strong borrowers if the price is right. The cost of that money is going up, though, and the negative outlook is a warning. Euro investors are now a second source of funding for hyperscalers, which matters to Microsoft, Alphabet, Amazon and neoclouds planning their own debt sales. Watch how these bonds trade after issue, whether S&amp;P or other agencies take further rating actions, and which hyperscaler sells bonds next.</p>
+      <p><a href="https://www.investing.com/news/stock-market-news/meta-raises-15-billionin-fivepart-us-bond-sale-4996872">Read source: Reuters via Investing.com</a> · <a href="https://www.cnbc.com/2026/11/03/meta-bond-sale-ai-funding.html">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-04/meta-starts-debut-euro-bond-sale-after-15-billion-dollar-deal">Bloomberg</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">TechCrunch · Yahoo Finance · AI Labs · IPO · Update · Nov 4–5</p>
+    <h3>Anthropic Could Start Trading as Soon as November 16, While OpenAI's Brockman Says His Company Could Be Ready for an IPO in 2027</h3>
+    <p class="crux">What's new since last edition: reports now give dates. The earliest Anthropic could set its price is November 13, and trading could start November 16. At a WSJ conference, Brockman said OpenAI's first half was "pretty rough" and that it had been missing from agentic coding.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Yahoo Finance's November 5 guide cites reports from the Wall Street Journal and Reuters. They say Anthropic is aiming to start trading as soon as the week of November 16, and could set its price as early as November 13. No date has been officially confirmed. The shares would trade under the ticker ANT on the Nasdaq Global Select Market. The prospectus shows operating losses shrinking to $1.3 billion for the first nine months of 2026, down from $5.2 billion a year earlier. Separately, TechCrunch reports that OpenAI president Greg Brockman spoke at a Wall Street Journal tech conference on Wednesday. Asked whether OpenAI could be ready to go public next year, he said yes. He pointed to faster growth in enterprise revenue. He also admitted that the first two quarters of 2026 were "pretty rough" and that OpenAI had not been part of the agentic-coding conversation, where Anthropic's Claude Code has gained share.</p>
+      <p><strong>Impact on the tech industry:</strong> Anthropic's listing will be the first public-market price for a frontier AI lab. It will shape OpenAI's private valuation and the valuations of AI companies further down the market. Brockman's comments confirm that enterprise buyers and coding agents are now the main battleground. That matters to GitHub, Cursor, Cognition and the cloud providers. Watch Anthropic's price range, how heavily the offering is oversubscribed, and any formal OpenAI IPO timetable.</p>
+    <p><a href="https://finance.yahoo.com/technology/ai/article/anthropic-ipo-what-we-know-143321078.html">Read source: Yahoo Finance</a> · <a href="https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/">TechCrunch</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg · The Tech Cold War · Table.Briefings · Nvidia · China · Nov 3–4</p>
+    <h3>Chinese AI Firms Ordered About 6 Million Nvidia RTX Pro 5500 Chips Worth About $70 Billion. They Expect to Get Roughly 1% of Them</h3>
+    <p class="crux">Alibaba, Tencent, ByteDance and others expect only tens of thousands of chips over the next four months because Nvidia cannot make them fast enough. Nvidia is also tightening terms for its international cloud partners.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Bloomberg reported on November 4, citing people familiar with the matter, that Chinese AI and cloud companies have together ordered about 6 million of Nvidia's RTX Pro 5500 chips. The orders are worth about $70 billion. The buyers include Alibaba, Tencent and ByteDance. They expect to receive only some tens of thousands of chips, roughly 1%, within the next four months, because Nvidia is struggling to raise production to meet demand. The Tech Cold War newsletter argues that this quarter, Nvidia's production is a tighter limit than any Commerce Department licence. It also notes that a Shanghai chip designer claims to match Nvidia's H200 on some workloads, but no independent lab has tested that claim. Table.Briefings reported on November 3 that Nvidia is tightening terms for its international cloud partners, which could make it harder for Chinese firms to reach high-end chips through overseas data centers.</p>
+    <p><strong>Impact on the tech industry:</strong> The huge order backlog shows how much Chinese demand exists for US chips that comply with export rules. When supply falls short, buyers turn to Huawei Ascend, Cambricon and Kunlunxin. It also means Nvidia's China revenue now depends on production capacity rather than on demand. Watch Nvidia's November 17 earnings for China commentary and any new US or Chinese rules on chip purchases.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-11-04/nvidia-china-clients-to-get-1-of-70-billion-rtx-chips-ordered">Read source: Bloomberg</a> · <a href="https://williamusher.substack.com/p/china-ordered-6-million-nvidia-chips">The Tech Cold War</a> · <a href="https://table.media/en/china/news/chips-new-challenges-for-chinas-ai-companies">Table.Briefings</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">AI Weekly (citing FT) · Oracle · Tencent · Export Controls · Reported · Nov 4</p>
+    <h3>Oracle Drops a $7 Billion Deal to Lease AI Chips to Tencent After Pressure From US Officials (Reported)</h3>
+    <p class="crux">The five-year contract would have given Tencent access to about 100,000 advanced chips through Oracle data centers in Southeast Asia. No law blocked the deal. Officials in Washington, and separately in Guangdong, pushed against it.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AI Weekly, citing the Financial Times, reported on November 4 that Oracle has walked away from a five-year, $7 billion contract. The deal would have leased Tencent about 100,000 advanced AI chips through Oracle's data centers in Southeast Asia. Those chips cannot be sold into China because of restrictions from both Washington and Beijing. According to the report, Trump administration officials contacted Oracle to raise concerns. Separately, officials in Guangdong pressed Tencent to use Chinese-made chips. The FT says leasing AI chips overseas is still allowed under current rules. Political pressure ended this deal, not a new regulation. The decision comes days after Oracle filed to raise $20 billion in stock and bonds, as covered last edition, which makes losing a multibillion-dollar contract more noticeable.</p>
+    <p><strong>Impact on the tech industry:</strong> Renting compute in third countries has been the main legal way for Chinese companies to use top US chips. This case shows Washington can shut that route through pressure without a formal rule. That is a risk for every US cloud provider in Malaysia, Singapore and Thailand, and for the neoclouds that serve Chinese customers. It also pushes Tencent further toward Chinese chips. Watch whether other providers cancel deals quietly and whether Commerce turns the pressure into formal rules.</p>
+    <p><a href="https://aiweekly.co/alerts/oracle-drops-7b-tencent-ai-chip-lease-under-us-pressure">Read source: AI Weekly</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">XTB · ICYMI O/N · Yahoo Finance · Markets · Asia · Nov 3–5</p>
+    <h3>Investors Move Out of AI Stocks After the Midterms: Kospi Falls 5.28%, Taiwan Drops 3.2%, and Nasdaq Futures Slip</h3>
+    <p class="crux">Tuesday's 3% rebound in chip stocks did not last. Investors shifted toward companies that depend more on the wider economy, and AI infrastructure names fell, including Nvidia, AMD, CoreWeave, Nebius and IREN. Analysts disagree on whether AI spending has peaked.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Tuesday, November 3, the Philadelphia Semiconductor Index rose 3% as investors bought back into AI stocks after a sell-off, Yahoo Finance reports. The mood changed after the election. ICYMI O/N reports that on Thursday, South Korea's Kospi closed down 5.28%, with trading curbs triggered during the session. Japan's Nikkei fell 1.79% and Taiwan's TAIEX fell 3.2%. XTB says Nasdaq-100 futures were down about 1.2%. It also says AI infrastructure stocks fell, including Nvidia, AMD, CoreWeave, Nebius and IREN, as some investors bet that slower data-center construction will reduce spending. Citrini Research argues that AI investment growth has peaked. UBS instead raised its forecast for AI spending to $1.4 trillion. According to ICYMI, Senator Bernie Sanders renewed his call for a national pause on new data centers, saying 43 of 44 communities had voted for local restrictions.</p>
+    <p><strong>Impact on the tech industry:</strong> Korean and Taiwanese chip and memory stocks are the most exposed to any slowdown in AI spending. Local votes against data centers add permitting risk for hyperscalers and power developers. Watch Friday's US jobs report, Nvidia's earnings on November 17, and whether any hyperscaler cuts its spending plans.</p>
+    <p><a href="https://www.xtb.com/cy/market-analysis/news-and-research/what-drives-the-market-top-morning-news-november-5-2026">Read source: XTB</a> · <a href="https://zackeiseman.substack.com/p/icymi-on-november-5th-2026">ICYMI O/N</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-news-nov-4-132500586.html">Yahoo Finance</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">DailyCoin · Crypto Briefing · FinanceFeeds · Crypto Security · Update · Nov 4–5</p>
+    <h3>Binance Says It Has Replaced 98% of Hacked Assets and Expands Proof of Reserves to 44 Tokens</h3>
+    <p class="crux">What's new since last edition: Binance's eighth recovery update says withdrawals are back for 62 tokens. Tracked assets rose $3.4 billion in two days. Analysts say about $2.8 billion of the stolen funds has been frozen, but some questions remain open.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Binance published its eighth recovery update on November 5. It says about 98% of the user asset value affected by the October 29 hack has been replaced, DailyCoin reports. That figure was 90% on October 31 and 95% at the start of November. The remaining 2% is in less liquid tokens, which Binance is buying on open markets and through over-the-counter deals. Withdrawals have been restored for 62 tokens. Proof-of-reserves coverage has grown from 10 tokens to 44 and now uses zero-knowledge verification, which lets users confirm that their balances are backed at least one-for-one. Crypto Briefing says Binance's tracked assets rose $3.4 billion in the two days after withdrawals restarted. Some of that increase may come from Binance's own token purchases. FinanceFeeds says blockchain analysts have frozen about $2.8 billion of the stolen funds. It also points to conflicting reports on whether withdrawals are fully open again.</p>
+    <p><strong>Impact on the tech industry:</strong> Binance appears to have survived the largest hack in crypto history without customers losing funds. Paying for the losses from its own balance sheet sets a high bar for other exchanges. Zero-knowledge proof of reserves may become the expected standard. Watch the full reserve proof, recovery of the remaining 2%, and US action tied to the North Korea attribution.</p>
+    <p><a href="https://dailycoin.com/binance-hack-recovery-proof-of-reserves-expands-tokens">Read source: DailyCoin</a> · <a href="https://cryptobriefing.com/binance-assets-rise-after-hack/">Crypto Briefing</a> · <a href="https://financefeeds.com/binance-hack-one-week-on-recovered-frozen/">FinanceFeeds</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Shattered · Benzinga · GuruFocus · MarketBeat · Qualcomm · Arm · Earnings · Nov 4</p>
+    <h3>Arm Beats and Forecasts Above Estimates; Qualcomm Beats but Falls 6% on a Weak Outlook and Lower Margins</h3>
+    <p class="crux">Arm's revenue rose 27% to $1.44 billion on AI and data-center demand. Qualcomm's revenue of $10.4 billion was down 7% from a year earlier. It blamed supply shortages and higher costs for its guidance. Its automotive business reached an $8 billion annual run rate.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Both companies reported after the market closed on November 4. Arm earned $0.52 per share against a $0.48 consensus, according to MarketBeat. Revenue of $1.44 billion was up 27.1% and beat the $1.38 billion estimate, and the company forecast third-quarter revenue above estimates. Qualcomm reported fiscal fourth-quarter revenue of $10.4 billion and adjusted earnings of $2.17 per share, narrowly beating forecasts. Fiscal 2026 revenue was $43.2 billion, according to the Benzinga transcript. Shattered reports that Qualcomm's guidance for the next quarter is $10.4 billion to $11.2 billion in revenue and $2.15 to $2.35 in earnings per share. The midpoint is below the $2.32 analysts expected. Qualcomm also guided its chip-business margin down to 20% to 22% from 24%. GuruFocus says supply shortages are hurting sales of smartphone chips. Automotive revenue grew almost 90% year over year to an $8 billion annual run rate. Qualcomm also added a second customer for its optical connectivity product.</p>
+    <p><strong>Impact on the tech industry:</strong> AI demand is lifting Arm's royalties from data-center chips. Phone chipmakers are being squeezed by the same memory and supply shortage that hit Apple last edition. That is a risk for Android phone makers and MediaTek. Watch Qualcomm's progress with data-center AI customers and how many phones ship over the holidays.</p>
+    <p><a href="https://shattered.io/qualcomm-slides-6-percent-supply-costs-chip-margin-guide-20-22-percent-2026/">Read source: Shattered</a> · <a href="https://www.benzinga.com/news/26/11/62899398/qualcomm-q4-2026-earnings-call-transcript">Benzinga transcript</a> · <a href="https://www.gurufocus.com/news/9171588/qualcomm-qcom-reports-strong-earnings-amid-supply-issues">GuruFocus</a> · <a href="https://www.marketbeat.com/earnings/reports/2026-11-4-arm-holdings-plc-american-depositary-shares-stock/">MarketBeat</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Sam on AI · The Neuron · AI Rundown · Apple · Developers · Nov 4–5</p>
+    <h3>Apple Opens Siri AI to All Developers in Preview, While Warning Investors About the Risks of Autonomous Agents</h3>
+    <p class="crux">The iOS 27.3 betas let any app make its content and actions available to Siri. Customers get the feature in a few months, and App Store submissions open in spring. Siri AI is still not available in the EU. Apple has also reportedly cut its own engineers' daily AI budgets.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Sam on AI reports that Apple has opened Siri AI integration to all developers in the iOS, iPadOS, macOS and visionOS 27.3 betas. Through App Intents, apps can make their content and actions available to Siri. New "skills" bundle several actions into one, and Siri can find app content through Spotlight's semantic index. Access is an early Developer Preview for now. Apple says customers will get the feature in a few months and App Store submissions open in spring, with more terms still to come. Siri AI is not currently offered on iOS, iPadOS or watchOS in the EU. The Neuron says Apple also warned investors that unpredictable AI agents pose risks. AI Rundown notes changes to Mac full-disk access meant to reduce those risks. On November 5, The Neuron reported that Apple cut some engineers' daily AI budgets from $300 to $200 (Reported).</p>
+    <p><strong>Impact on the tech industry:</strong> Siri becomes a new way for users to reach apps. App makers will need to decide which actions to make available, much as they once optimized for search. That puts pressure on Google's Gemini and on OpenAI's own device and agent plans. Watch the final usage policies, any revenue terms for developers, and when the EU gets access.</p>
+    <p><a href="https://samonai.substack.com/p/ai-brief-november-4-2026">Read source: Sam on AI</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/">The Neuron, Nov 4</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-5-2026/">The Neuron, Nov 5</a> · <a href="https://riorundown.substack.com/p/ai-news-nov-04-2026-ai-infrastructure">AI Rundown</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">TechCrunch · Sam on AI · The Neuron · Dropbox · Meta · M&amp;A · Nov 5</p>
+    <h3>Dropbox Buys Tigris Data for $350 Million to Build an AI Agent Cloud; Meta Acquires Coding-Agent Startup Conductor</h3>
+    <p class="crux">Tigris appears to be Dropbox's largest acquisition so far and will support a new storage platform called DBX Agent Cloud. Meta's purchase of Conductor means Conductor's cloud service shuts down on November 20, so its users need to move their data before then.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Thursday, November 5, Dropbox announced it will acquire cloud technology company Tigris Data for $350 million, TechCrunch reports. The deal supports DBX Agent Cloud, a storage platform for businesses and developers building AI models and agents. Dropbox expects to close in the fourth quarter. It says it has no plans to cut jobs as a result. Dropbox users will also be able to ask AI to work with their files, choose which model to use, and connect their files to ChatGPT, Claude and Muse. Separately, Meta has acquired Conductor, whose software lets developers split a coding project across several AI agents. The price was not disclosed in the reports we reviewed. Sam on AI says Conductor Cloud becomes read-only on November 13 and shuts down on November 20, when deletion of user data begins. The local version will receive new models and fixes until early 2027.</p>
+    <p><strong>Impact on the tech industry:</strong> Storage and orchestration for AI agents are becoming features that platforms buy rather than build. That puts pressure on independent agent-tooling startups and on object-storage rivals such as Cloudflare R2 and Backblaze. Meta's purchase adds to its coding push against Anthropic, OpenAI and Cursor. Watch how Conductor users migrate and whether DBX Agent Cloud is priced to compete with S3.</p>
+    <p><a href="https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/">Read source: TechCrunch</a> · <a href="https://samonai.substack.com/p/ai-brief-november-5-2026">Sam on AI</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-5-2026/">The Neuron</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">SecondWave · AI Agents Directory · ICYMI O/N · YourStory · Funding · Nov 4–5</p>
+    <h3>Funding Roundup: Nooks Gets $500 Million, Sentra Raises $150 Million, and Isomorphic Labs Is in Talks for About $5 Billion (Reported)</h3>
+    <p class="crux">Investors are funding the tools around AI agents, including sales agents and data security for agents. They are also backing AI in healthcare, from drug discovery to cardiac imaging. India's Ottonomy closed a post-seed round for its delivery robots.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On November 4, sales-software firm Nooks announced $500 million in growth capital from General Catalyst's Customer Value Fund, according to SecondWave. It also launched a Revenue Agent Platform and a sales assistant called Node. Medical-device company Laza Medical announced a Series B of up to $160 million, led by GE HealthCare, for AI imaging in cardiac catheterization labs. AI Agents Directory lists Sentra's $150 million raise to secure the data that AI agents can access, and Phaze's $8.75 million round for remote workstation access for agents. ICYMI O/N, citing Bloomberg, reports that Alphabet's Isomorphic Labs is in talks to raise roughly $5 billion for AI drug discovery. That is not yet confirmed. In India, YourStory reports that Japan-based Enrission India Capital joined Ottonomy's ₹40.6 crore ($4.2 million) post-seed round.</p>
+    <p><strong>Impact on the tech industry:</strong> Large rounds for agent security and sales agents show where investors expect enterprise AI budgets to go next. That puts pressure on established vendors such as Salesforce, Okta and CrowdStrike to buy or build similar tools. A $5 billion round for Isomorphic would make it one of the best-funded AI drug-discovery companies. Watch whether the Isomorphic round closes and at what valuation.</p>
+    <p><a href="https://note.com/startup_now0708/n/n7e714b2dad21?hl=en">Read source: SecondWave</a> · <a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-november-5-2026">AI Agents Directory</a> · <a href="https://zackeiseman.substack.com/p/icymi-on-november-5th-2026">ICYMI O/N</a> · <a href="https://yourstory.com/2026/11/startup-news-and-updates-daily-roundup-november-4-2026">YourStory</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>SoftBank and ABB robotics:</strong> The FT reports that China has refused to approve SoftBank's $5.4 billion purchase of ABB's robotics division (Reported). (<a href="https://www.xtb.com/cy/market-analysis/news-and-research/what-drives-the-market-top-morning-news-november-5-2026">XTB, Nov 5</a>)</li>
+  <li><strong>Chip-equipment supply contracts:</strong> ETNews reports that ASML, Applied Materials, Lam, TEL and KLA are finishing equipment contracts for 2028 and starting talks for 2029 (Reported). (<a href="https://www.kucoin.com/news/flash/semiconductor-equipment-makers-begin-2029-supply-negotiations-amid-ai-driven-demand-surge">KuCoin, Nov 4</a>)</li>
+  <li><strong>Server guidance goes up:</strong> AMD raised its 2027 server CPU growth forecast, and Arista and Supermicro gave stronger guidance. (<a href="https://404kresearch.substack.com/p/456x-morning-brief-november-4-2026-f25">456X Morning Brief, Nov 4</a>)</li>
+  <li><strong>Foxconn October sales:</strong> Revenue rose 46% to NT$1.31 trillion ($39.7 billion) on demand for AI servers. (<a href="https://zackeiseman.substack.com/p/icymi-on-november-5th-2026">ICYMI O/N, Nov 5</a>)</li>
+  <li><strong>Workday buys C1.ai:</strong> Workday calls C1.ai the identity-governance layer for "people, money, and agents," which puts it in more direct competition with SAP. (<a href="https://itwire.com/business-it-news/data/sap-connect-2026-part-2-of-2-is-saps-autonomous-enterprise-really-cold-and-soulless-as-workday-claims">iTWire, Nov 5</a>)</li>
+  <li><strong>Canva layoffs:</strong> Canva is cutting 1,271 jobs, 22% of its workforce, as it reorganizes around AI. (<a href="https://yourstory.com/2026/11/startup-news-and-updates-daily-roundup-november-4-2026">YourStory, Nov 4</a>)</li>
+  <li><strong>AI-found Linux bugs:</strong> OpenAI says its AI agents found 948 security vulnerabilities in Linux. (<a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-5-2026/">The Neuron, Nov 5</a>)</li>
+  <li><strong>Patch week:</strong> Google fixed more than 200 Android flaws, including critical zero-click bugs that need no user action. Chrome 157 includes 213 security fixes, seven of them critical. (<a href="https://theparkernathan.substack.com/p/cybersecurity-news-november-4-2026">Cybersecurity News, Nov 4</a>)</li>
+  <li><strong>Cheaper coding model:</strong> Cognition's SWE-2 Flash costs one-fifth of SWE-2's price in Devin. Its weights have not been released. (<a href="https://samonai.substack.com/p/ai-brief-november-5-2026">Sam on AI, Nov 5</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 5, 2026 4:54 PM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
