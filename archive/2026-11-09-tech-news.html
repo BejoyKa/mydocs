@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 9, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Monday, November 9, 2026 &nbsp;·&nbsp; Coverage: Nov 5–Nov 9, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">Bloomberg · Axios · CNBC · Al Jazeera · ICYMI O/N · Nvidia · Governance · Nov 8–9</p>
+      <h3>Nvidia's Board Investigates Whether CEO Jensen Huang Was Targeted by Chinese Intelligence; Shares Fall as Much as 8.8%</h3>
+      <p class="crux">On Sunday, Huang told staff about a relationship with a businesswoman whom US intelligence officials reportedly believe was recruited by Beijing. The board says it has no reason to think any secrets were compromised and still supports him. Monday's drop briefly wiped out almost $400 billion in market value.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>On Sunday, November 8, Nvidia's board said it had opened an investigation into reports that founder and CEO Jensen Huang was the target of a foreign intelligence effort. A committee of independent directors will run it with help from outside counsel. The board acted after a memo to staff, reported by Axios and CNBC, in which Huang admitted an extramarital relationship, took responsibility and promised to cooperate. Al Jazeera says a New York Times investigation late last month reported that US intelligence officials believed the woman had been recruited by Beijing. She is a former executive at a Singapore-based data center company. Officials believed she was meant to gather information on Huang and possibly influence Nvidia's chip sales to China. The board says it has no reason to believe that national security or Nvidia's secrets were compromised. Bloomberg reports the stock fell as much as 8.8% on Monday. ICYMI O/N reports that President Trump said Huang should keep his job, and that China's state-run Global Times denied any link to Beijing. CNBC notes that Huang is not chairman of the board. One investor close to him said a leave of absence was possible, depending on what the investigation finds.</p>
+      <p><strong>Impact on the tech industry:</strong> Huang has been the industry's leading advocate for loosening chip-export rules for China. This investigation begins just as the newly empowered Democrats prepare to scrutinize Nvidia's chip exports, and about a week before Nvidia reports earnings on November 17. Investors will now weigh how much the company depends on one leader, and that could affect Nvidia's China plans and AI stocks more broadly. Watch for the scope and timeline of the investigation, requests for congressional hearings, and any changes to Nvidia's leadership or board.</p>
+      <p><a href="https://www.bloomberg.com/news/articles/2026-11-08/nvidia-board-to-probe-spying-case-after-ceo-jensen-huang-admits-infidelity">Read source: Bloomberg</a> · <a href="https://www.axios.com/2026/11/08/nvidia-ceo-jensen-huang-admits-affair-board-to-launch-investigation">Axios</a> · <a href="https://www.cnbc.com/2026/11/08/nvidia-jensen-huang-email-board-of-directors-statement.html">CNBC, board statement</a> · <a href="https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-affair-congress-scrutiny.html">CNBC, Congress</a> · <a href="https://www.aljazeera.com/news/2026/11/9/why-is-nvidias-jensen-huang-at-the-centre-of-a-us-china-spy-scandal">Al Jazeera</a> · <a href="https://zackeiseman.substack.com/p/icymi-on-and-weekend-november-9th">ICYMI O/N</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">The Hacker News · Notebookcheck · Sam on AI · OpenAI · Security · Nov 5–8</p>
+    <h3>OpenAI Releases GPT-6 Cyber, Its First Model Rated "Critical" for Cybersecurity, to Vetted Security Teams Only</h3>
+    <p class="crux">The model can find software flaws and write working exploits for them. On the ExploitGym benchmark it scores 48.5%, up from 32.1% for the previous version. OpenAI ranks it in the top risk category of its own safety framework, so for now only selected security teams in its Daybreak Red program can use it.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>OpenAI released GPT-6 Cyber on Thursday, November 5. It is available through the API and Codex to selected customers in Daybreak Red, OpenAI's program for authorized offensive security work such as penetration testing. OpenAI plans to open it to all Daybreak Red customers later. Under OpenAI's Preparedness Framework, the company's system for rating dangerous capabilities, the model is rated Critical for cybersecurity, the highest level. Its predecessor, GPT-5.6 Cyber, was rated High. On ExploitGym, which asks a model to exploit a known flaw on a remote system, the model completed 48.5% of tasks. OpenAI says that without safety prompts, the model stayed away from systems it was not authorized to attack in 99.93% of tests. With the prompts, it stayed within those limits every time. The Hacker News reports that OpenAI's AI tools helped find 81 previously unknown Firefox flaws and 948 Linux privilege-escalation exploits. The Linux figure was in last edition's Watch List. OpenAI sent 304 critical findings to Linux kernel maintainers along with draft patches. In the same disclosures, OpenAI reported three incidents in which other models, GPT-6 Astra and an internal research model, did not behave as intended.</p>
+    <p><strong>Impact on the tech industry:</strong> AI is now finding software flaws faster than open-source projects and vendors can fix them, so patch backlogs could grow. Security vendors such as CrowdStrike, Palo Alto Networks and Wiz now compete with an AI lab that finds vulnerabilities itself. Watch how quickly OpenAI widens access, whether Anthropic and Google release similar models, and whether regulators set rules for AI that can write exploits.</p>
+    <p><a href="https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html">Read source: The Hacker News</a> · <a href="https://www.notebookcheck.net/GPT-6-Cyber-OpenAI-rates-its-new-security-model-as-Critical.1445199.0.html">Notebookcheck</a> · <a href="https://samonai.substack.com/p/ai-brief-november-6-2026">Sam on AI</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg · The Paypers · Weekly AI Brief · Anthropic · IPO · Update · Nov 6–9</p>
+    <h3>After the AI Stock Sell-Off, Anthropic IPO Buyers Discuss a $1.2–1.3 Trillion Valuation, With Some as Low as $1.1 Trillion</h3>
+    <p class="crux">What's new since last edition: possible buyers have lowered their expectations ahead of the formal IPO marketing that starts this week. A month ago, some buyers' estimates were as high as $2 trillion. Anthropic's last private valuation, in May, was $965 billion.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Bloomberg reported on November 6 that potential buyers are discussing a valuation range of about $1.2 trillion to $1.3 trillion. Anthropic is due to start formal IPO marketing this week. One of Bloomberg's sources said some buyers are considering a value as low as $1.1 trillion. The Paypers notes that in early October, some prospective buyers put a fair value as high as $2 trillion. It also says a Morningstar strategist expects Anthropic would accept a lower valuation if the market requires it. Investors are also comparing Anthropic with OpenAI, which has just raised money at $1.25 trillion (see Funding). According to a weekly AI brief, Anthropic's amended prospectus, filed November 2, shows third-quarter revenue of $17 billion, up from $11.6 billion in the previous quarter. Quarterly growth slowed to about 47%, and the company went from a $974 million operating profit to a $567 million operating loss. The filing says compute bought at short notice costs much more than compute bought under multi-year contracts.</p>
+    <p><strong>Impact on the tech industry:</strong> Anthropic's IPO price will now reflect the post-election drop in AI stocks, not the excitement of October. A lower price would make it easier for later AI listings to be priced cautiously, and it would affect how secondary-market buyers value OpenAI, xAI and Mistral. Watch the official price range, how many investors sign up, and whether the reported dates of November 13 for pricing and November 16 for trading still hold.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout">Read source: Bloomberg</a> · <a href="https://thepaypers.com/fintech/news/anthropic-ipo-investors-weigh-valuation-as-low-as-usd-11-trillion">The Paypers</a> · <a href="https://daliborttc.substack.com/p/your-weekly-ai-brief-5-things-to-3e7">Weekly AI Brief</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">AI Weekly · The Neuron · Mind and Machine · BitDigest · US Policy · Nov 6–9</p>
+    <h3>Justice Department Creates a "Super Intelligence Task Force" to Prosecute Misuse of AI and Challenge Some State AI Laws</h3>
+    <p class="crux">Attorney General Todd Blanche's new unit takes over the existing AI Litigation Section. It will coordinate AI-related prosecutions, and prosecutors may have to notify it before bringing AI-related charges. The SEC and OCC are also turning their attention to AI.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AI Weekly reports that Attorney General Todd Blanche has announced the Super Intelligence Task Force. Associate Attorney General Stanley Woodward and Associate Deputy Attorney General Stephen Weiss will co-chair it. Its job is to prosecute foreign governments, international criminal groups and companies that misuse advanced AI. The department's existing AI Litigation Section becomes part of the new unit. Mind and Machine Weekly says prosecutors may have to notify the task force before bringing AI-related charges. On November 9, The Neuron said the unit has two jobs: coordinating AI prosecutions and challenging some state AI laws. It also said President Trump had signaled openness to AI guardrails. In the same week, according to BitDigest, the SEC's enforcement chief said the agency is watching what AI companies disclose, and the Office of the Comptroller of the Currency (OCC) issued AI examination guidance for banks.</p>
+    <p><strong>Impact on the tech industry:</strong> Federal enforcement around AI is getting more organized. Companies such as AI labs, deepfake platforms and agent developers face more risk of prosecution if their tools are misused. Challenges to state laws could weaken rules in California, Colorado and New York, while a Democratic Congress pushes for more oversight. Watch for the task force's first cases, which state laws it challenges, and what the SEC says about AI companies' disclosures as Anthropic goes public.</p>
+    <p><a href="https://aiweekly.co/ai-news-today/edition/2026-11-06">Read source: AI Weekly</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-9-2026/">The Neuron</a> · <a href="https://mindandmachineweekly.substack.com/p/mind-and-machine-weekly-8-november">Mind and Machine Weekly</a> · <a href="https://bitdigest.substack.com/p/saturday-november-7-2026">BitDigest</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Deep Gains · The Neuron · Sam on AI · Mistral · Baidu · Google · Models · Nov 6</p>
+    <h3>New Models From Europe and China: Mistral Releases Large 4 Weights, Baidu Releases a 280-Billion-Parameter ERNIE Base Model, and Google Cuts Video Prices 30%</h3>
+    <p class="crux">Mistral released downloadable weights for Large 4 and added managed agents to Studio. Baidu released an openly available ERNIE 5.5 Flash Base model. Google made Gemini Omni 1.2 Flash generally available. Thinking Machines says it will release Inkling 2 Small weights next week.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Deep Gains reports that Mistral Large 4's weights can now be downloaded under a modified MIT licence. The Neuron says Mistral also expanded its Studio platform with managed AI agents and business apps, and plans private-cloud and on-premises versions for late November. Baidu released ERNIE 5.5 Flash Base, an openly available model with 280 billion parameters. Sam on AI reports that Google made Gemini Omni 1.2 Flash generally available. It can now make video clips up to 15 seconds long, up from 10, and the listed price for 720p video fell 30% to $0.07 per second. Users can also revise an existing clip by giving instructions in conversation. Thinking Machines Lab launched Inkling 2 Small on its Tinker platform. The weights have not been released yet; Deep Gains says Apache 2.0 weights are promised for next week.</p>
+    <p><strong>Impact on the tech industry:</strong> Capable models from Europe and China with downloadable weights give businesses alternatives to closed US models. That matters most for sovereign-cloud buyers in the EU, the Gulf and India. It also puts pricing pressure on OpenAI, Anthropic and Google APIs, which already face cost-cutting by business customers. Watch independent benchmark results for Large 4 and ERNIE 5.5, whether Inkling 2 Small's weights are released, and whether rival video tools such as Runway respond to Google's price cut.</p>
+    <p><a href="https://deepgains.substack.com/p/morning-brief-friday-november-6-2026-da6">Read source: Deep Gains</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-6-2026/">The Neuron</a> · <a href="https://samonai.substack.com/p/ai-brief-november-6-2026">Sam on AI</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">CNBC · AI Weekly · Deep Gains · Markets · Update · Nov 5–6</p>
+    <h3>Nasdaq Has Its Worst Day in 18 Months as Chip Stocks Drop 12%; the Magnificent Seven Lose $1 Trillion</h3>
+    <p class="crux">What's new since last edition: Thursday's drop in US futures turned into a full rout. The Nasdaq fell into correction territory, and Nvidia and Qualcomm each fell more than 9%. Some investors bought the dip on Friday, and the Nasdaq Composite rose 1%. European stocks had their worst day since March.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AI Weekly, citing Business Insider, reports that the Nasdaq 100 fell 6.4% on Thursday, November 5, a record $2.3 trillion loss in market value. The Philadelphia Semiconductor Index fell 12%. Nvidia and Qualcomm each dropped more than 9% on fears that Democratic midterm wins will slow data-center construction. Deep Gains put the Nasdaq's fall at 5.5%, enough to put it in correction territory. The two sources appear to be measuring different Nasdaq indexes. CNBC says the Magnificent Seven lost more than $1 trillion in combined value on Thursday alone. On Friday, the Nasdaq Composite rose 1% as some investors bought chip stocks, with gains in Nvidia, Tesla, Meta and Alphabet. Europe's Stoxx 600 fell 1.7% and was heading for its worst session since March. Last edition covered Thursday's falls in Asia, including a 5.28% drop in the Kospi.</p>
+    <p><strong>Impact on the tech industry:</strong> The sell-off is now affecting private markets. OpenAI cut the size of its funding round, and Anthropic's IPO buyers lowered their valuation expectations. Chip and AI infrastructure companies with the most debt, including CoreWeave, Nebius and IREN, are under the most pressure. Watch whether the rebound holds before Nvidia reports on November 17, and whether any hyperscaler cuts its spending plans.</p>
+    <p><a href="https://www.cnbc.com/2026/11/05/stock-market-today-live-updates.html">Read source: CNBC</a> · <a href="https://aiweekly.co/ai-news-today/edition/2026-11-06">AI Weekly</a> · <a href="https://deepgains.substack.com/p/morning-brief-friday-november-6-2026-da6">Deep Gains</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">CNBC · Bloomberg · Washington Post · Moonshot AI · Export Controls · Nov 5–6</p>
+    <h3>China's Moonshot AI Sought Nvidia Chips at European Data Centers as Democrats Prepare to Scrutinize Chip Exports</h3>
+    <p class="crux">Sources told CNBC that the Kimi developer approached European neoclouds about leasing advanced Nvidia chips. Renting chips in data centers outside China is still legal. Washington has already said Moonshot used Blackwell chips through a facility in Thailand.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>CNBC reported on November 5, citing sources, that Beijing-based Moonshot AI has sought leasing agreements with neoclouds for advanced Nvidia chips hosted in Europe. US export controls block shipments of Nvidia's top chips to China. Using them remotely in overseas data centers is still a loophole. In July, the White House said Moonshot had used Nvidia Blackwell chips through a facility in Thailand. Founded in 2023, Moonshot is one of China's leading model builders, and Chinese models have gained users worldwide in 2026 because they cost less. On November 6, Bloomberg reported that Nvidia's AI chip exports are becoming a target for the incoming Democratic Congress. The Washington Post reports that Democratic lawmakers are preparing investigations into Meta, Apple and SpaceXAI. Last edition, Oracle reportedly dropped a $7 billion chip-leasing deal with Tencent after pressure from US officials.</p>
+    <p><strong>Impact on the tech industry:</strong> The fight over overseas chip access is moving from Southeast Asia to Europe. That puts European neoclouds such as Nscale and Nebius in an awkward position: they must decide whether to serve Chinese labs, risking trouble with Washington, or turn them away. Together with the Huang investigation, this makes formal rules on remote chip access more likely. Watch for Commerce Department guidance, congressional letters to Nvidia, and whether European providers publicly refuse Chinese customers.</p>
+    <p><a href="https://www.cnbc.com/2026/11/05/moonshot-ai-nvidia-chips-europe-china.html">Read source: CNBC</a> · <a href="https://www.bloomberg.com/technology">Bloomberg Technology</a> · <a href="https://washingtonpost.com/wp-intelligence/ai-tech-brief/2026/11/06/ai-tech-brief-new-era-tech-oversight">Washington Post</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Quantum Zeitgeist · IBM · IQM · Quantum · Nov 6–9</p>
+    <h3>IBM Switches On Quantum System Two in Chicago With Its Nighthawk Chip; Finland's IQM Books €42 Million in Orders</h3>
+    <p class="crux">IBM calls the University of Chicago system its most advanced quantum computer to date. Early partners include Deloitte, AbbVie and EPRI. In Europe, IQM's orders for error-correction systems are coming mostly from an AI supercomputing center.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Quantum Zeitgeist reports that IBM launched Quantum System Two in Chicago on November 6. It is IBM's most advanced quantum computer so far, powered by its Quantum Nighthawk chip, and located at the University of Chicago's Hyde Park Labs. Early research focuses on drug discovery and power-grid optimization. Collaborators include Deloitte, AbbVie, the Electric Power Research Institute and the University of Illinois Urbana-Champaign. IBM researchers also published a method for checking how well quantum error-correction codes perform, for code distances up to 16. Oak Ridge National Laboratory, IBM and AMD launched a joint platform with a 120-qubit system to speed up error-correction research. In Europe, Finland's IQM Quantum Computers reported €42.2 million of third-quarter orders, mostly from CSC's LUMI AI Factory for its error-correction platform. France's IDEMIA received the first EMVCo certification for quantum-safe payment cards.</p>
+    <p><strong>Impact on the tech industry:</strong> Quantum computers are being installed in regional research centers and next to AI supercomputers, not only in vendors' own labs. That helps IBM against IonQ, Quantinuum and Google. Quantum-safe payment cards show that banks and card networks are starting to prepare for future quantum attacks on encryption. Watch for the first results from the Chicago partners and whether HPC centers in the US and Europe place more orders.</p>
+    <p><a href="https://quantumzeitgeist.com/quantum-zeitgeist-weekly-digest-nov-9/">Read source: Quantum Zeitgeist</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Reuters via Yahoo Finance · DataX Connect · Deep Gains · Google · Data Centers · Nov 5–6</p>
+    <h3>Google Commits $17 Billion to Its First Wyoming Data Center as Voters Reject Data Centers in 40 of 41 Ballot Measures</h3>
+    <p class="crux">The site will run partly on a planned 702-megawatt Bloom Energy fuel-cell plant with carbon capture. Google is pressing ahead in places that welcome data centers. Deep Gains also reports a $15 billion commitment in Malaysia.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Google said on Thursday, November 5, that it will invest $17 billion in its first data center in Wyoming, Reuters reports. Partners include Tallgrass Energy, Black Hills Energy, American Electric Power and Related Digital. The project will be powered partly by a planned 702-megawatt fuel-cell development with carbon capture and storage, using Bloom Energy fuel cells. The announcement came as opposition to data centers grows after the midterms. According to Ballotpedia, 40 of the 41 data-center ballot measures voted on that week went against data centers. DataX Connect cites a report that more than half of US hyperscale data-center projects now face regulatory obstacles. Deep Gains reports that Google has also committed $15 billion to Malaysia. BitDigest, citing CNBC, says OpenAI has pledged to pay the full power costs of its data centers after the election backlash.</p>
+    <p><strong>Impact on the tech industry:</strong> Hyperscalers are moving toward states that welcome data centers and toward power they generate on site, and away from crowded grids where local votes can block projects. That helps Bloom Energy and other fuel-cell and gas suppliers, as well as builders in Asia. Promises to pay full power costs may become the standard price for local approval. Watch for more Mountain West projects, permit fights in Virginia and Arizona, and whether Microsoft, Amazon and Meta make similar power pledges.</p>
+    <p><a href="https://finance.yahoo.com/technology/ai/articles/google-plans-17-billion-wyoming-204551123.html">Read source: Reuters via Yahoo Finance</a> · <a href="https://dataxconnect.com/weekly-data-centre-news-6th-november-2026">DataX Connect</a> · <a href="https://deepgains.substack.com/p/morning-brief-friday-november-6-2026-da6">Deep Gains</a> · <a href="https://bitdigest.substack.com/p/saturday-november-7-2026">BitDigest</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">DataX Connect · BitDigest · AIToolly · Weekly AI Brief · Microsoft · Neoclouds · Nov 6–9</p>
+    <h3>Microsoft Turns Down a Multibillion-Dollar Nscale Expansion While IREN Delays Its Microsoft AI Deliveries</h3>
+    <p class="crux">Microsoft rejected a large new AI capacity deal with the UK's Nscale. A weekly brief adds that it will stop renting AI servers it took on in 2023. IREN, one of its suppliers, pushed back its revenue milestone and outlined a $15 billion spending plan.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>DataX Connect and BitDigest, citing Reuters, report that Microsoft has turned down a multibillion-dollar AI expansion with the UK neocloud Nscale. A weekly AI brief summarizes Microsoft's move as stopping its rental of AI servers it took on in 2023. AIToolly reports that IREN has delayed AI deliveries to Microsoft and outlined a $15 billion capital spending plan. It also moved its target of more than $4 billion in annual run-rate revenue from year-end to January. Elsewhere in AI infrastructure finance, CNBC and Data Center Dynamics report that ING is putting about $500 million of data-center loans up for sale, including part of a Stargate site in New Mexico, with bids due November 19. BitDigest also reports, citing Reuters, that TeraWulf secured a credit backstop from Google for an Anthropic data center.</p>
+    <p><strong>Impact on the tech industry:</strong> When the largest buyer of rented AI capacity becomes more selective, neoclouds that depend on one or two customers become riskier. That affects Nscale, IREN, CoreWeave and Nebius, and the lenders behind them. A credit backstop from a big tech company is becoming the main thing that makes a neocloud project financeable. Watch how much ING's loans sell for, whether other hyperscalers walk away from leases, and how Nscale funds its expansion.</p>
+    <p><a href="https://dataxconnect.com/weekly-data-centre-news-6th-november-2026">Read source: DataX Connect</a> · <a href="https://bitdigest.substack.com/p/saturday-november-7-2026">BitDigest</a> · <a href="https://aitoolly.com/ai-news/2026-11-07">AIToolly</a> · <a href="https://daliborttc.substack.com/p/your-weekly-ai-brief-5-things-to-3e7">Weekly AI Brief</a> · <a href="https://hervecuviliez.substack.com/p/market-news-saturday-7-november-2026">Market News</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg via Investing.com · PYMNTS · Market News · OpenAI · Funding · Reported · Nov 6–8</p>
+    <h3>OpenAI Closes $11 Billion at a $1.25 Trillion Valuation After Cutting Its Fundraising Goals (Reported)</h3>
+    <p class="crux">This is the first part of a round that could reach $20 billion. OpenAI had originally sought $30 billion or more at a higher valuation. The cut followed the AI stock sell-off and the midterm backlash against data centers.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Friday, November 6, Bloomberg reported, citing people familiar with the matter, that OpenAI had completed the first $11 billion of a new funding round at a $1.25 trillion valuation. The money reportedly reached the company that day. The rest of the round could bring the total to about $20 billion in the coming weeks. Bloomberg says OpenAI originally aimed to raise $30 billion or more at a $1.4 trillion valuation. PYMNTS, citing Reuters, says two investors put the earlier target at $1.5 trillion. OpenAI lowered its goals after the sell-off in AI stocks and concerns about obstacles to data-center construction after the midterms. Market News says investor names circulating in the market should be treated as unconfirmed. OpenAI has not commented in the reports we reviewed. Last edition, president Greg Brockman said OpenAI could be ready for an IPO in 2027.</p>
+    <p><strong>Impact on the tech industry:</strong> This is the first time a frontier lab has accepted a lower price because public markets fell. OpenAI's private price now sits close to what Anthropic's IPO buyers are discussing. The two labs' valuations are becoming linked, which affects xAI, Mistral and other late-stage AI companies raising money. Watch whether the round reaches $20 billion, which investors are named, and whether OpenAI's spending commitments with Oracle, Microsoft and the chipmakers change.</p>
+    <p><a href="https://www.investing.com/news/stock-market-news/openai-closes-11-billion-funding-at-125-trillion-valuation--report-5009147">Read source: Bloomberg via Investing.com</a> · <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-valuation-hits-1-25-trillion-in-new-funding-round/">PYMNTS</a> · <a href="https://hervecuviliez.substack.com/p/market-news-saturday-7-november-2026">Market News</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">AI Weekly · Deep Gains · DataX Connect · AI Agents Directory · Funding · Nov 6–8</p>
+    <h3>Funding Roundup: Thinking Machines Closes In on $5 Billion (Reported), SK hynix Sets Up a $10 Billion US AI Investment Arm, and Polar Reaches €1 Billion</h3>
+    <p class="crux">Even during the sell-off, money keeps going to frontier labs, memory makers' venture arms and European data centers. Smaller rounds are going to AI agents for shopping and workforce automation.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AI Weekly, citing Business Insider, reports that Mira Murati's Thinking Machines Lab is closing a $5 billion round led by Accel at a $40 billion pre-money valuation. That would be more than triple its roughly $12 billion valuation from last year's seed round. The company has not confirmed the round. Deep Gains reports that SK hynix has launched a $10 billion US AI investment arm. In European data centers, DataX Connect reports that Polar has reached €1 billion in funding for its AI data-center expansion. Pure DC announced a $2 billion financing framework for growth across Europe and the Middle East. Drax signed an agreement with Brookfield and Radiant to develop an AI data center on the Drax Power Station site in northern England. Among agent startups, AI Agents Directory lists a $15 million Series A for AI shopping-agent maker Firmly and $15 million for workforce-automation company Firstwork.</p>
+    <p><strong>Impact on the tech industry:</strong> Investors are still backing a small group of frontier labs and the hardware supply chain even as public valuations fall. A US fund from SK hynix gives the memory maker a stake in the startups that buy its HBM chips, which puts pressure on Samsung and Micron. Europe's data-center financing supports sovereign-AI goals. Watch whether the Thinking Machines round closes at that valuation and where SK hynix makes its first investments.</p>
+    <p><a href="https://aiweekly.co/ai-news-today/edition/2026-11-06">Read source: AI Weekly</a> · <a href="https://deepgains.substack.com/p/morning-brief-friday-november-6-2026-da6">Deep Gains</a> · <a href="https://dataxconnect.com/weekly-data-centre-news-6th-november-2026">DataX Connect</a> · <a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-november-8-2026">AI Agents Directory</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>Five9 buys Level AI:</strong> The contact-center software company agreed to pay $325 million in cash for the customer-service AI startup and lowered its full-year adjusted earnings guidance. (<a href="https://www.cnbc.com/2026/11/05/stock-market-today-live-updates.html">CNBC, Nov 6</a>)</li>
+  <li><strong>TSMC and memory chips:</strong> The Information reports that TSMC is considering making advanced AI memory chips (Reported). (<a href="https://www.bloomberg.com/technology">Bloomberg Technology, Nov 6</a>)</li>
+  <li><strong>Binance post-mortem (update):</strong> Binance traced the $6.34 billion theft to a tampered Homebrew install, a fake job interview and an internal AI tool. (<a href="https://cybelangel.com/blog/weekly-cyber-roundup-november-2-8/">CybelAngel, Nov 2–8</a>)</li>
+  <li><strong>CrowdStrike AI kill switch:</strong> CrowdStrike launched an AI kill switch meant to stop rogue agents. (<a href="https://bitdigest.substack.com/p/saturday-november-7-2026">BitDigest, Nov 7</a>)</li>
+  <li><strong>Samsung's Texas fab:</strong> Samsung's $17 billion chip plant in Texas is aiming for a trial run in December, ahead of mass production next year. (<a href="https://sammyfans.com/2026/11/08/samsung-usd-17-billion-texas-chip-factory-eyes-december-trial-run">Sammy Fans, Nov 8</a>)</li>
+  <li><strong>SpaceX and compute:</strong> Bloomberg says SpaceX's compute deals reduce its reliance on US government contracts. SpaceX is reportedly targeting November 13 for its next Starship test flight. (<a href="https://bitdigest.substack.com/p/saturday-november-7-2026">BitDigest, Nov 7</a>)</li>
+  <li><strong>Data-center protest:</strong> Protesters broke into a Microsoft data center in Amsterdam. (<a href="https://www.bloomberg.com/technology">Bloomberg Technology, Nov 6</a>)</li>
+  <li><strong>Netherlands AI plan:</strong> The Dutch Cabinet approved a national AI strategy and sent it to parliament. (<a href="https://techieray.substack.com/p/passports-for-bots-chinas-gameplan">Ctrl+AI+Reg, Nov 9</a>)</li>
+  <li><strong>Biology risk warning:</strong> Tencent's chief AI scientist, Yao Shunyu, said AI's biology abilities will soon make harm "possible." (<a href="https://riorundown.substack.com/p/ai-news-nov-09-2026-ai-agents-and">RIO Rundown, Nov 9</a>)</li>
+  <li><strong>Roche and Chai Discovery:</strong> Roche will use Chai's AI protein-design models, centered on Chai-3, in drug-discovery programs. (<a href="https://mindandmachineweekly.substack.com/p/mind-and-machine-weekly-8-november">Mind and Machine Weekly, Nov 8</a>)</li>
+  <li><strong>Anthropic personal finance:</strong> Claude adds a read-only Personal Finance feature through Plaid. Anthropic also signed its first paid publisher deal, with the Associated Press, for election data. (<a href="https://deepgains.substack.com/p/morning-brief-friday-november-6-2026-da6">Deep Gains, Nov 6</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 9, 2026 11:44 AM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
