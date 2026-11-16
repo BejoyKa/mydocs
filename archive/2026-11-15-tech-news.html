@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 15, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Sunday, November 15, 2026 &nbsp;·&nbsp; Coverage: Nov 13–Nov 15, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">CNBC · ThePrint · Quartz · Yahoo News · CASRAI · Sam on AI · AI Frontier Daily · Nvidia · Leadership · Update · Nov 13–15</p>
+      <h3>Nvidia Has Its Worst Week on Record as the Senate Sets December Hearings for Jensen Huang and Howard Lutnick; Board Reportedly Approaches Arm's Rene Haas</h3>
+      <p class="crux">What's new since last edition: Nvidia shares fell 13% in the week Huang resigned, the sixth straight weekly decline. Senate Banking wants Huang to testify on December 3 and Commerce Secretary Lutnick on December 10. The search for a successor has begun, and some large shareholders want to leave the door open for Huang to return.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>CNBC reports that Nvidia shares fell 13% in the week to Friday, November 13, the biggest drop since April 2025. It was the stock's sixth weekly decline in a row, the longest streak since 2012. Since early October the company has lost about 30% of its value, roughly $1.7 trillion, and it is now worth less than Apple. ThePrint says the loss for the week alone was about $573 billion, a record. Other estimates are higher. Senate Banking Chairman Tim Scott has asked Huang to appear on December 3 and said the committee could issue subpoenas if he refuses. CASRAI reports that Lutnick agreed to testify on December 10, and that Senators Warren and Coons had ordered officials to preserve Nvidia records after reports of a foreign intelligence operation that targeted Huang. On succession, digests citing press reports say the board approached Arm CEO Rene Haas (Reported). AI Frontier Daily, citing CNBC, says two large outside shareholders asked the board to keep Huang's return possible, while saying interim CEO Colette Kress can lead the company in the meantime. Nvidia says customer commitments and its product roadmap will continue without interruption.</p>
+      <p><strong>Impact on the tech industry:</strong> The hearings make Nvidia's leadership crisis part of the debate over export controls. That comes as Commerce prepares its rule on remote chip access (see last edition), which still has not been published. Neoclouds that depend on Nvidia, such as CoreWeave, are already being sold off (see Emerging Tech). Watch whether the board names a permanent CEO, whether Nvidia keeps its earnings date, which had been set for November 17, and what Huang and Lutnick say in December.</p>
+      <p><a href="https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html">Read source: CNBC</a> · <a href="https://theprint.in/opinion/newsmaker-of-the-week/nvidia-jensen-huang-affairs-espionage-fears-ai-market/3098896/">ThePrint</a> · <a href="https://qz.com/nvidia-sixth-weekly-loss-market-value-huang-resigns-111326">Quartz</a> · <a href="https://www.yahoo.com/news/politics/articles/senate-banking-committee-asks-jensen-120433349.html">Yahoo News</a> · <a href="https://casrai.org/news/senate-banking-lutnick-huang-nvidia-chip-export-probe-2026">CASRAI</a> · <a href="https://samonai.substack.com/p/ai-brief-november-14-2026">Sam on AI</a> · <a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-15">AI Frontier Daily</a> · <a href="https://note.com/hirokimiyano/n/nfbe1c6a4d41a?hl=en">7 AI News Stories</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">TechCrunch · AI Frontier Daily · Lapaas Voice · OpenAI · Commerce · Nov 13–14</p>
+    <h3>OpenAI Launches ChatGPT Wallet So Its "Dots" Agents Can Buy Things for Users, Starting With Some US Pro Subscribers</h3>
+    <p class="crux">Agents can recommend products and then complete the checkout once the user approves it. The feature works with Visa, Mastercard and American Express cards. OpenAI also published a playbook to help merchants support shoppers who use agents.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On Friday, November 13, OpenAI launched ChatGPT Wallet. It lets the company's agents, called dots, help users choose what to buy and then complete the purchase. TechCrunch reports that the first users are a limited number of US ChatGPT Pro subscribers aged 18 and over who have a US-issued Visa, Mastercard or American Express card. Before checkout, users review the items, the total and the card that will be charged. The merchant receives the shipping address and contact details it needs to fulfill the order. AI Frontier Daily says the agents never see the actual card number and that users approve purchases with a fingerprint or face scan. OpenAI plans to add delegated purchasing later, where a user sets a spending limit and category once instead of approving each purchase. OpenAI also published a Commerce Partner Playbook to help retailers recognize legitimate agent traffic instead of blocking it as bot traffic. The feature builds on the Business Hub and Business Agents covered last edition.</p>
+    <p><strong>Impact on the tech industry:</strong> With Wallet, OpenAI now covers the full shopping process, from finding products to paying for them. That puts pressure on Google Shopping, Amazon and checkout providers such as Shop Pay and PayPal. Card networks benefit because they supply the payment rails. Lapaas Voice reports that Amazon plans a global product database to keep control of product discovery as AI shopping agents spread (Reported). Watch the wider rollout, fraud and chargeback rates, and whether retailers that block bots, like United, change their position.</p>
+    <p><a href="https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/">Read source: TechCrunch</a> · <a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-14">AI Frontier Daily</a> · <a href="https://lapaasvoice.com/us-commerce-department-finalizes-ai-remote-access-rule-to-restrict-chinas-access-to-advanced-chips">Lapaas Voice</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Fortune · AI Weekly · DEV Community · AI Frontier Daily · OpenAI · Robotics · Nov 13–15</p>
+    <h3>OpenAI Disbands Its Stand-Alone Robotics Team, Saying Its General-Purpose Models Can Now Control Robots Directly</h3>
+    <p class="crux">Robotics researchers now report to Chief Research Officer Mark Chen. The applied robotics and hardware staff move to Greg Brockman's Applied organization. OpenAI says the change is meant to speed up its robotics work, not end it, and it still plans to show a humanoid robot publicly.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>OpenAI confirmed to Fortune on November 13 that it has broken up its stand-alone robotics team. Robotics research has moved into the main research group under Mark Chen. The applied robotics and hardware teams have moved into the larger Applied organization, which reports to President Greg Brockman. OpenAI said it had expected earlier this year to build robotics on top of video models like Sora. Since then, it said, general-purpose frontier models such as GPT-6 Astra have proved they can be applied to robots directly. AI Weekly reports that OpenAI justified the change with a benchmark: GPT-6 Astra scored 74.8% on simulated robotics tasks, compared with 51% for specialized models. This is the second time OpenAI has dissolved a robotics team. It closed the first one in 2020, citing a lack of robot data, rebuilt a team in 2024, and ended its partnership with Figure in February 2025. AI Frontier Daily, citing Fortune, says OpenAI still plans to show a humanoid robot publicly, a goal Sam Altman has targeted for 2027.</p>
+    <p><strong>Impact on the tech industry:</strong> If one general model can run robots, companies that build specialized robot "brains" will find it harder to stand out, and the value shifts toward hardware, data and deployment. Figure, Physical Intelligence, Skild and Nvidia's robotics stack all compete for that layer. Investors in humanoid startups such as Agile Robots, which just raised $500 million (see Funding), will want to see real-world results. Watch for robotics features in OpenAI's general models and independent tests of the Astra benchmark claims.</p>
+    <p><a href="https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/">Read source: Fortune</a> · <a href="https://aiweekly.co/alerts/openai-folds-robotics-team-into-main-research-and-applied-orgs">AI Weekly</a> · <a href="https://dev.to/rriostrujillo/openai-disbands-its-robotics-team-and-bets-on-gpt-6-astra-controlling-robots-2g15">DEV Community</a> · <a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-15">AI Frontier Daily</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">NewSpace Economy · Space.com · KeepTrack · SpaceX · Starship · Update · Nov 13–15</p>
+    <h3>Starship Flight 15: SpaceX Catches the Ship Back From Orbit With the Tower Arms for the First Time but Loses the Booster</h3>
+    <p class="crux">What's new since last edition: the planned double catch half worked. Ship 42 reached orbit, deployed Starlink satellites and was caught by the tower after about 22.5 hours. The Super Heavy booster called off its catch and was lost in the Gulf of Mexico.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Starship lifted off from Starbase, Texas, at 22:47 UTC on November 13 carrying Starlink Group 31-2, KeepTrack reports. The ship reached orbit and deployed its payload. NewSpace Economy reports that Ship 42 then completed a flight of about 22.5 hours and returned to Starbase on November 14. There it was caught by the tower's mechanical arms, the first tower catch of a Starship returning from orbit. The Super Heavy booster called off its catch and diverted offshore. Its flight termination system activated, and it was lost in the Gulf of Mexico. Space.com reports that SpaceX is still investigating why. During the webcast, SpaceX said the booster's guidance, navigation and control system had actually performed well, so the cause has not been confirmed. KeepTrack notes that every missed booster catch means another booster must be built before the next flight.</p>
+    <p><strong>Impact on the tech industry:</strong> Catching a ship that has returned from orbit is the main step toward a fully reusable heavy launcher. That would lower the cost of putting satellites in orbit, both for Starlink and for SpaceX's planned Starmind orbital-compute constellation. Rivals such as Blue Origin, Rocket Lab and China's state launchers face a tougher cost comparison. Watch the cause of the booster failure, how quickly Ship 42 can fly again, and how much time passes before Flight 16.</p>
+    <p><a href="https://newspaceeconomy.ca/2026/11/14/starship-flight-15-historic-spacecraft-catch-successful-satellite-deployment-and-a-lost-booster/">Read source: NewSpace Economy</a> · <a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-says-starship-flight-15-booster-aborted-chopsticks-landing-catch-after-launch-due-to-guidance-issue-video">Space.com</a> · <a href="https://keeptrack.space/week-in-review/week-in-review-2026-11-15">KeepTrack</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Motley Fool · Bloomberg · 456X Research · Fast Company · BitDigest · AI Infrastructure · Update · Nov 13–14</p>
+    <h3>Paying for the AI Build-Out Gets Harder: CoreWeave Seeks a $4 Billion Loan Backed by Its Meta Contract as Meta Raises About $25 Billion in Bonds</h3>
+    <p class="crux">What's new since last edition: CoreWeave fell 6% on November 13 as investors worried about its debt after Huang's exit. Reports say Microsoft is pulling back from rented AI capacity, including its Oracle deal, in favor of its own data centers.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Bloomberg reports that CoreWeave plans to raise at least $4 billion through an investment-grade loan after raising its sales forecast. 456X Research says the loan is backed by CoreWeave's Meta contract and targets a blended interest rate of about 7.5%. CoreWeave's unsecured debt yields nearly 16%. The Motley Fool says CoreWeave closed at $53.13 on November 13, down 6.13%. It ended the third quarter with more than $40 billion of debt, and Nvidia is a major investor and partner, so Huang's exit adds uncertainty. 456X Research also reports, citing SEC filings, that Meta raised about $25 billion of debt between November 5 and 12: $15 billion in dollar notes and €9 billion in euro notes. Fast Company describes Microsoft's wind-down of a 2023 deal to rent AI computing from Oracle as a possible warning sign. It says Microsoft reportedly decided Oracle's Nvidia chips were outdated, while Oracle says demand remains strong. BitDigest, citing Benzinga, says Microsoft plans to rely less on neoclouds and more on its own data centers.</p>
+    <p><strong>Impact on the tech industry:</strong> Lenders now treat a contract with a creditworthy customer as the strongest collateral in AI infrastructure. That favors neoclouds that have contracts with Meta, Microsoft or Google, and it hurts operators that rely on aging GPUs or short-term rentals. Oracle, Nebius and the Nscale and IREN deals covered last edition all face harder questions. Watch the terms of CoreWeave's loan, Oracle's debt spreads, and whether Microsoft formally reduces any other rental contracts.</p>
+    <p><a href="https://www.fool.com/coverage/stock-market-today/2026/11/13/stock-market-today-nov-13-coreweave-falls-over-6-on-ai-cloud-selling-and-reported-usd4-billion-loan-talks/">Read source: Motley Fool</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-11/coreweave-plans-to-raise-at-least-4-billion-in-high-grade-loan">Bloomberg</a> · <a href="https://404kresearch.substack.com/p/456x-evening-brief-november-13-2026">456X Research</a> · <a href="https://www.fastcompany.com/91638597/microsoft-is-winding-down-its-oracle-deal-it-could-be-a-sign-of-whats-to-come">Fast Company</a> · <a href="https://bitdigest.substack.com/p/saturday-november-14-2026">BitDigest</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Digital Trends · Petri · ABC7 · FileHippo · Cybersecurity News · Microsoft · Outage · Update · Nov 13–14</p>
+    <h3>Microsoft Restores Microsoft 365 After an Outage of More Than a Day in 70+ Countries; Blames a Network Change, Not an Attack or AI</h3>
+    <p class="crux">What's new since last edition: a patch to an authentication and routing component brought services back by November 14. Microsoft apologized and said it found no sign of malicious activity. Attackers are already sending phishing emails that use the outage as a lure.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>FileHippo reports that the outage began around noon Eastern time on Thursday, November 12. It took down Outlook, Teams, Copilot and other Microsoft 365 apps. ABC7 says Downdetector received reports from users in more than 70 countries and territories. Microsoft said a technical issue occurred during an upgrade that followed a recent network change, and that restoring services gradually made recovery take longer. Petri's timeline shows recovery in parts of Asia-Pacific, then Europe, on November 13. Microsoft also extended email timeouts to 48 hours so delayed messages would still arrive. Petri reports the underlying issue was fixed by 1:22 a.m. ET on November 14. Digital Trends says Microsoft confirmed on November 14 that the remaining customers and regions were back online, after an outage lasting well over 24 hours that hit businesses, government agencies and airlines. Microsoft found no evidence of malicious activity and ruled out AI as the cause. Cybersecurity News reports that Microsoft has warned of an active phishing campaign that uses fake "email recovery" messages tied to the outage.</p>
+    <p><strong>Impact on the tech industry:</strong> This is Microsoft's longest outage in years. It came in the same week as a record Patch Tuesday, so customers will ask harder questions about how concentrated their risk is in one provider. Continuity and backup tools for email and collaboration, such as Proofpoint, Mimecast and Google Workspace, could gain. Watch for Microsoft's formal post-incident review, any service credits it offers, and whether regulators in the EU and UK ask questions under resilience rules.</p>
+    <p><a href="https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/">Read source: Digital Trends</a> · <a href="https://petri.com/microsoft-deploys-patch-stabilize-microsoft-365-outage/">Petri</a> · <a href="https://abc7news.com/post/microsoft-outage-update-company-says-365-services-fully-restored-outlook-teams-ai-assistant-copilot-impacted/20039967/">ABC7</a> · <a href="https://news.filehippo.com/2026/11/november-14-tech-news-roundup-nvidia-ceo-resigns-amid-reports-of-scandal-firefox-now-lets-you-open-a-mini-window-of-webpages-microsoft-outlook-outage-hits-users-worldwide/">FileHippo</a> · <a href="https://cybersecuritynews.com/">Cybersecurity News</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Cybersecurity News · ChainCatcher via KuCoin · Clear Intelligence · The Neuron · Fireworks AI · Cursor · Uber · Breach · Update · Nov 13–15</p>
+    <h3>Fireworks Breach Spreads: Cursor Traces Its Poisoned Claude Code Extension to a Leaked Fireworks Key, and Uber Confirms Driver Data Was Exposed</h3>
+    <p class="crux">What's new since last edition: two more companies have linked incidents to the breach at AI inference provider Fireworks. Cursor says its tampered extension was available for 11 hours and was downloaded by about 5,000 developers. Uber says personal data of thousands of US drivers held by Fireworks was accessed.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Cursor published a full post-mortem on November 14 of the incident it first disclosed on October 29. A malicious, unauthorized copy of Anthropic's Claude Code extension had appeared in Cursor's VS Code extension marketplace. Cybersecurity News reports that Cursor traced the breach to an access key exposed by Fireworks AI. ChainCatcher, via KuCoin, explains that the key was not meant for the marketplace. The attackers used it to get into Cursor's internal systems, collect more credentials, including keys that controlled the marketplace, and publish the tampered extension to its cache. The extension stayed up for about 11 hours, and roughly 5,000 developers downloaded it. Cursor tells affected users to reinstall their operating systems and rotate all credentials, because uninstalling the extension does not remove the persistence scripts it planted. Uber has separately confirmed that hackers accessed personal information of thousands of US drivers held by Fireworks. Notion's disclosure, covered last edition, affected fewer than 1% of its workspaces, according to The Neuron.</p>
+    <p><strong>Impact on the tech industry:</strong> One inference vendor's leaked secrets have now led to a developer-tool supply-chain attack and a consumer-data breach. The case for treating AI providers as critical third parties is getting stronger. Expect more scrutiny of Together, Baseten and other inference hosts. Code-signing and extension-marketplace security, including Microsoft's Visual Studio Marketplace and Open VSX, will also get more attention. Watch for other customers to disclose incidents, lawsuits against Fireworks, and action from regulators.</p>
+    <p><a href="https://cybersecuritynews.com/">Read source: Cybersecurity News</a> · <a href="https://www.kucoin.com/news/flash/cursor-reports-malicious-claude-code-extension-affected-5-000-users">ChainCatcher via KuCoin</a> · <a href="https://clearintelligence.substack.com/p/daily-circuit-november-15-2026">Clear Intelligence</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-13-2026/">The Neuron</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">DCD · Yahoo Finance · KED Global · Samsung · Modine · M&amp;A · Reported · Nov 13</p>
+    <h3>Samsung in Talks to Buy US Data-Center Cooling Maker Modine (Reported); Modine Shares Jump About 29%</h3>
+    <p class="crux">Bloomberg reports that the talks are at an early stage and may not produce a deal. Buying Modine would give Samsung a US manufacturing base for AI data-center cooling, adding to its earlier purchase of Germany's FläktGroup.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Samsung Electronics is in talks to acquire Modine Manufacturing, a cooling-systems maker based in Racine, Wisconsin, according to Bloomberg reporting cited by DCD and Yahoo Finance. The talks are at an early stage, there is no guarantee of a deal, and another bidder could appear. DCD reports that Modine was worth about $5.6 billion before the report and about $7.28 billion afterward. Yahoo Finance puts the share jump at roughly 29%. Modine's shares had fallen about 15% since November 3, after mixed quarterly results. It missed earnings estimates but reported revenue of $994.4 million, and its data-center sales rose 95% from a year earlier, mostly because of demand from US hyperscalers. Modine also makes liquid-cooling equipment and owns the UK cooling company Airedale. KED Global says the deal would give Samsung a US manufacturing base and speed up its move into HVAC. Samsung previously bought FläktGroup for €1.5 billion and is building a cooling plant in India.</p>
+    <p><strong>Impact on the tech industry:</strong> Cooling has become a key limit on how fast AI data centers can be built, and the largest industrial and electronics companies are competing for suppliers. A Samsung–Modine deal would put Samsung up against Vertiv, Schneider Electric, Johnson Controls and Trane. It would also need US national-security review because Samsung is a foreign buyer. Watch for a formal bid, rival offers, and how other cooling stocks are valued.</p>
+    <p><a href="https://www.datacenterdynamics.com/en/news/samsung-in-talks-to-acquire-data-center-cooling-company-modine-manufacturing-report/">Read source: DCD</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/samsung-talks-buy-modine-data-172540580.html">Yahoo Finance</a> · <a href="https://www.kedglobal.com/mergers-acquisitions/newsView/ked202611130006">KED Global</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">CASRAI · FourWeekMBA · FinSMEs · Inc42 · Funding · Nov 13–15</p>
+    <h3>Funding Roundup: LangChain Raises $300 Million at a $3 Billion Valuation as Large AI Rounds Reach $5.59 Billion in a Week</h3>
+    <p class="crux">Alphabet's CapitalG led LangChain's Series C. FourWeekMBA counted 12 AI rounds of $100 million or more in the week to November 14, 1.7 times the week before. Australia's Q-CTRL raised $290 million for quantum computing, while funding for Indian startups fell 90%.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>On November 13, LangChain, which makes a framework for building AI agents, announced a $300 million Series C at a $3 billion post-money valuation, CASRAI reports. CapitalG led the round, with GIC, DFJ Growth and existing investors also taking part. LangChain has now raised about $460 million in total, and its valuation is 2.4 times the $1.25 billion it reached in its Series B in late 2025. FourWeekMBA counted 12 AI rounds of $100 million or more from November 8 to 14, totaling $5.59 billion, up from $3.32 billion the week before. They include a $1 billion Series A for Mirendil, a startup founded by two former Anthropic researchers; $720 million for London chip startup Fractile at a $7 billion valuation; and $500 million for German robotics company Agile Robots, in a round led by SoftBank that values it at $8.5 billion. FinSMEs lists a US$290 million Series C for Australian quantum-control company Q-CTRL on November 13. In India, Inc42 reports that startups raised only $25.2 million from November 9 to 13, down 90.1% from the week before. The largest round was a $16 million Series B for clean-tech company Greenjoules.</p>
+    <p><strong>Impact on the tech industry:</strong> Large rounds are going to agent tooling, AI chips other than Nvidia's, and robotics, even as AI stocks fall. This supports reports that investors are rotating out of the Nvidia trade rather than out of AI. India's drop shows how unevenly the money is spread around the world. Watch whether this pace holds after Anthropic's IPO prices.</p>
+    <p><a href="https://casrai.org/news/langchain-3-billion-valuation-funding-ai-agents-2026">Read source: CASRAI</a> · <a href="https://fourweekmba.com/ai-rounds-of-100m-raised-5-59b-in-a-week-1-7x-the-last/">FourWeekMBA</a> · <a href="https://www.finsmes.com/">FinSMEs</a> · <a href="https://inc42.com/buzz/from-greenjoules-to-misteo-indian-startups-raised-over-25-mn-this-week">Inc42</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Deep Gains · AI Frontier Daily · Daily Digest · Anthropic · IPO · Update · Reported · Nov 13–15</p>
+    <h3>Anthropic's IPO Reported About Six Times Oversubscribed as It Holds to a Valuation Near $1.4 Trillion Before Pricing on November 18</h3>
+    <p class="crux">What's new since last edition: newsletters say the order book is several times covered. The bankers' talk of $1.5 trillion reported last edition has given way to a target of about $1.4 trillion, the top of the published range. Trading under the ticker ANT is still set for November 19.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Deep Gains reported on November 13 that Anthropic's IPO book was about six times oversubscribed. AI Frontier Daily repeated that figure on November 14 and said Anthropic has confirmed it will set its final share price on November 18 and begin trading on the Nasdaq Global Select Market under the ticker ANT the next day. A November 14 digest says institutional investors are divided even though demand is strong (Reported). AI Frontier Daily reported on November 15, citing Business Insider and CNBC, that Anthropic's chief executive told JPMorgan's Jamie Dimon the company is targeting a valuation of about $1.4 trillion (Reported). That is in line with the top of the $70–$78 range, which implies $1.404 trillion. It is below both the $1.5 trillion that BitDigest said bankers were discussing last week and the roughly $2 trillion investors expected earlier in the year. None of the sources we found this run reported a change to the price range or the number of shares.</p>
+    <p><strong>Impact on the tech industry:</strong> Strong demand during the worst week in Nvidia's history would show that investors still want frontier AI labs even as they sell chipmakers. That will shape the timing and valuation of OpenAI's IPO and of private rounds for xAI and Mistral. Watch the final price on November 18, how the shares trade on the first day, and how much of the $26 billion in strategic purchases, including Nvidia's commitment, is confirmed.</p>
+    <p><a href="https://deepgains.substack.com/p/morning-brief-friday-november-13-928">Read source: Deep Gains</a> · <a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-14">AI Frontier Daily (Nov 14)</a> · <a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-15">AI Frontier Daily (Nov 15)</a> · <a href="https://news.supwil.com/en/news/ai-tech/2026-11-14">AI &amp; Tech Daily Digest</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>CrowdStrike buys AI agent security companies:</strong> CrowdStrike has reportedly acquired two AI agent security startups for $495 million after a strong quarter for annual recurring revenue (Reported). (<a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-2026-11-14">AI Agents News Brief, Nov 14</a>)</li>
+  <li><strong>Cloudflare Kitesurf:</strong> Cloudflare open-sourced Kitesurf, a browser engine built on Workers that AI agents can use instead of a full copy of Chrome. (<a href="https://kellyabbott1.substack.com/p/ai-frontier-daily-2026-11-14">AI Frontier Daily, Nov 14</a>)</li>
+  <li><strong>Open-source releases:</strong> Thinking Machines published the Inkling 2 Small weights, llama.cpp reached 1.0 with a stable C API, and DeepSeek made its app toolkit available through its API. (<a href="https://deepgains.substack.com/p/morning-brief-saturday-november-14-aef">Deep Gains, Nov 14</a>)</li>
+  <li><strong>Cisco results:</strong> Cisco's quarterly revenue rose 24% to $18.5 billion and it raised its full-year outlook. Shares rose about 4% after hours, but Deep Gains describes a sell-off afterward. (<a href="https://sg.finance.yahoo.com/news/cisco-shares-climb-4-strong-214347073.html">Investing.com via Yahoo, Nov 12</a> · <a href="https://deepgains.substack.com/p/morning-brief-saturday-november-14-aef">Deep Gains, Nov 14</a>)</li>
+  <li><strong>AI agents used in attacks:</strong> The FBI warned that hackers are using ARTEX AI agents to automate network intrusions, with some reaching privileged access in under three hours. CISA flagged an actively exploited Check Point zero-day. (<a href="https://cybersecuritynews.com/">Cybersecurity News, Nov 14</a>)</li>
+  <li><strong>EU Digital Fairness Act:</strong> The European Commission's proposal would require adjustable approval settings for AI purchasing agents. It goes next to the European Parliament and Council. (<a href="https://casrai.org/news/eu-digital-fairness-act-ai-consumer-proposal-2026">CASRAI, Nov 14</a>)</li>
+  <li><strong>China embodied AI:</strong> X Square Robot's GreatWall general embodied model completed a generative-AI filing in Guangdong, the first for such a model in the Greater Bay Area. (<a href="https://news.supwil.com/en/news/ai-tech/2026-11-14">AI &amp; Tech Daily Digest, Nov 14</a>)</li>
+  <li><strong>Malaysia's chip stance:</strong> Malaysia wants AI accelerators imported into the country to be used there, as the US targets remote access to chips through Southeast Asia. (<a href="https://riorundown.substack.com/p/ai-news-nov-15-2026-ai-infrastructure">Rio Rundown, Nov 15</a>)</li>
+  <li><strong>Korea's AI-made sales shows:</strong> Hyundai Home Shopping launched AI-REAL, which produces entire sales broadcasts with AI-generated voice and video and no live hosts. (<a href="https://riorundown.substack.com/p/ai-news-nov-15-2026-ai-infrastructure">Rio Rundown, Nov 15</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 15, 2026 10:16 PM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
