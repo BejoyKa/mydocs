@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Tech Dose — November 18, 2026</title>
+<style>
+  :root{color-scheme:light}
+  body{background:#faf9f5;color:#1a1a1a;font-family:Georgia,"Times New Roman",serif;margin:0;padding:0 24px 60px;line-height:1.5;font-size:16.5px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .masthead{text-align:center;border-top:4px double #1a1a1a;border-bottom:1px solid #1a1a1a;margin-top:28px;padding:18px 0 12px}
+  .masthead h1{font-size:54px;letter-spacing:1px;margin:0;font-weight:700}
+  .masthead p{margin:6px 0 0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-variant:small-caps;font-size:22px;letter-spacing:1px;margin:38px 0 18px;padding:6px 0;border-top:2px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+  article{border-bottom:1px solid #1a1a1a;padding:0 0 14px;margin-bottom:16px}
+  details summary{cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  h3{font-size:21px;line-height:1.25;margin:0 0 4px}
+  summary:hover h3{text-decoration:underline}
+  .meta{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}
+  .crux{margin:0}
+  .more{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 0;text-decoration:underline}
+  details[open] .more{display:none}
+  .detail{margin-top:12px;padding-top:10px;border-top:1px dotted #1a1a1a}
+  .detail p{margin:0 0 10px}
+  a{color:#1a1a1a}
+  .lead{border-bottom:2px solid #1a1a1a;padding-bottom:18px;margin:26px 0 8px}
+  .lead h3{font-size:40px;line-height:1.1}
+  .lead .crux{font-size:19px}
+  .lead .detail{column-count:2;column-gap:32px}
+  .lead .detail p{break-inside:avoid-column}
+  .watch ul{margin:0;padding-left:20px}
+  .watch li{margin-bottom:8px}
+  footer{margin-top:40px;border-top:4px double #1a1a1a;padding-top:10px;text-align:center;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  @media(max-width:700px){.masthead h1{font-size:36px}.lead h3{font-size:28px}.lead .detail{column-count:1}}
+
+  .masthead{position:relative}
+  .refresh{position:absolute;top:14px;right:0;text-align:right;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;max-width:300px}
+  .refresh button{font:inherit;text-transform:uppercase;background:#faf9f5;color:#1a1a1a;border:1px solid #1a1a1a;padding:8px 14px;cursor:pointer}
+  .refresh button:hover{background:#1a1a1a;color:#faf9f5}
+  .refresh button:disabled{opacity:.5;cursor:default;background:#faf9f5;color:#1a1a1a}
+  .refresh .msg{margin-top:6px;letter-spacing:.3px;line-height:1.4}
+  .refresh form{margin-top:8px;text-align:left;border:1px solid #1a1a1a;padding:10px;background:#faf9f5}
+  .refresh input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:6px;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a;margin:6px 0}
+  .refresh label.rem{display:block;margin:0 0 8px;letter-spacing:.3px}
+  .refresh .link{background:none;border:0;padding:0;text-decoration:underline;text-transform:none;letter-spacing:.3px;cursor:pointer}
+  .refresh .link:hover{background:none;color:#1a1a1a}
+  @media(max-width:700px){.refresh{position:static;max-width:none;text-align:center;margin-bottom:10px}}
+  .archlink{position:absolute;top:14px;left:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a1a1a;text-decoration:none;border:1px solid #1a1a1a;padding:8px 14px}
+  .archlink:hover{background:#1a1a1a;color:#faf9f5}
+  @media(max-width:700px){.archlink{position:static;display:inline-block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="archlink" href="./">Archives</a>
+  <div class="refresh" id="refresh" hidden>
+    <button type="button" id="fetchBtn">Fetch latest news</button>
+    <div class="msg" id="fetchMsg" role="status" aria-live="polite"></div>
+    <form id="pwForm" hidden autocomplete="on">
+      Enter your refresh password.
+      <input type="text" name="username" value="daily-tech-dose" autocomplete="username" hidden>
+      <input type="password" id="pwInput" name="password" autocomplete="current-password" required>
+      <label class="rem"><input type="checkbox" id="pwRemember" checked> Remember on this device</label>
+      <button type="submit">Unlock &amp; fetch</button>
+      <button type="button" class="link" id="pwCancel">Cancel</button>
+    </form>
+  </div>
+  <h1>Daily Tech Dose</h1>
+  <p>Wednesday, November 18, 2026 &nbsp;·&nbsp; Coverage: Nov 15–Nov 18, 2026</p>
+</header>
+
+<!--CONTENT START-->
+<!-- LEAD -->
+<article class="lead">
+  <details>
+    <summary>
+      <p class="meta">Nvidia (SEC filing) · CoinDesk · Reuters via Investing.com · Livewire Markets · Yahoo News · Quartz · CNBC · Nvidia · Earnings · Update · Nov 16–17</p>
+      <h3>Nvidia Beats Estimates With a Record $115.8 Billion Quarter in Its First Report Without Huang; Board Rules Out Bringing Him Back, and Huang Agrees to Testify to the Senate</h3>
+      <p class="crux">What's new since last edition: in her first quarter as interim CEO, Colette Kress raised Nvidia's fiscal 2028 growth outlook to about 75%. She guided fourth-quarter revenue to about $130 billion and said Nvidia will be selective about financing partners. Huang has agreed to appear before the Senate Banking Committee.</p>
+      <p class="more">Read more</p>
+    </summary>
+    <div class="detail">
+      <p>Nvidia's results for the quarter ended October 25 were released on November 17. Revenue was $115.8 billion, up 103% from a year earlier, and data center revenue was $107.6 billion. Non-GAAP EPS of $2.68 beat the consensus estimate of $2.48. Nvidia also said Vera Rubin NVL72 systems have started shipping. It guided fourth-quarter revenue to $130 billion, plus or minus 3%, against estimates of about $125 billion, with gross margins of 71–72%. That outlook assumes no data center sales to China. Supply commitments rose to $390 billion from $279 billion, which Kress said reflects multi-year memory purchases. According to CoinDesk, Chairman Harvey Jones said on the call that the board does not intend to reinstate Huang, and Kress said some partner guarantees will depend on customers securing their own funding. The results followed a hard few days for chip stocks. The Nasdaq fell 2.2% on Monday, and Treasury Secretary Bessent urged Nvidia to hire a CEO from outside the company. On Tuesday, Chair Tim Scott's office confirmed that Huang will testify.</p>
+      <p><strong>Impact on the tech industry:</strong> Demand for AI chips held up through the leadership crisis, and assuming zero China revenue shows the guidance rests on the US and allied buildout. The weak link is financing. Because Nvidia will be more selective, neoclouds and startups that relied on its guarantees will have to find money from lenders and hyperscalers. Watch the margin step-down, the CEO search, and the December 3 hearing.</p>
+      <p><a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm">Read source: Nvidia (SEC filing)</a> · <a href="https://www.coindesk.com/markets/2026/11/17/nvidia-tops-estimates-issues-strong-guidance-adds-usd150-billion-to-buyback-authorization">CoinDesk</a> · <a href="https://ca.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-4965206">Reuters via Investing.com</a> · <a href="https://www.livewiremarkets.com/wires/live-blog-nvidia-stock-rises-in-after-hours-trading-after-revenue-soars-103">Livewire Markets</a> · <a href="https://www.yahoo.com/news/politics/articles/huang-agrees-testify-senate-banking-034810722.html">Yahoo News</a> · <a href="https://qz.com/stocks-slide-nvidia-ai-names-earnings-anthropic-ipo-111626">Quartz</a> · <a href="https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html">CNBC</a></p>
+    </div>
+  </details>
+</article>
+
+<!-- AI -->
+<h2>AI Innovations</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">SiliconANGLE · The Decoder · Sam on AI · SC World · OpenAI · Models · Nov 17–18</p>
+    <h3>OpenAI Releases GPT-6.2 Astra and Sol, Cutting Astra's API Price by 20%; It Is the First Released Model OpenAI Rates "High" for AI Self-Improvement</h3>
+    <p class="crux">OpenAI says Astra beats GPT-6 Astra by 5.2 points on Agents' Last Exam while costing less than a third as much. Sol is now the everyday model. Both models meet OpenAI's Critical threshold for cybersecurity and ship with tighter safeguards.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>OpenAI launched GPT-6.2 Astra, for complex professional work, and GPT-6.2 Sol, for everyday tasks, on November 17. Both are available to Plus, Pro, Enterprise and Edu users in ChatGPT Work and Codex. SiliconANGLE notes the launch comes less than two months after OpenAI canceled GPT-6.1 Astra because internal tests found it did not stay reliably within scope and authorization. According to OpenAI, Sol came within 0.5 points of Astra on the FrontierCode 2.0 coding benchmark at about a fifth of the cost. The Decoder found that Sol actually scored lower than GPT-6.1 Sol on one benchmark. Sam on AI reports Astra's API pricing at $8 per million input tokens and $40 per million output tokens, while Sol keeps its $2/$10 pricing. SC World reports that because Astra is the first model to reach the "High" self-improvement threshold, OpenAI has deployed a Control Room system to monitor its output. Accounting startup Basis reported productivity gains of up to 73% in early testing.</p>
+    <p><strong>Impact on the tech industry:</strong> A frontier model getting cheaper puts pricing pressure on Anthropic in its IPO week, on Google, and on Microsoft's own MAI models. The safety ratings will draw the attention of regulators and the outside evaluators OpenAI has just brought in. Developers should test the price cut against their own workloads. Watch for independent benchmark results and for how much the cyber safeguards slow down legitimate security research.</p>
+    <p><a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/">Read source: SiliconANGLE</a> · <a href="https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/">The Decoder</a> · <a href="https://samonai.substack.com/p/ai-brief-november-18-2026">Sam on AI</a> · <a href="https://www.scworld.com/brief/openai-releases-gpt-6-2-astra-and-sol-models">SC World</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Quartz · KLCC · NPR via MPR News · OpenAI · Regulation &amp; Safety · Nov 17–18</p>
+    <h3>Oregon Sues OpenAI for $2.035 Billion Over ChatGPT and Children; Researchers Say OpenAI's New Outside-Evaluator Program Falls Short of Altman's Promise</h3>
+    <p class="crux">Oregon's attorney general says OpenAI misled parents about ChatGPT's safety, in violation of the state's consumer protection law. The same week, OpenAI's pilot for embedded safety evaluators gives them less access than Sam Altman promised in September.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Oregon Attorney General Dan Rayfield filed the lawsuit on November 17 in Multnomah County Circuit Court under Oregon's Unlawful Trade Practices Act. He accuses OpenAI of putting children at risk and misleading parents about ChatGPT's safety, Quartz reports. Rayfield said his office calculated the $2.035 billion figure by estimating how many Oregon children use ChatGPT and applying the per-violation penalties. The suit is part of Oregon's Keeping Kids Safe Initiative, which earlier produced a $125 million settlement with Meta. KLCC reports Rayfield said no single Oregon incident led to the suit, and he has promised further actions. Separately, NPR reported on November 18 that OpenAI's new embedded third-party evaluator program is more restrictive than the "employee level" access Altman promised after the Hugging Face incident involving OpenAI's autonomous systems. Evaluator Apollo Research said it must bring OpenAI in before having substantive conversations with employees who have not been pre-approved. OpenAI said there are no industry standards yet for embedded evaluations.</p>
+    <p><strong>Impact on the tech industry:</strong> US states are using consumer protection law to regulate AI chatbots, so OpenAI, Meta, Character-style companion apps and Google face liability that differs from state to state. Expect copycat suits and pressure for age verification. Watch whether other attorneys general join, how OpenAI responds in court, and whether evaluator access widens.</p>
+    <p><a href="https://qz.com/oregon-sues-openai-chatgpt-child-safety-111826">Read source: Quartz</a> · <a href="https://www.klcc.org/crime-law-justice/2026-11-17/oregon-attorney-general-dan-rayfield-sues-openai-chatgpt-youth-safety">KLCC</a> · <a href="https://www.mprnews.org/story/2026/11/18/npr-openai-embedded-evaluators-program-critics">NPR via MPR News</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- DISRUPTIVE -->
+<h2>Emerging &amp; Disruptive Tech</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">GovCon Wire · UPI · The Daily Star · Bloomberg · CNBC · Table.Briefings · Export Controls · Update · Nov 16–17</p>
+    <h3>Commerce Issues Its Remote-Access Chip Rule, Requiring Licenses for Brazil, Indonesia, Malaysia, Singapore and Thailand; Beijing Promises "Necessary Countermeasures"</h3>
+    <p class="crux">What's new since last edition: the rule text has now been published. It is an interim final rule that requires licenses for chips used in overseas data centers serving Chinese companies, and it formally repeals the Biden-era AI Diffusion Rule. It arrives days before Trump meets Xi.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>The Bureau of Industry and Security announced an interim final rule on Monday, November 16. It requires an export license for advanced AI chips and computing equipment in overseas data centers that provide significant computing power to companies headquartered in China, Macau and other restricted places, UPI reports. GovCon Wire, citing Nextgov/FCW, says exports of advanced chips to Brazil, Indonesia, Malaysia, Singapore and Thailand now need licenses, and companies headquartered in China must use licensed data centers to get remote access. The Daily Star (Reuters) notes that the rule formally rescinds the Biden-era diffusion rule and was published days after the Megaspeed affair forced Huang's resignation. CNBC reports that Nvidia had warned customers that the proposed Remote Access Security Act could expose them to legal action, and that Nvidia will not sell to customers who rent out more than 50% of their GPUs to Chinese companies. Chinese Foreign Ministry spokesperson Guo Jiakun accused Washington of economic coercion. Bloomberg says the rule leaves Xi deciding how to respond ahead of his meeting with Trump.</p>
+    <p><strong>Impact on the tech industry:</strong> Neoclouds and colocation operators in Southeast Asia now face license reviews that could slow their GPU supply and drive away Chinese customers. Malaysian and Singaporean data-center expansion plans are at risk. Chinese labs will rely more on Huawei and domestic accelerators. Watch the rule's effective date, China's response on rare earths, and the Trump–Xi summit.</p>
+    <p><a href="https://www.govconexec.com/2026/11/commerce-bis-rule-remote-ai-chip-access/">Read source: GovCon Wire</a> · <a href="https://www.upi.com/Top_News/US/2026/11/17/AI-chip-restrictions-China-export/5701794902683">UPI</a> · <a href="https://www.thedailystar.net/news/world/news/us-curb-chinas-access-ai-chips-trump-heads-asia-4326101">The Daily Star</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-17/us-chip-curbs-force-xi-to-weigh-response-before-trump-summit">Bloomberg</a> · <a href="https://www.cnbc.com/2026/11/17/nvidia-china-cloud-ai-chip-access.html">CNBC</a> · <a href="https://table.media/en/china/news/ai-chips-china-threatens-us-over-new-export-rules">Table.Briefings</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Fermilab · IBM · Nvidia · Quantum · Nov 16</p>
+    <h3>Fermilab, IBM and Nvidia Plan a Modular Quantum Co-Design Platform That Would Put IBM Quantum Computers Alongside Nvidia GPUs</h3>
+    <p class="crux">The US Department of Energy lab and the two vendors intend to build a shared platform that turns scientists' needs into requirements for fault-tolerant quantum machines. Fermilab presents it as a step toward a future DOE quantum user facility.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Fermi National Accelerator Laboratory said on November 16 that it intends to work with IBM and Nvidia on a modular quantum computing co-design platform. The goal is to speed up development of scalable, fault-tolerant quantum computers for scientific research. In the proposed first version, IBM quantum computers would sit physically next to Nvidia accelerated computing. That would let researchers run hybrid workflows and feed the needs of high-energy and nuclear physics directly into the design of future quantum systems. Fermilab describes the effort as an important step toward the capabilities and research community needed for a future DOE quantum computing user facility. IBM quantum CTO Jerry Chow and Nvidia's Krysta Svore both said the value comes from scaling quantum and classical computing together, not treating quantum as a separate machine. The announcement describes a plan, and no budget or timeline has been given.</p>
+    <p><strong>Impact on the tech industry:</strong> National labs are standardizing on hybrid quantum-GPU setups, which strengthens IBM's superconducting roadmap and Nvidia's position as the classical layer in quantum computing, even during its leadership turmoil. It raises the bar for IonQ, Quantinuum, QuEra and photonic players competing for DOE work. Watch for funding, the choice of site, and whether the platform opens to outside quantum vendors.</p>
+    <p><a href="https://news.fnal.gov/2026/11/fermilab-ibm-and-nvidia-plan-modular-quantum-computing-co-design-platform-to-advance-scientific-discovery/">Read source: Fermilab</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- VENDOR -->
+<h2>Vendor Releases &amp; Announcements</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Constellation Research · TestingCatalog · Pasquale Pillitteri · Microsoft · Ignite · Nov 17</p>
+    <h3>Microsoft Opens Ignite With Seven In-House MAI Models, MAI Code 2 in GitHub Copilot and a Maia 300 Chip Planned for 2027</h3>
+    <p class="crux">Microsoft says MAI Code 2 delivers 98% of GPT-6.1 Sol's quality at 40% of the price. Copilot is being rebuilt as an "operating system for work," and Microsoft IQ is pitched as the context layer for enterprise agents.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>At Ignite on November 17, Microsoft AI released seven MAI models. They include MAI Code 2 and Code 2 Flash for coding, MAI Cyber 2 Flash for security, MAI Image 2.7, Realtime 1 and Decision 1.1, a small model for the routing, classification and checking calls that agents make. TestingCatalog reports that GitHub has confirmed Code 2 for paid Copilot plans across VS Code, Visual Studio, JetBrains, Xcode and the CLI, with Code 2 Flash also on Free and Student plans. Microsoft says Code 2 Flash matches GPT-6 Luna at 65% of the price. Its 98% claim for Code 2 is an average across four benchmarks based on GitHub Copilot, so it is Microsoft's own measurement. According to Pillitteri's coverage, the Maia 200 chip is now in production, and Maia 300, due in 2027, will have eight HBM4 stacks and a rack output Microsoft says is seven times Maia 200's. Constellation reports that Microsoft also launched Contact Center Intelligence in preview and an AI Transparency Initiative with more than 40 partners, and is combining Chat, Cowork, Office, Code and Workspaces inside Copilot.</p>
+    <p><strong>Impact on the tech industry:</strong> Microsoft is lowering its reliance on OpenAI models and competing on price in coding, where OpenAI, Anthropic and Cursor are fighting for share. Its own chips also chip away at Nvidia's place in Azure. Watch whether developers actually switch to MAI models in Copilot and when Maia 300 arrives.</p>
+    <p><a href="https://www.constellationr.com/insights/news/ignite-2026-microsoft-makes-case-be-your-work-operating-system-intelligence-layer">Read source: Constellation Research</a> · <a href="https://www.testingcatalog.com/microsoft-launches-seven-mai-models-at-ignite-2026/">TestingCatalog</a> · <a href="https://pasqualepillitteri.it/en/news/34519/microsoft-launches-seven-new-mai-models-at-ignite-2026">Pasquale Pillitteri</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">The Hacker News · SecurityWeek · CISA · OX Security · Oracle · OpenJDK · Security · Nov 17–18</p>
+    <h3>Oracle and OpenJDK Patch "Java4Shell," a Pre-Login Remote Code Execution Flaw Affecting Jira, Jenkins and Keycloak; CISA Urges Immediate Patching</h3>
+    <p class="crux">CVE-2026-114938 sits in the HotSpot JVM's Base64 decoder on x86-64 chips with AVX-512 VBMI. Java 17, 21, 25 and 27 are affected. No public exploit or attacks in the wild have been reported as of November 18.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Oracle and the OpenJDK project released fixes on November 17 for Java4Shell, a memory-safety flaw in how the JVM decodes Base64 data. SecurityWeek reports it was found by Quang Luong of Calif, which published details after news of the bug leaked ahead of coordinated disclosure. OpenJDK builds from 17.0.6 onward are vulnerable, along with distributions based on them: Amazon Corretto, Eclipse Temurin, Microsoft's OpenJDK build, Azul Zulu, Red Hat and Oracle Java SE. The Hacker News says the vulnerable code runs only on Intel and AMD processors that support AVX-512 VBMI. Amazon has patched Corretto, and Red Hat was still preparing fixes. Oracle rates the flaw 8.1 under CVSS 3.1, noting it is hard to exploit but needs no login. Calif scores it 9.2 under CVSS 4.0. CISA warned that crafted input could crash the JVM or allow code execution and urged organizations to patch immediately. OX Security estimates fewer than 0.12% of JVMs are at risk of code execution, though crashing them is easy.</p>
+    <p><strong>Impact on the tech industry:</strong> Java runs the core systems of banks, telecom companies and airlines, so security teams face an emergency patch cycle across Atlassian, Jenkins and identity systems. Cloud providers' patch speed will be compared. Even if remote code execution proves rare, the crash risk alone threatens availability. Watch for a public exploit, vendor advisories from Atlassian and others, and whether CISA adds the flaw to its known-exploited catalog.</p>
+    <p><a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html">Read source: The Hacker News</a> · <a href="https://www.securityweek.com/java4shell-vulnerability-puts-many-enterprise-applications-at-risk-of-takeover/">SecurityWeek</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching">CISA</a> · <a href="https://www.ox.security/blog/java4shell-cve-2026-114938-rce-risk/">OX Security</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- M&A -->
+<h2>Mergers, Acquisitions &amp; Funding</h2>
+<div class="grid">
+
+<article><details>
+  <summary>
+    <p class="meta">Yahoo Finance · TradingView · Sam on AI · Anthropic · IPO · Update · Nov 17–18</p>
+    <h3>Anthropic Reportedly Plans to Price Its IPO Above $80, Valuing It at Up to $1.6 Trillion, as Salesforce and Other Software Stocks Slide</h3>
+    <p class="crux">What's new since last edition: the WSJ reports pricing above the $70–78 range after heavy demand from hedge funds. Pricing is set for tonight, with Nasdaq trading as ANT on Thursday. Salesforce fell 9% on Tuesday without any news of its own.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Anthropic expects to price its IPO above $80 a share, The Wall Street Journal reported on November 17. That would value the company at about $1.5 trillion to $1.6 trillion, compared with about $1.33 trillion at the top of the original range (Reported). The offering is for 825 million shares, with a concurrent $26 billion private placement that includes Google, Amazon and Nvidia. Yahoo Finance notes that the final price would partly depend on how the market reacted to Nvidia's earnings. TradingView reports Altimeter asked for $5 billion of stock and that up to 20% of the offering may go to retail investors. Sam on AI says the November 17 amended filing shows Amazon owning 14.7% and Google 13.7% after the offering. Other software stocks sold off: Salesforce fell 9%, HubSpot and ServiceNow 7%, and Workday 5% on November 17. Yahoo Finance says the selling appeared to be funds making room for Anthropic shares.</p>
+    <p><strong>Impact on the tech industry:</strong> Investors are moving money out of seat-based SaaS and into frontier labs, which raises the cost of capital for Salesforce, Workday and ServiceNow just as they sell their own agents. A strong debut would set the benchmark for OpenAI's listing. Watch the final price, Thursday's first trade, and Workday's earnings on November 24.</p>
+    <p><a href="https://finance.yahoo.com/markets/stocks/articles/anthropic-eyes-ipo-price-above-181809115.html">Read source: Yahoo Finance</a> · <a href="https://www.tradingview.com/news/binance_news:f72814429094b:0-anthropic-weighs-pricing-ipo-above-80-as-hedge-fund-demand-swells/">TradingView</a> · <a href="https://samonai.substack.com/p/ai-brief-november-18-2026">Sam on AI</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/salesforce-sinks-9-software-slides-154928253.html">Yahoo Finance (software sell-off)</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">AMD · The Next Web · TensorWave · 456X Research · AMD · OpenAI · Nov 16</p>
+    <h3>AMD Closes Its World Labs Acquisition and Hires Fei-Fei Li as Chief Scientist, and TensorWave Signs a Six-Year, 457 MW AMD Deal With OpenAI</h3>
+    <p class="crux">On the same day, AMD added a world-model research lab and gained a large OpenAI deployment through a neocloud it has invested in. Terms of the World Labs deal were not disclosed.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>AMD announced on November 16 that it had completed its acquisition of World Labs, which builds AI models that generate and simulate interactive 3D environments and works on robot learning and simulation. Founder Fei-Fei Li joins AMD as executive vice president and chief scientist, reporting to CEO Lisa Su. AMD said the team will help shape future hardware, software and systems for the "open AI ecosystem." It did not disclose financial terms. Also on Monday, TensorWave, an AI cloud backed by AMD's venture arm, signed a six-year agreement to provide OpenAI with 457 MW of capacity on AMD Instinct MI455X GPUs in Helios racks at several US sites. The Next Web reports that the first capacity arrives in 2027 and that the deal falls under OpenAI's existing partnership with AMD. 456X Research reports that semiconductor stocks fell 5.11% the same day, and that Lisa Su expects AMD's data-center revenue to more than double in 2026.</p>
+    <p><strong>Impact on the tech industry:</strong> AMD now owns a model team and has a large OpenAI deployment just as Nvidia's leadership is in question, which makes AMD's chips a more credible alternative. Owning World Labs also puts AMD into robotics simulation, where Nvidia's Omniverse is the incumbent. Watch whether TensorWave can finance the build-out and how fast MI455X ramps.</p>
+    <p><a href="https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs">Read source: AMD</a> · <a href="https://thenextweb.com/news/tensorwave-openai-457mw-amd-helios">The Next Web</a> · <a href="https://tensorwave.com/blog/tensorwave-to-provide-openai-with-457-megawatts-of-amd-powered-ai-infrastructure">TensorWave</a> · <a href="https://456xresearch.substack.com/p/456x-semi-ai-evening-brief-november">456X Research</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Yahoo Finance (Proactive) · CASRAI · Blackstone · AWS · Data Centers · Nov 16</p>
+    <h3>Blackstone's New Data Center REIT Pays for Control of a $5 Billion AWS Portfolio Through a Sale-Leaseback With 12-Year Leases</h3>
+    <p class="crux">BXDC is buying about 75% of two joint ventures that own 13 powered-shell buildings in Indiana and Mississippi. It is the newly listed REIT's first deal and an example of hyperscalers selling assets to raise capital.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>Blackstone Digital Infrastructure Trust (NYSE: BXDC) announced on November 16 that it will acquire a controlling stake in two joint ventures with Amazon Web Services that own a data-center portfolio valued at about $5 billion. CASRAI puts the stake at 75.1%. The portfolio has 13 powered-shell buildings, meaning finished buildings with substations and utility power but without the IT equipment. Nine are in northern Indiana, in the greater Chicago market, and four are in Mississippi. AWS will lease them for an initial 12 years, with extensions that could take the leases to 32 years. CASRAI reports that about $1.9 billion of the equity comes from BXDC's IPO proceeds, and that management expects hyperscaler sale-leasebacks to become a market of more than $1 trillion over five years. This is BXDC's first investment since it listed.</p>
+    <p><strong>Impact on the tech industry:</strong> Hyperscalers are using sale-leasebacks to free up cash for chips while keeping their sites, much as they used to do with retail and office property. That brings REITs, infrastructure funds and pension money into AI capex as Nvidia pulls back on financing. Watch whether Microsoft, Google and Meta do similar deals, what yields REITs accept, and whether demand stays strong in secondary markets such as Indiana and Mississippi.</p>
+    <p><a href="https://finance.yahoo.com/real-estate/articles/blackstone-digital-infrastructure-trust-acquire-151500334.html">Read source: Yahoo Finance (Proactive)</a> · <a href="https://casrai.org/news/blackstone-bxdc-aws-five-billion-data-center-jv-2026">CASRAI</a></p>
+  </div>
+</details></article>
+
+<article><details>
+  <summary>
+    <p class="meta">Bloomberg · Tech Monitor · The Neuron · 456X Research · Deals Roundup · Nov 16–18</p>
+    <h3>Deals Roundup: France's Genesis AI Raises $500 Million at $3.5 Billion; Defensive-Security Model Maker Corma Reaches $1 Billion; ElevenLabs Buys Japan's Kotoba</h3>
+    <p class="crux">Robotics and AI security drew the biggest rounds, with investors from India, the US, China and France. Inference provider Fireworks AI reports a $1.5 billion revenue run rate.</p>
+    <p class="more">Read more</p>
+  </summary>
+  <div class="detail">
+    <p>French robotics startup Genesis AI raised $500 million at a $3.5 billion valuation, Bloomberg reported on November 17. Premji Invest, Khosla Ventures and Eclipse co-led the round, with Nvidia, HSG (formerly Sequoia Capital China) and Bpifrance also investing. Tech Monitor reports that Corma, which builds foundation models for defensive cybersecurity, raised a $125 million Series A at a $1 billion valuation. NEA led, with Sequoia, Coatue and Khosla returning. The round comes three months after a $60 million seed and brings Corma's total funding to $185 million. Its team includes people from Google DeepMind and Israel's Unit 8200. The Neuron's November 17 digest reports that ElevenLabs has acquired Kotoba, a Japanese voice-AI research company; terms were not disclosed. 456X Research reports that inference platform Fireworks AI reached a $1.5 billion annualized revenue run rate by the end of Q3, and that Bernstein estimates Riot Platforms has a $38 billion colocation order book, 98% of it tied to frontier AI labs.</p>
+    <p><strong>Impact on the tech industry:</strong> Nvidia keeps investing in robotics even during its crisis, and Europe is producing well-funded competitors to US humanoid and robot-model companies. AI-native security is drawing large early rounds, which puts pressure on CrowdStrike and Palo Alto Networks to buy. Watch Asian voice-AI consolidation after the Kotoba deal.</p>
+    <p><a href="https://www.bloomberg.com/news/articles/2026-11-17/nvidia-backed-genesis-ai-raises-funds-at-3-5-billion-valuation">Read source: Bloomberg</a> · <a href="https://www.techmonitor.ai/news/ai-startup-corma-valued-at-1bn-following-new-funding-round">Tech Monitor</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-november-17-2026/">The Neuron</a> · <a href="https://456xresearch.substack.com/p/456x-semi-ai-morning-brief-november">456X Research</a></p>
+  </div>
+</details></article>
+
+</div>
+
+<!-- WATCH -->
+<h2>Watch List</h2>
+<div class="watch">
+<ul>
+  <li><strong>AI supply-chain pact:</strong> On November 15, the US and partner countries including India and Japan signed the San Francisco Declaration to protect critical AI supply chains from risks involving China. (<a href="https://americalisten.com/latest-ai-news-november-2026/">Inside Artificial Intelligence, Nov 15</a> · <a href="https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-16-2026/">The Neuron, Nov 16</a>)</li>
+  <li><strong>Microsoft 365 outage cause:</strong> Update to last edition's outage story: Microsoft says a months-old bug caused the global outage. (<a href="https://theparkernathan.substack.com/p/cybersecurity-news-november-16-2026">Cybersecurity News, Nov 16</a>)</li>
+  <li><strong>Gemini Tasks goes free:</strong> Google renamed Gemini Spark to Gemini Tasks and made it free in India, the US, Australia, Japan, Korea and Canada. The agent runs on Gemini 4 Hydrogen and can make calls and purchases. (<a href="https://gadgets.beebom.com/news/google-gemini-tasks-free-rollout-india">Beebom, Nov 18</a>)</li>
+  <li><strong>China's AI doubts:</strong> The CEOs of Baidu and Xiaomi warned publicly that AI investment is growing faster than measurable returns. (<a href="https://www.bitdoze.com/news/2026-11-18/">Bitdoze, Nov 18</a>)</li>
+  <li><strong>Supply-chain attack:</strong> Microsoft's agent-framework package on PyPI was found to contain a credential stealer. (<a href="https://www.bitdoze.com/news/2026-11-18/">Bitdoze, Nov 18</a>)</li>
+  <li><strong>India as a "non-AI" market:</strong> Chief Economic Advisor V. Anantha Nageswaran said Indian markets stand to benefit from the AI-led correction in global stocks. (<a href="https://www.bloomberg.com/news/articles/2026-11-16/india-to-benefit-from-unwinding-of-ai-trade-top-official-says">Bloomberg, Nov 16</a>)</li>
+  <li><strong>Industrial AI in India:</strong> Siemens launched its Eigen Engineering Agent for automation engineering in India at Transform 2026 in Mumbai. (<a href="https://www.tribuneindia.com/news/business/siemens-brings-ai-for-the-real-world-to-india-at-transform-2026-over-40-innovations-showcased">The Tribune, Nov 18</a>)</li>
+  <li><strong>CRM inside AI assistants:</strong> Salesforce in Microsoft Copilot and a ZoomInfo plugin for ChatGPT were announced November 17, letting sellers build and work contact lists inside AI assistants. (<a href="https://agilebrandguide.com/yesterdays-marketing-technology-ai-news-november-18-2026/">Agile Brand Guide, Nov 18</a>)</li>
+  <li><strong>Enterprise AI usage data:</strong> Databricks released its AI Index, which combines anonymized usage data from more than 10,000 companies with evaluations of coding agents. (<a href="https://riorundown.substack.com/p/ai-news-nov-17-2026-ai-infrastructure">RIO Rundown, Nov 17</a>)</li>
+  <li><strong>Perplexity and Microsoft transparency:</strong> Perplexity launched an Orchestrator API, and Microsoft announced an AI Transparency Initiative. (<a href="https://deepgains.substack.com/p/morning-brief-wednesday-november-ce5c04b6">Deep Gains, Nov 18</a>)</li>
+</ul>
+</div>
+<!--CONTENT END-->
+<footer>Daily Tech Dose · Generated Nov 18, 2026 9:50 AM EST by Claude · <a href="./">Past editions</a> · Items marked "Reported" or "Rumor" are unconfirmed</footer>
+</div>
+<script>
+(function(){
+  var OWNER='BejoyKa', REPO='mydocs', WF='daily-refresh.yml', KEY='dtd_gh_token';
+  var API='https://api.github.com/repos/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var GH_PAGE='https://github.com/'+OWNER+'/'+REPO+'/actions/workflows/'+WF;
+  var box=document.getElementById('refresh');
+  if(!box || /\/archive\//.test(location.pathname)) return;   // only on today's page
+  box.hidden=false;
+  var btn=document.getElementById('fetchBtn'), msg=document.getElementById('fetchMsg'),
+      form=document.getElementById('pwForm'), pw=document.getElementById('pwInput'),
+      remember=document.getElementById('pwRemember');
+  var token='';
+  function saved(){ try{return localStorage.getItem(KEY)||'';}catch(e){return '';} }
+  function save(v){ try{ v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){} }
+  function say(html){ msg.innerHTML=html; }
+  function sleep(ms){ return new Promise(function(r){setTimeout(r,ms);}); }
+  function b64(s){ return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);}); }
+  function gh(url,opt){
+    opt=opt||{}; opt.headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+    return fetch(url,opt);
+  }
+  function stamp(doc){ var f=doc.querySelector('footer'); return f?f.textContent:''; }
+  var before=stamp(document);
+
+  async function unlock(password){
+    var r=await fetch('refresh-key.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('refresh-key.json is missing from the site');
+    var k=await r.json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+    var aes=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(k.salt),iterations:k.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    try{
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},aes,b64(k.ct));
+    }catch(e){ return ''; }                   // wrong password
+    return new TextDecoder().decode(pt);
+  }
+
+  function ask(){ form.hidden=false; pw.focus(); }
+  document.getElementById('pwCancel').onclick=function(){ form.hidden=true; say(''); };
+  form.onsubmit=async function(ev){
+    ev.preventDefault();
+    say('Unlocking...');
+    try{
+      var t=await unlock(pw.value);
+      if(!t){ say('Wrong password.'); pw.select(); return; }
+      token=t; if(remember.checked) save(t);
+      pw.value=''; form.hidden=true; run();
+    }catch(e){ say('Could not unlock: '+e.message); }
+  };
+  btn.onclick=function(){ token=token||saved(); token?run():ask(); };
+
+  async function run(){
+    btn.disabled=true;
+    var t0=Date.now(), since=new Date(t0-60000).toISOString();
+    function el(){ var s=Math.round((Date.now()-t0)/1000); return Math.floor(s/60)+'m '+('0'+s%60).slice(-2)+'s'; }
+    try{
+      say('Starting...');
+      var r=await gh(API+'/dispatches',{method:'POST',body:JSON.stringify({ref:'main'})});
+      if(r.status===401||r.status===403||r.status===404){
+        var why=''; try{ why=(await r.json()).message||''; }catch(e){}
+        token=''; save(''); btn.disabled=false;
+        say('GitHub refused the token ('+r.status+(why?': '+why.replace(/</g,'&lt;'):'')+'). '+
+          (r.status===401?'The token is invalid or expired.':r.status===404?'The token cannot see the mydocs repository.':'The token is missing the Actions: Read and write permission on mydocs.')+
+          ' Make a new token and refresh-key.json.');
+        return;
+      }
+      if(r.status!==204) throw new Error('GitHub said '+r.status);
+      var run=null;
+      for(var i=0;i<20 && !run;i++){            // find the run we just started
+        await sleep(3000);
+        var lr=await (await gh(API+'/runs?event=workflow_dispatch&per_page=5&created=%3E%3D'+since)).json();
+        run=(lr.workflow_runs||[])[0]||null;
+      }
+      if(!run) throw new Error('could not find the started run');
+      var link=' <a href="'+run.html_url+'" target="_blank" rel="noopener">details</a>';
+      while(run.status!=='completed'){
+        say('Claude is researching and writing today\'s edition... '+el()+link+'<br>Usually 3 to 10 minutes.');
+        await sleep(10000);
+        run=await (await gh(run.url)).json();
+      }
+      if(run.conclusion!=='success'){
+        btn.disabled=false;
+        return say('The refresh failed ('+run.conclusion+'). The current edition is unchanged.'+link);
+      }
+      for(var j=0;j<40;j++){                     // wait for GitHub Pages to publish
+        say('Edition written. Publishing the page... '+el());
+        await sleep(10000);
+        try{
+          var html=await (await fetch(location.pathname+'?t='+Date.now(),{cache:'no-store'})).text();
+          var doc=new DOMParser().parseFromString(html,'text/html');
+          if(stamp(doc)&&stamp(doc)!==before){ say('Done. Loading the new edition...'); location.replace(location.pathname+'?t='+Date.now()); return; }
+        }catch(e){}
+      }
+      btn.disabled=false; say('The edition was written but the page has not updated yet. Reload in a minute.');
+    }catch(e){
+      btn.disabled=false;
+      say('Could not refresh: '+e.message+'. You can also <a href="'+GH_PAGE+'" target="_blank" rel="noopener">run it on GitHub</a>.');
+    }
+  }
+  var forget=document.createElement('div');
+  forget.innerHTML='<button type="button" class="link">forget on this device</button>';
+  forget.firstChild.onclick=function(){ token=''; save(''); say('Forgotten on this device.'); forget.hidden=true; };
+  forget.hidden=!saved(); box.appendChild(forget);
+})();
+</script>
+</body>
+</html>
